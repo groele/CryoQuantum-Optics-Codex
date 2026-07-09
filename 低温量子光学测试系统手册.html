@@ -3922,34 +3922,54 @@ I++ 或完整四通道再次采集
 <div class="section-body">
 <div class="subtoc">
 <span>本章导航</span>
-<a href="#plotting-23-1-single-plot">23.1 单图绘制标准</a>
-<a href="#plotting-23-2-multi-panel">23.2 规范化多图拼版</a>
-<a href="#plotting-23-3-templates">23.3 绘图代码模板</a>
+<a href="#plotting-23-1-size-resolution">23.1 尺寸、格式与分辨率规范</a>
+<a href="#plotting-23-2-axes-ticks">23.2 坐标轴与刻度设置细则</a>
+<a href="#plotting-23-3-fonts-symbols">23.3 字体级联与学术符号规范</a>
+<a href="#plotting-23-4-colors-accessibility">23.4 学术配色与可达性设计</a>
+<a href="#plotting-23-5-panel-grid">23.5 多面板拼图对齐与逻辑</a>
+<a href="#plotting-23-6-templates">23.6 论文级科研绘图代码模板</a>
 </div>
 
-<h2 class="anchored-heading" id="plotting-23-1-single-plot">23.1 单图绘制标准 <a class="heading-anchor" href="#plotting-23-1-single-plot" aria-label="Anchor">#</a></h2>
-<p>学术论文中的单张图表（Single Plot）是实验结果最直接的呈现方式。为了确保视觉上的美观和规范，必须遵循以下绘图设计细节：</p>
+<h2 class="anchored-heading" id="plotting-23-1-size-resolution">23.1 尺寸、格式与分辨率规范 <a class="heading-anchor" href="#plotting-23-1-size-resolution" aria-label="Anchor">#</a></h2>
+<p>在开始绘制任何学术图表之前，必须先明确投稿期刊的排版尺寸要求，避免在后期拼版时因为过度缩放导致字体和线条失真：</p>
 <ul>
-  <li><strong>留白比例 (Margins)</strong>：标准单图推荐长宽比为 4:3 或 1:1。留白分布建议为：左侧 15-18%（为纵坐标轴标签和刻度值预留足够空间），底部 12-15%（为横坐标轴标题预留空间），上方 5-8%，右侧 5-8%（确保曲线及最右侧数据点不贴靠边界）。</li>
-  <li><strong>轴线与刻度 (Axes & Ticks)</strong>：
+  <li><strong>版面尺寸规范 (Physical Dimensions)</strong>：
     <ul>
-      <li>坐标轴线宽（Axis Line Width）统一设置为 1.0 - 1.5 pt，颜色使用极细深灰或纯黑。</li>
-      <li>刻度线方向必须<strong>朝内 (Inward Ticks)</strong>，长度为 4.5 - 6 pt，粗细与轴线一致。</li>
-      <li>默认关闭上方和右侧的刻度线，以避免视觉繁杂；仅在需要精细读取双轴数据时开启。</li>
+      <li>**单栏图 (Single-column Figure)**：宽度通常为 8 - 9 cm (约 3.15 - 3.5 英寸)。设计在此宽度下的图表，文字比例必须足够大以防缩小后看不清。</li>
+      <li>**1.5栏图 (1.5-column Figure)**：宽度通常为 12 - 13 cm (约 4.7 - 5.1 英寸)。适用于包含 2x2 子图或横向 3 拼图的版面。</li>
+      <li>**双栏图 (Double-column/Full-width)**：宽度通常为 16 - 18 cm (约 6.3 - 7.1 英寸)。适用于宽幅横向谱线演化图或包含大量子图的综合大图。</li>
+      <li>在绘图工具（如 Matplotlib 或 Origin）中，必须直接配置对应的物理尺寸（figsize），禁止在大画布上画完后再强行缩小。</li>
     </ul>
   </li>
-  <li><strong>字体与字号 (Typography)</strong>：
+  <li><strong>文件输出格式 (File Formats)</strong>：
     <ul>
-      <li>全图字体统一使用无衬线字体（如 Arial, Helvetica）或衬线字体（如 Times New Roman），不可混用。</li>
-      <li>字号分级：图标题（如使用）为 12 - 14 pt（Bold）；坐标轴标题（Axis Labels）为 10 - 12 pt；刻度标签（Tick Labels）与图例（Legends）为 8 - 10 pt。</li>
-      <li>必须确保图表缩小至单栏宽度（约 8-9 cm）时，所有文字依然清晰可辨。</li>
+      <li>**首选矢量格式 (Vector)**：PDF 或 EPS。矢量图无分辨率上限，文字和曲线在无限缩放时能保持绝对锐度，是物理期刊（AIP, APS, Nature等）的首选。</li>
+      <li>**位图格式 (Raster)**：仅在包含实物显微照片、Mapping 彩色谱图时使用 TIFF 或 PNG。</li>
     </ul>
   </li>
-  <li><strong>色彩与线型 (Colors & Lines)</strong>：
+  <li><strong>分辨率阀值 (DPI Requirements)</strong>：
     <ul>
-      <li>避免使用饱和度过高或原生的红（#FF0000）、绿（#00FF00）、蓝（#0000FF）。推荐使用学术期刊常用色系（如 Nature / Science 调色板）。</li>
-      <li>数据拟合曲线线宽应为 1.5 - 2.0 pt，必须明显粗于背景辅助网格线（0.5 pt，浅灰色）。</li>
-      <li>实验数据点（Symbols）尺寸建议为 4 - 6 pt，边框与填充色需具有高对比度。</li>
+      <li>纯彩色照片或三维示意图：不少于 300 DPI。</li>
+      <li>线图与照片混合图（Combination Art）：不少于 600 DPI。</li>
+      <li>纯黑白线条图（Line Art，如能级图、纯曲线拟合）：不少于 1200 DPI。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="anchored-heading" id="plotting-23-2-axes-ticks">23.2 坐标轴与刻度设置细则 <a class="heading-anchor" href="#plotting-23-2-axes-ticks" aria-label="Anchor">#</a></h2>
+<p>坐标轴是定义数据空间的物理框架。规范的物理实验线图必须具备边界清晰、刻度分明的特征：</p>
+<ul>
+  <li><strong>封闭坐标框 (Closed Frame Box)</strong>：
+    <ul>
+      <li>论文绘图推荐使用全封闭矩形框（有上下左右四条轴线），以便于定位右上方的曲线边界。</li>
+      <li>四条边框线粗细（Axes Line Width）统一设置为 1.0 - 1.2 pt，颜色使用深灰或纯黑，严禁粗细不一。</li>
+    </ul>
+  </li>
+  <li><strong>刻度线设计 (Ticks Direction & Length)</strong>：
+    <ul>
+      <li>刻度线方向必须<strong>朝内 (Inward Ticks)</strong>，以保持图像外边框的绝对干净，从而利于拼图对齐。</li>
+      <li>大刻度（Major Ticks）长度推荐为 4.5 - 6 pt，线粗与轴线相同。小刻度（Minor Ticks）长度为 2.5 - 3 pt。</li>
+      <li>每个坐标轴的大刻度数量控制在 3 - 5 个，刻度值应使用简洁的十进制（如 0.2, 0.4 而不是 0.20, 0.40，除非精度确有必要）。</li>
     </ul>
   </li>
 </ul>
@@ -3999,29 +4019,20 @@ I++ 或完整四通道再次采集
       <rect x="0" y="0" width="340" height="260" fill="#ffffff" />
       <rect x="58" y="32" width="260" height="174" fill="none" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       
-      <!-- Inward Ticks bottom (1.80 to 2.00 eV) -->
       <line x1="58" y1="206" x2="58" y2="200" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="123" y1="206" x2="123" y2="200" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="188" y1="206" x2="188" y2="200" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="253" y1="206" x2="253" y2="200" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="318" y1="206" x2="318" y2="200" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       
-      <!-- Inward Ticks left (0 to 100) -->
       <line x1="58" y1="206" x2="64" y2="206" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="58" y1="119" x2="64" y2="119" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="58" y1="32" x2="64" y2="32" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
 
-      <!-- Lorentzian Peak curves (Exciton & Trion) -->
-      <!-- Total fit line (black solid) -->
       <path d="M 58,204 L 78,203 L 98,200 L 118,193 L 138,172 L 148,151 L 158,118 L 168,93 L 178,92 L 188,111 L 198,118 L 208,91 L 218,52 L 228,40 L 238,58 L 248,103 L 258,145 L 268,178 L 288,199 L 308,203 L 318,204" fill="none" stroke="#0f172a" stroke-width="1.8" />
-      
-      <!-- Trion fit (blue dashed) -->
       <path d="M 58,205 L 98,203 L 128,191 L 148,158 L 158,124 L 168,95 L 178,124 L 188,158 L 208,191 L 258,203 L 318,205" fill="none" stroke="#2563eb" stroke-width="1.0" stroke-dasharray="3,3" />
-      
-      <!-- Exciton fit (red dashed) -->
       <path d="M 58,206 L 158,205 L 188,200 L 208,138 L 218,85 L 228,49 L 238,85 L 248,138 L 268,200 L 298,205 L 318,206" fill="none" stroke="#dc2626" stroke-width="1.0" stroke-dasharray="3,3" />
       
-      <!-- Exp Data Points -->
       <circle cx="78" cy="202" r="2.5" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
       <circle cx="98" cy="201" r="2.5" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
       <circle cx="118" cy="195" r="2.5" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
@@ -4042,11 +4053,9 @@ I++ 或完整四通道再次采集
       <circle cx="288" cy="197" r="2.5" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
       <circle cx="308" cy="201" r="2.5" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
 
-      <!-- Peak Annotations -->
       <text x="148" y="80" font-family="Arial" font-size="9.5" font-weight="bold" fill="#2563eb" text-anchor="end">Trion (<tspan font-style="italic" font-family="Times New Roman">X</tspan><tspan dy="3" font-size="6.5">-</tspan>)</text>
       <text x="242" y="38" font-family="Arial" font-size="9.5" font-weight="bold" fill="#dc2626">Exciton (<tspan font-style="italic" font-family="Times New Roman">X</tspan><tspan dy="-3" font-size="6.5">0</tspan>)</text>
 
-      <!-- Legend (clean and thin) -->
       <rect x="66" y="40" width="76" height="48" fill="#ffffff" fill-opacity="0.9" stroke="#cbd5e1" stroke-width="0.8" rx="2" shape-rendering="crispEdges"/>
       <circle cx="74" cy="49" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
       <text x="82" y="52" font-family="Arial" font-size="8" fill="#334155">Data</text>
@@ -4055,11 +4064,9 @@ I++ 或完整四通道再次采集
       <line x1="70" y1="74" x2="78" y2="74" stroke="#dc2626" stroke-width="1.0" stroke-dasharray="2,2"/>
       <text x="82" y="77" font-family="Arial" font-size="8" fill="#334155">Exciton/Trion</text>
 
-      <!-- Axis Labels (Properly positioned & centered, styled with math variables in italics) -->
       <text x="188" y="235" font-family="Arial" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="bold">Photon Energy <tspan font-style="italic" font-family="Times New Roman">E</tspan> (eV)</text>
       <text x="16" y="118" font-family="Arial" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="bold" transform="rotate(-90 16 118)">PL Intensity <tspan font-style="italic" font-family="Times New Roman">I</tspan> (a.u.)</text>
       
-      <!-- Tick Labels (Times New Roman to match paper standards, size 9.5pt) -->
       <text x="58" y="219" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.80</text>
       <text x="123" y="219" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.85</text>
       <text x="188" y="219" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.90</text>
@@ -4073,6 +4080,65 @@ I++ 或完整四通道再次采集
     <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">✅ 优点：合理的留白（左/下空间充足）；全图采用封闭式坐标框，刻度朝内；使用学术界的蓝/红配比；图例收拢悬浮于空白处不侵占数据点；字体统一为简洁的 Arial。</p>
   </div>
 </div>
+
+<h2 class="anchored-heading" id="plotting-23-3-fonts-symbols">23.3 字体级联与学术符号规范 <a class="heading-anchor" href="#plotting-23-3-fonts-symbols" aria-label="Anchor">#</a></h2>
+<p>字体选择不当或公式格式混乱是投稿被拒的常见视觉原因。物理类图表对文字排版有严格约束：</p>
+<ul>
+  <li><strong>字号级联层级 (Typography Hierarchy)</strong>：
+    <ul>
+      <li>图中最大与最小字体之比不宜超过 1.5 倍，以保持视觉统一。</li>
+      <li>推荐配置：轴标题 10 pt ➡️ 刻度值 8.5 pt ➡️ 图内标注与图例 8 pt。</li>
+      <li>禁止使用加粗的刻度值标签，除非期刊指南有明确要求。</li>
+    </ul>
+  </li>
+  <li><strong>数学变量斜体规范 (Italic Variables)</strong>：
+    <ul>
+      <li>所有<strong>物理量及数学变量</strong>符号必须使用斜体（如磁场 <i>B</i>，温度 <i>T</i>，能量 <i>E</i>，电压 <i>V</i><sub>g</sub>，波长 <i>λ</i>）。</li>
+      <li>所有<strong>物理单位及常量</strong>符号必须使用正体（如特斯拉 T，开尔文 K，电子伏特 eV，微米 μm，毫瓦 mW，玻尔磁子 μ<sub>B</sub>）。</li>
+      <li>化学式、材料名称必须使用正体（如 MoS₂，WSe₂）。</li>
+      <li><strong>空格规范</strong>：数值与单位之间必须空一格（如 “9 T” 而不是 “9T”，“2 K” 而不是 “2K”，“1.92 eV” 而不是 “1.92eV”）。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="anchored-heading" id="plotting-23-4-colors-accessibility">23.4 学术配色与可达性设计 <a class="heading-anchor" href="#plotting-23-4-colors-accessibility" aria-label="Anchor">#</a></h2>
+<p>好的学术配色既要美观，又要具备极高的物理对比度，并且对色盲读者友好：</p>
+<ul>
+  <li><strong>严禁霓虹红绿纯色对撞</strong>：
+    <ul>
+      <li>红绿纯色对撞在印刷时效果极差，且红绿色盲读者完全无法区分。</li>
+      <li>推荐使用学术调色板：如<strong>天青/深蓝/电光蓝</strong>等深色系，搭配<strong>朱砂/胭脂/橘红</strong>等暖色系（即 Cobalt Blue vs Crimson Red），以产生温和且易读的对比。</li>
+    </ul>
+  </li>
+  <li><strong>多物理曲线区分手段</strong>：
+    <ul>
+      <li>当图中有 3 条以上曲线时，单靠颜色区分是不够的。</li>
+      <li>必须结合**线型变化（实线 Solid、虚线 Dashed、点划线 Dash-Dot）**或**散点标识符号（圆形 Circle、正方形 Square、三角形 Triangle、菱形 Diamond）**进行多重物理编码，确保黑白打印或色盲读者阅读时仍能精确识别。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="anchored-heading" id="plotting-23-5-panel-grid">23.5 多面板拼图对齐与逻辑 <a class="heading-anchor" href="#plotting-23-5-panel-grid" aria-label="Anchor">#</a></h2>
+<p>拼图是整篇论文的“门面”。审稿人第一眼看图往往就决定了对文章严谨性的基本判断：</p>
+<ul>
+  <li><strong>网格绝对对齐 (Perfect Grid Alignment)</strong>：
+    <ul>
+      <li>在绘图排版软件（如 Illustrator、Inkscape 或 Origin Layout）中，相邻子图的**坐标轴物理框线必须绝对对齐**，水平与垂直对齐误差需小于 1 像素。</li>
+      <li>子图间距（Gaps）必须在整张 Composite Figure 中完全均等（通常横向间隙控制在 15-20 pt，纵向间隙 12-15 pt）。</li>
+    </ul>
+  </li>
+  <li><strong>分图字母统一 (Subfigure Labels)</strong>：
+    <ul>
+      <li>分图标识 <strong>a, b, c, d</strong> 应放置在每个子图左上角相同位置，且采用完全一致的无衬线粗体（如 Arial Bold, 14 pt）。不带括号，也不带逗号，确保整齐划一。</li>
+    </ul>
+  </li>
+  <li><strong>共享轴消隐 (Shared Axis Labels)</strong>：
+    <ul>
+      <li>多面板拼图中，若子图共享横坐标或纵坐标，必须消除中间多余的刻度数值和轴标签，仅保留最边缘的轴标注。这可以显著释放绘图面积，使曲线细节更加突出。</li>
+    </ul>
+  </li>
+</ul>
+
 <!-- Embedded Multi-panel Comparison SVG Graphics -->
 <div class="comparison-container" style="display: flex; gap: 20px; justify-content: center; margin: 24px 0; flex-wrap: wrap;">
   <!-- Bad Panels Card -->
@@ -4138,7 +4204,7 @@ I++ 或完整四通道再次采集
       <line x1="258" y1="133" x2="258" y2="128" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="318" y1="133" x2="318" y2="128" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
       <line x1="198" y1="133" x2="203" y2="133" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
-      <line x1="198" y1="80.5" x2="203" y2="80.5" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="198" y1="80.5" x2="203" y2="80.5" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="none" stroke="#0f172a"/>
       <line x1="198" y1="28" x2="203" y2="28" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
 
       <!-- Panel b line & scatter -->
@@ -4163,7 +4229,6 @@ I++ 或完整四通道再次采集
       <text x="192" y="83.5" font-family="Times New Roman" font-size="7.5" fill="#0f172a" text-anchor="end">0.0</text>
       <text x="192" y="31" font-family="Times New Roman" font-size="7.5" fill="#0f172a" text-anchor="end">+1.0</text>
 
-      <!-- Green alignment lines showing perfect horizontal coordination -->
       <line x1="36" y1="28" x2="318" y2="28" stroke="#10b981" stroke-width="0.8" stroke-dasharray="2,2"/>
       <line x1="36" y1="133" x2="318" y2="133" stroke="#10b981" stroke-width="0.8" stroke-dasharray="2,2"/>
     </svg>
@@ -4171,7 +4236,7 @@ I++ 或完整四通道再次采集
   </div>
 </div>
 
-<h2 class="anchored-heading" id="plotting-23-3-templates"><h2 class="anchored-heading" id="plotting-23-3-templates">23.3 绘图代码模板 <a class="heading-anchor" href="#plotting-23-3-templates" aria-label="Anchor">#</a></h2>
+<h2 class="anchored-heading" id="plotting-23-6-templates">23.6 论文级科研绘图代码模板 <a class="heading-anchor" href="#plotting-23-6-templates" aria-label="Anchor">#</a></h2>
 <p>为了使实验人员快速绘制出符合上述美观标准的论文插图，以下给出一段标准的 Python Matplotlib 科研绘图代码模板，可直接复制使用：</p>
 
 <div class="code-wrap">
