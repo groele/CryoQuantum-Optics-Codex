@@ -1,6 +1,6 @@
 # CryoQuantum-Optics-Codex (低温量子光学测试系统手册)
 
-> **Version: 1.0**
+> **Version: 1.1**
 > 
 > A comprehensive, self-contained offline user manual and interactive data analysis system for low-temperature micro-spectroscopy (PL, Raman, and Reflectance) with multi-field coupling (cryostat temperature, high magnetic field, and gate/bias voltages) and polarization resolution.
 
@@ -10,11 +10,11 @@
 
 This manual is compiled into a single, fully offline, interactive HTML document:
 
-### 1. Reorganized Modular Chapters (1–27)
+### 1. Reorganized Modular Chapters (1–28)
 - **Tier 1: Overview & Preparation (Ch 1–5)**: Standard coordinates, optical polarizations, checklist, and sample naming conventions.
 - **Tier 2: Spectroscopy Testing Modules (Ch 6–14)**: Photoluminescence (PL), Raman, Reflectance, linear/circular polarization resolves, electrical coupling (gate scan, Stark shifts, ferroelectric loops), magneto-optics (Valley Zeeman splits, Faraday configuration), temperature/power/time dependencies, and spatial mapping.
 - **Tier 3: Data Analysis & Calibration (Ch 15–20)**: Processing pipelines, polarization calibration (Mueller/Stokes matrices), statistical uncertainties, and templates.
-- **Tier 4: Outputs, Safety & Quality Gates (Ch 21–27)**: Academic reporting, laser safety, checklists, device acceptance, and data quality scores.
+- **Tier 4: Outputs, Safety & Quality Gates (Ch 21–28)**: Academic reporting, scientific plotting standards, multi-panel layouts alignment, laser safety, checklists, device acceptance, and data quality scores.
 
 ### 2. Interactive Analytical Toolbox
 - **g-Factor Fitting**: Dynamic linear regression on Zeeman splitting $\Delta E(B) = g_{\text{eff}} \mu_B B + \Delta E_0$, outputting standard error and 95% confidence intervals.
