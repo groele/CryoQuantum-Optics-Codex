@@ -1637,6 +1637,11 @@ mjx-container svg {
 <a class="nav-item" data-search="30. 配色与可达性设计规范" href="#plot_colors">30. 配色与可达性</a>
 <a class="nav-item" data-search="31. 多面板拼图与逻辑排版" href="#plot_panels">31. 多面板拼图逻辑</a>
 </div>
+<div class="nav-group"><div class="nav-group-title">32–34 理论与速查</div>
+<a class="nav-item" data-search="32. 2D 材料激子物理基础" href="#exciton_physics">32. 2D 激子物理</a>
+<a class="nav-item" data-search="33. 磁光谱理论与 g 因子计算" href="#magneto_theory">33. 磁光谱理论与g因子</a>
+<a class="nav-item" data-search="34. 常用材料参数速查表" href="#parameter_tables">34. 常用材料参数速查</a>
+</div>
 <div class="sidebar-actions">
 <button id="themeBtn" onclick="toggleTheme()">深色</button>
 <button onclick="toggleFocus()">阅读宽度</button>
@@ -4967,7 +4972,269 @@ I++ 或完整四通道再次采集
 </div>
 </div>
 <a class="back-top" href="#mainContent">返回顶部 ↑</a>
-</section></div><footer class="footer">单文件离线手册 · 数学公式已预渲染为 SVG · 交互数据和笔记仅保存在当前浏览器</footer></main>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- Section 32: 2D 材料激子物理基础                          -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="manual-section" data-title="32. 2D 材料激子物理基础" id="exciton_physics">
+<div class="section-header">
+<div>
+<div class="section-kicker">MANUAL SECTION 32</div>
+<h1>32. 2D 材料激子物理基础</h1>
+</div>
+<div class="section-tools">
+<button onclick="copySectionLink('#exciton_physics')">复制链接</button>
+<button onclick="toggleSection(this)">折叠</button>
+</div>
+</div>
+<div class="section-body">
+<div class="subtoc">
+<span>本章导航</span>
+<a href="#exciton-32-1-band">32.1 能带结构与谷物理</a>
+<a href="#exciton-32-2-rules">32.2 光学选择定则与偏振耦合</a>
+<a href="#exciton-32-3-bound">32.3 Wannier-Mott 激子与三子 (Trion)</a>
+</div>
+
+<h2 class="anchored-heading" id="exciton-32-1-band">32.1 能带结构与谷物理 <a class="heading-anchor" href="#exciton-32-1-band" aria-label="Anchor">#</a></h2>
+<p>单层过渡金属硫族化合物 (TMDs, 如 MoS₂, WSe₂) 是直接带隙半导体，其价带顶和导带底位于布里渊区的 K 和 K' 谷。由于其独特的空间反演对称性破缺和强自旋轨道耦合 (SOC)，能带在 K 和 K' 谷产生自旋劈裂：</p>
+<ul>
+  <li><strong>自旋-谷锁定 (Spin-Valley Locking)</strong>：时间反演对称性要求 K 谷和 K' 谷的自旋劈裂方向相反。这一锁定效应是谷电子学器件的物理基础。</li>
+  <li><strong>Berry 曲率 (Berry Curvature)</strong>：反演对称性破缺导致 K/K' 能谷具有大小相等、符号相反的有效磁磁矩（Berry 曲率），使得电子在电场作用下产生谷霍尔效应。</li>
+</ul>
+
+<h2 class="anchored-heading" id="exciton-32-2-rules">32.2 光学选择定则与偏振耦合 <a class="heading-anchor" href="#exciton-32-2-rules" aria-label="Anchor">#</a></h2>
+<p>在 K 和 K' 能谷中，带间跃迁遵循特定的谷选择定则：</p>
+<ul>
+  <li><strong>右旋圆偏振光 (&sigma;⁺)</strong>：仅选择性激发 K 谷的带间跃迁，选择定则要求轨道角动量变化 $\Delta m = +1$。</li>
+  <li><strong>左旋圆偏振光 (&sigma;⁻)</strong>：仅选择性激发 K' 谷的带间跃迁，选择定则要求轨道角动量变化 $\Delta m = -1$。</li>
+  <li><strong>偏振度公式</strong>：圆偏振极化度 (Degree of Circular Polarization, DOCP) 定义为：
+    $$P = rac{I(\sigma^+) - I(\sigma^-)}{I(\sigma^+) + I(\sigma^-)}$$
+    在没有谷弛豫的理想情况下，$\sigma^+$ 激发下的发射偏振度即代表能谷寿命和极化保持能力。
+  </li>
+</ul>
+
+<h2 class="anchored-heading" id="exciton-32-3-bound">32.3 Wannier-Mott 激子与三子 (Trion) <a class="heading-anchor" href="#exciton-32-3-bound" aria-label="Anchor">#</a></h2>
+<p>由于单层二维材料的强电介质屏蔽减弱（介电常数减小）以及二维局域效应，库仑相互作用显著增强，形成紧束缚的 Wannier-Mott 激子：</p>
+<ul>
+  <li><strong>中性激子 (Neutral Exciton, X⁰)</strong>：由一个电子和一个空穴结合而成的中性准粒子，其结合能一般高达 300–500 meV，可在室温下稳定存在。</li>
+  <li><strong>带电激子/三子 (Trion, X⁻ 或 X⁺)</strong>：由激子额外结合一个电子 (X⁻) 或空穴 (X⁺) 形成的三体束缚态。在单层 MoS₂ 中，Trion 结合能约为 20–40 meV，表现为中性激子峰低能量侧（红移）的一个分立发射峰。</li>
+  <li><strong>束缚能计算</strong>：Wannier 激子的有效玻尔半径和结合能可由下式表征：
+    $$E_b = rac{\mu e^4}{2\hbar^2 arepsilon^2}$$
+    其中 $\mu$ 为有效质量，$arepsilon$ 为环境介电常数。
+  </li>
+</ul>
+</div>
+<div class="chapter-notes">
+<details>
+<summary>本章实验笔记（仅保存在当前浏览器）</summary>
+<textarea data-note-key="note-exciton_physics" placeholder="在此记录该章节的实验心得、配置微调或注意事项..."></textarea>
+</details>
+</div>
+<a class="back-top" href="#mainContent">返回顶部 ↑</a>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- Section 33: 磁光谱理论与 g 因子计算                      -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="manual-section" data-title="33. 磁光谱理论与 g 因子计算" id="magneto_theory">
+<div class="section-header">
+<div>
+<div class="section-kicker">MANUAL SECTION 33</div>
+<h1>33. 磁光谱理论与 g 因子计算</h1>
+</div>
+<div class="section-tools">
+<button onclick="copySectionLink('#magneto_theory')">复制链接</button>
+<button onclick="toggleSection(this)">折叠</button>
+</div>
+</div>
+<div class="section-body">
+<div class="subtoc">
+<span>本章导航</span>
+<a href="#magneto-33-1-zeeman">33.1 谷塞曼劈裂与朗德 g 因子</a>
+<a href="#magneto-33-2-config">33.2 测量配置：Faraday 与 Voigt 配置</a>
+<a href="#magneto-33-3-fit">33.3 朗德有效 g 因子的提取算法</a>
+</div>
+
+<h2 class="anchored-heading" id="magneto-33-1-zeeman">33.1 谷塞曼劈裂与朗德 g 因子 <a class="heading-anchor" href="#magneto-33-1-zeeman" aria-label="Anchor">#</a></h2>
+<p>在垂直于二维平面的外磁场 $B$ 作用下，由于能谷之间的轨道和自旋磁矩相反，K 谷与 K' 谷的电子能带会发生相反方向的移动。对于单层 TMD 激子，磁场导致的光学能级移动称为<strong>谷塞曼劈裂 (Valley Zeeman Splitting)</strong>：</p>
+<ul>
+  <li>价带和导带的移动受自旋、轨道和能谷贡献的共同调控。</li>
+  <li><strong>有效朗德 g 因子 (Effective Landé g-factor, $g_{	ext{eff}}$)</strong> 表征了能级差随磁场的线性漂移率。对于大部分单层 TMD 材料，激子的有效 g 因子约为 -4，这主要来源于价带顶的强能谷轨道轨道耦合。</li>
+</ul>
+
+<h2 class="anchored-heading" id="magneto-33-2-config">33.2 测量配置：Faraday 与 Voigt 配置 <a class="heading-anchor" href="#magneto-33-2-config" aria-label="Anchor">#</a></h2>
+<p>根据磁场方向与光传播方向（或二维平面法线）的相对关系，磁光谱实验可分为两种典型配置：</p>
+<ul>
+  <li><strong>法拉第配置 (Faraday Configuration)</strong>：
+    <ul>
+      <li>磁场垂直于样品表面（即平行于激发和收集光束的传播方向，$B \parallel k$）。</li>
+      <li>用于测量面内自旋和能谷的极化。这是检测谷塞曼劈裂和圆偏振度变化的标准配置。</li>
+    </ul>
+  </li>
+  <li><strong>伏伊特配置 (Voigt Configuration)</strong>：
+    <ul>
+      <li>磁场平行于样品表面（即垂直于光束传播方向，$B \perp k$）。</li>
+      <li>用于使面内自旋产生进动（Hanle 效应），检测非平衡自旋或相干自旋动力学。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="anchored-heading" id="magneto-33-3-fit">33.3 朗德有效 g 因子的提取算法 <a class="heading-anchor" href="#magneto-33-3-fit" aria-label="Anchor">#</a></h2>
+<p>提取有效 g 因子的物理公式和线性回归步骤如下：</p>
+<ol>
+  <li>通过圆偏振光谱，分别测出外磁场 $B$ 下右旋圆偏振 $\sigma^+$ 与左旋圆偏振 $\sigma^-$ 的谱峰能量：$E_{\sigma^+}(B)$ 与 $E_{\sigma^-}(B)$。</li>
+  <li>计算每个磁场下的谷劈裂能量差 $\Delta E(B)$：
+    $$\Delta E(B) = E_{\sigma^+}(B) - E_{\sigma^-}(B)$$
+  </li>
+  <li>用线性回归模型拟合 $\Delta E(B)$ 随磁场 $B$ 的变化曲线：
+    $$\Delta E(B) = g_{	ext{eff}} \mu_B B + \Delta E_0$$
+    其中，$\mu_B = 0.0578838$ meV/T 为玻尔磁子，$\Delta E_0$ 为零场下的能级不对称偏差。
+  </li>
+  <li>拟合所得斜率 $m$ 满足 $g_{	ext{eff}} = m / \mu_B$。通过一阶 Taylor 展开或残差方差矩阵求解，可同时计算出 $g_{	ext{eff}}$ 的标准误差和 95% 置信区间。</li>
+</ol>
+</div>
+<div class="chapter-notes">
+<details>
+<summary>本章实验笔记（仅保存在当前浏览器）</summary>
+<textarea data-note-key="note-magneto_theory" placeholder="在此记录该章节的实验心得、配置微调或注意事项..."></textarea>
+</details>
+</div>
+<a class="back-top" href="#mainContent">返回顶部 ↑</a>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- Section 34: 常用材料参数速查表                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="manual-section" data-title="34. 常用材料参数速查表" id="parameter_tables">
+<div class="section-header">
+<div>
+<div class="section-kicker">MANUAL SECTION 34</div>
+<h1>34. 常用材料参数速查表</h1>
+</div>
+<div class="section-tools">
+<button onclick="copySectionLink('#parameter_tables')">复制链接</button>
+<button onclick="toggleSection(this)">折叠</button>
+</div>
+</div>
+<div class="section-body">
+<div class="subtoc">
+<span>本章导航</span>
+<a href="#params-34-1-tmd">34.1 常见单层 TMD 半导体物理性质</a>
+<a href="#params-34-2-raman">34.2 TMD 典型拉曼散射频率</a>
+<a href="#params-34-3-units">34.3 二维光学物理量与常数换算</a>
+</div>
+
+<h2 class="anchored-heading" id="params-34-1-tmd">34.1 常见单层 TMD 半导体物理性质 <a class="heading-anchor" href="#params-34-1-tmd" aria-label="Anchor">#</a></h2>
+<p>下表汇集了实验室常用的单层 TMD 二维半导体材料的典型低温发光与极化参数，用于拟合时的比对：</p>
+<div style="overflow-x:auto;margin:12px 0;">
+<table style="border-collapse:collapse;width:100%;min-width:540px;font-size:12.5px;">
+<thead><tr style="background:var(--accent);color:#fff;">
+  <th style="padding:8px 12px;text-align:left;">材料分子式</th>
+  <th style="padding:8px 12px;text-align:center;">带隙类型</th>
+  <th style="padding:8px 12px;text-align:center;">PL 能量 E₀ (eV)</th>
+  <th style="padding:8px 12px;text-align:center;">激子结合能 (meV)</th>
+  <th style="padding:8px 12px;text-align:center;">Trion 结合能 (meV)</th>
+  <th style="padding:8px 12px;text-align:center;">典型 g 因子 (g_eff)</th>
+</tr></thead>
+<tbody>
+  <tr style="border-bottom:1px solid var(--line);">
+    <td style="padding:7px 12px;font-weight:600;">1L-MoS₂</td>
+    <td style="padding:7px 12px;text-align:center;">直接带隙 (K)</td>
+    <td style="padding:7px 12px;text-align:center;">1.85 - 1.95</td>
+    <td style="padding:7px 12px;text-align:center;">~ 320</td>
+    <td style="padding:7px 12px;text-align:center;">~ 20</td>
+    <td style="padding:7px 12px;text-align:center;">-4.0 &plusmn; 0.2</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);background:var(--paper2);">
+    <td style="padding:7px 12px;font-weight:600;">1L-MoSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">直接带隙 (K)</td>
+    <td style="padding:7px 12px;text-align:center;">1.64 - 1.67</td>
+    <td style="padding:7px 12px;text-align:center;">~ 220</td>
+    <td style="padding:7px 12px;text-align:center;">~ 25</td>
+    <td style="padding:7px 12px;text-align:center;">-4.5 &plusmn; 0.2</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);">
+    <td style="padding:7px 12px;font-weight:600;">1L-WS₂</td>
+    <td style="padding:7px 12px;text-align:center;">直接带隙 (K)</td>
+    <td style="padding:7px 12px;text-align:center;">2.00 - 2.05</td>
+    <td style="padding:7px 12px;text-align:center;">~ 370</td>
+    <td style="padding:7px 12px;text-align:center;">~ 30</td>
+    <td style="padding:7px 12px;text-align:center;">-4.3 &plusmn; 0.1</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);background:var(--paper2);">
+    <td style="padding:7px 12px;font-weight:600;">1L-WSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">直接带隙 (K)</td>
+    <td style="padding:7px 12px;text-align:center;">1.62 - 1.65</td>
+    <td style="padding:7px 12px;text-align:center;">~ 370</td>
+    <td style="padding:7px 12px;text-align:center;">~ 30</td>
+    <td style="padding:7px 12px;text-align:center;">-4.3 &plusmn; 0.2</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="anchored-heading" id="params-34-2-raman">34.2 TMD 典型拉曼散射频率 <a class="heading-anchor" href="#params-34-2-raman" aria-label="Anchor">#</a></h2>
+<p>拉曼频移差是判别 TMD 二维纳米薄膜层数的最简易标准：</p>
+<div style="overflow-x:auto;margin:12px 0;">
+<table style="border-collapse:collapse;width:100%;min-width:500px;font-size:12.5px;">
+<thead><tr style="background:var(--accent);color:#fff;">
+  <th style="padding:8px 12px;text-align:left;">材料类型</th>
+  <th style="padding:8px 12px;text-align:center;">E' (面内剪切模式)</th>
+  <th style="padding:8px 12px;text-align:center;">A'_1 (面外呼吸模式)</th>
+  <th style="padding:8px 12px;text-align:left;">单层特征与判定判据</th>
+</tr></thead>
+<tbody>
+  <tr style="border-bottom:1px solid var(--line);">
+    <td style="padding:7px 12px;font-weight:600;">MoS₂</td>
+    <td style="padding:7px 12px;text-align:center;">~ 385 cm⁻¹</td>
+    <td style="padding:7px 12px;text-align:center;">~ 403 cm⁻¹</td>
+    <td style="padding:7px 12px;">两峰间距 $\Delta 
+u \le 20 	ext{ cm}^{-1}$ 为典型单层判据</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);background:var(--paper2);">
+    <td style="padding:7px 12px;font-weight:600;">WSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">~ 250 cm⁻¹</td>
+    <td style="padding:7px 12px;text-align:center;">~ 260 cm⁻¹</td>
+    <td style="padding:7px 12px;">面内与面外振动频率高度接近，单层常合并为一个共振峰</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);">
+    <td style="padding:7px 12px;font-weight:600;">WS₂</td>
+    <td style="padding:7px 12px;text-align:center;">~ 357 cm⁻¹</td>
+    <td style="padding:7px 12px;text-align:center;">~ 420 cm⁻¹</td>
+    <td style="padding:7px 12px;">频移差值约为 $63 	ext{ cm}^{-1}$ 对应单层结构</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="anchored-heading" id="params-34-3-units">34.3 二维光学物理量与常数换算 <a class="heading-anchor" href="#params-34-3-units" aria-label="Anchor">#</a></h2>
+<p>在光谱分析及论文撰写中，常用到能量、波长、波数之间的相互换算：</p>
+<ul>
+  <li><strong>波长转能量 (Wavelength to Energy)</strong>：
+    $$E(	ext{eV}) = rac{1239.84}{\lambda(	ext{nm})}$$
+  </li>
+  <li><strong>拉曼频移换算 (Raman Shift wavenumber to Wavelength)</strong>：
+    $$\Delta k(	ext{cm}^{-1}) = \left(rac{1}{\lambda_{	ext{excitation}}(	ext{nm})} - rac{1}{\lambda_{	ext{emission}}(	ext{nm})}ight) 	imes 10^7$$
+  </li>
+  <li><strong>物理常数速查</strong>：
+    <ul>
+      <li>玻尔磁子：$\mu_B = 0.0578838 	ext{ meV/T}$</li>
+      <li>普朗克常数：$h = 4.135667 	imes 10^{-15} 	ext{ eV}\cdot	ext{s}$</li>
+      <li>光速：$c = 2.99792 	imes 10^{8} 	ext{ m/s}$</li>
+    </ul>
+  </li>
+</ul>
+</div>
+<div class="chapter-notes">
+<details>
+<summary>本章实验笔记（仅保存在当前浏览器）</summary>
+<textarea data-note-key="note-parameter_tables" placeholder="在此记录该章节的实验心得、配置微调或注意事项..."></textarea>
+</details>
+</div>
+<a class="back-top" href="#mainContent">返回顶部 ↑</a>
+</section>
+</div><footer class="footer">单文件离线手册 · 数学公式已预渲染为 SVG · 交互数据和笔记仅保存在当前浏览器</footer></main>
 <div class="floating-tools"><button onclick="scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button><button onclick="toggleTheme()" title="切换主题">◐</button></div><button aria-label="打开目录" class="mobile-toggle" onclick="toggleSidebar()">☰</button><div class="toast" id="toast"></div><script>
 const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
 
