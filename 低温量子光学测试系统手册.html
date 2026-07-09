@@ -4353,7 +4353,7 @@ I++ 或完整四通道再次采集
   <li><strong>封闭坐标框 (Closed Frame Box)</strong>：
     <ul>
       <li>论文绘图推荐使用全封闭矩形框（有上下左右四条轴线），轴线粗细统一设置为 1.0 - 1.2 pt，颜色使用极细深灰或纯黑，严禁粗细不一。</li>
-      <li>刻度线方向必须<strong>朝内 (Inward Ticks)</strong>，大刻度（Major Ticks）长度推荐为 4.5 - 6 pt，小刻度（Minor Ticks）长度为 2.5 - 3 pt，大刻度数量控制在 3 - 5 个。</li>
+      <li>刻度线方向通常根据期刊偏好选择<strong>朝外 (Outward Ticks)</strong>或<strong>朝内 (Inward Ticks)</strong>。本指南推荐使用朝外刻度线（如示范图所示），以保持数据空间内部的绝对干净，避免刻度与激子发射谱线相交，大刻度（Major Ticks）长度推荐为 4.5 - 6 pt，小刻度（Minor Ticks）长度为 2.5 - 3 pt，大刻度数量控制在 3 - 5 个。</li>
     </ul>
   </li>
 </ul>
@@ -4365,31 +4365,122 @@ I++ 或完整四通道再次采集
     <h4 style="color: var(--danger); font-size: 13px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
       <span style="font-size: 16px;">⚠️</span> 违规作图示范 (Unprofessional Single Plot)
     </h4>
-    <svg viewBox="0 0 340 260" style="width: 100%; height: auto; background: #fff; border: 1px solid #ddd; border-radius: 4px;">
-      <rect x="0" y="0" width="340" height="260" fill="#fff" />
-      <line x1="30" y1="220" x2="330" y2="220" stroke="#000" stroke-width="2"/>
-      <line x1="30" y1="20" x2="30" y2="220" stroke="#000" stroke-width="2"/>
-      <line x1="30" y1="220" x2="30" y2="226" stroke="#000" stroke-width="2"/>
-      <line x1="130" y1="220" x2="130" y2="226" stroke="#000" stroke-width="2"/>
-      <line x1="230" y1="220" x2="230" y2="226" stroke="#000" stroke-width="2"/>
-      <line x1="330" y1="220" x2="330" y2="226" stroke="#000" stroke-width="2"/>
-      <line x1="30" y1="220" x2="24" y2="220" stroke="#000" stroke-width="2"/>
-      <line x1="30" y1="120" x2="24" y2="120" stroke="#000" stroke-width="2"/>
-      <line x1="30" y1="20" x2="24" y2="20" stroke="#000" stroke-width="2"/>
-      <path d="M 30,120 L 130,40 L 230,190 L 330,80" fill="none" stroke="#ff0000" stroke-width="3" />
-      <path d="M 30,190 L 130,200 L 230,70 L 330,30" fill="none" stroke="#00ff00" stroke-width="3" />
-      <rect x="100" y="80" width="140" height="70" fill="#fff" stroke="#000" stroke-width="3" />
-      <text x="110" y="105" font-family="Courier New" font-size="12" fill="#000">LEGEND (Giant):</text>
-      <text x="110" y="125" font-family="Courier New" font-size="12" fill="#ff0000">-- Data A (Red)</text>
-      <text x="110" y="145" font-family="Courier New" font-size="12" fill="#00ff00">-- Data B (Green)</text>
-      <text x="180" y="248" font-family="Impact" font-size="14" fill="#000" text-anchor="middle">Magnetic Field B (T)</text>
-      <text x="10" y="120" font-family="Comic Sans MS" font-size="14" fill="#000" text-anchor="middle" transform="rotate(-90 10 120)">Intensity (a.u.)</text>
-      <text x="30" y="235" font-family="serif" font-size="10" text-anchor="middle">0</text>
-      <text x="130" y="235" font-family="serif" font-size="10" text-anchor="middle">5</text>
-      <text x="230" y="235" font-family="serif" font-size="10" text-anchor="middle">10</text>
-      <text x="20" y="223" font-family="serif" font-size="10" text-anchor="end">0</text>
-      <text x="20" y="123" font-family="serif" font-size="10" text-anchor="end">50</text>
-      <text x="20" y="23" font-family="serif" font-size="10" text-anchor="end">100</text>
+    <svg viewBox="0 0 340 260" style="width: 100%; height: auto; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; shape-rendering: geometricPrecision;">
+      <rect x="0" y="0" width="340" height="260" fill="#ffffff" />
+      <rect x="58" y="32" width="260" height="174" fill="none" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      
+      <!-- Outward Ticks: X-axis (Bottom and Top) -->
+      <line x1="58" y1="206" x2="58" y2="211" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="123" y1="206" x2="123" y2="211" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="188" y1="206" x2="188" y2="211" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="253" y1="206" x2="253" y2="211" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="318" y1="206" x2="318" y2="211" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      
+      <line x1="58" y1="32" x2="58" y2="27" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="123" y1="32" x2="123" y2="27" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="188" y1="32" x2="188" y2="27" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="253" y1="32" x2="253" y2="27" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="318" y1="32" x2="318" y2="27" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      
+      <!-- Outward Ticks: Y-axis (Left and Right) -->
+      <line x1="58" y1="206" x2="53" y2="206" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="58" y1="119" x2="53" y2="119" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="58" y1="32" x2="53" y2="32" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      
+      <line x1="318" y1="206" x2="323" y2="206" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="318" y1="119" x2="323" y2="119" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+      <line x1="318" y1="32" x2="323" y2="32" stroke="#0f172a" stroke-width="1.2" shape-rendering="crispEdges"/>
+
+      <!-- Smooth Fit Curves -->
+      <path d="M 58,201.68 L 59,201.64 L 60,201.60 L 61,201.55 L 62,201.51 L 63,201.47 L 64,201.42 L 65,201.37 L 66,201.32 L 67,201.27 L 68,201.22 L 69,201.17 L 70,201.11 L 71,201.05 L 72,200.99 L 73,200.93 L 74,200.87 L 75,200.81 L 76,200.74 L 77,200.67 L 78,200.60 L 79,200.53 L 80,200.45 L 81,200.38 L 82,200.29 L 83,200.21 L 84,200.12 L 85,200.04 L 86,199.94 L 87,199.85 L 88,199.75 L 89,199.64 L 90,199.54 L 91,199.42 L 92,199.31 L 93,199.19 L 94,199.06 L 95,198.93 L 96,198.80 L 97,198.65 L 98,198.51 L 99,198.35 L 100,198.19 L 101,198.03 L 102,197.85 L 103,197.67 L 104,197.48 L 105,197.28 L 106,197.07 L 107,196.85 L 108,196.61 L 109,196.37 L 110,196.12 L 111,195.85 L 112,195.57 L 113,195.27 L 114,194.96 L 115,194.62 L 116,194.27 L 117,193.90 L 118,193.51 L 119,193.10 L 120,192.66 L 121,192.19 L 122,191.69 L 123,191.16 L 124,190.60 L 125,190.00 L 126,189.36 L 127,188.67 L 128,187.94 L 129,187.15 L 130,186.30 L 131,185.40 L 132,184.42 L 133,183.36 L 134,182.23 L 135,181.00 L 136,179.67 L 137,178.24 L 138,176.68 L 139,174.99 L 140,173.16 L 141,171.16 L 142,169.00 L 143,166.65 L 144,164.09 L 145,161.32 L 146,158.31 L 147,155.06 L 148,151.56 L 149,147.79 L 150,143.78 L 151,139.53 L 152,135.08 L 153,130.46 L 154,125.76 L 155,121.07 L 156,116.50 L 157,112.21 L 158,108.36 L 159,105.11 L 160,102.62 L 161,101.03 L 162,100.42 L 163,100.81 L 164,102.19 L 165,104.46 L 166,107.49 L 167,111.12 L 168,115.19 L 169,119.53 L 170,123.99 L 171,128.45 L 172,132.82 L 173,137.03 L 174,141.02 L 175,144.77 L 176,148.26 L 177,151.48 L 178,154.44 L 179,157.14 L 180,159.59 L 181,161.82 L 182,163.82 L 183,165.62 L 184,167.22 L 185,168.65 L 186,169.91 L 187,171.01 L 188,171.96 L 189,172.77 L 190,173.45 L 191,174.00 L 192,174.42 L 193,174.72 L 194,174.90 L 195,174.96 L 196,174.89 L 197,174.71 L 198,174.39 L 199,173.94 L 200,173.35 L 201,172.61 L 202,171.71 L 203,170.63 L 204,169.36 L 205,167.87 L 206,166.16 L 207,164.18 L 208,161.90 L 209,159.29 L 210,156.31 L 211,152.91 L 212,149.04 L 213,144.63 L 214,139.62 L 215,133.95 L 216,127.57 L 217,120.41 L 218,112.48 L 219,103.80 L 220,94.47 L 221,84.70 L 222,74.84 L 223,65.38 L 224,56.95 L 225,50.26 L 226,45.97 L 227,44.57 L 228,46.23 L 229,50.78 L 230,57.73 L 231,66.43 L 232,76.15 L 233,86.29 L 234,96.33 L 235,105.94 L 236,114.91 L 237,123.13 L 238,130.58 L 239,137.28 L 240,143.26 L 241,148.59 L 242,153.34 L 243,157.56 L 244,161.32 L 245,164.68 L 246,167.67 L 247,170.36 L 248,172.77 L 249,174.93 L 250,176.89 L 251,178.66 L 252,180.26 L 253,181.71 L 254,183.04 L 255,184.25 L 256,185.36 L 257,186.37 L 258,187.31 L 259,188.17 L 260,188.96 L 261,189.70 L 262,190.38 L 263,191.01 L 264,191.60 L 265,192.15 L 266,192.66 L 267,193.14 L 268,193.58 L 269,194.00 L 270,194.39 L 271,194.76 L 272,195.11 L 273,195.44 L 274,195.75 L 275,196.04 L 276,196.32 L 277,196.58 L 278,196.83 L 279,197.06 L 280,197.28 L 281,197.50 L 282,197.70 L 283,197.89 L 284,198.07 L 285,198.25 L 286,198.41 L 287,198.57 L 288,198.72 L 289,198.87 L 290,199.01 L 291,199.14 L 292,199.27 L 293,199.39 L 294,199.51 L 295,199.62 L 296,199.73 L 297,199.84 L 298,199.94 L 299,200.03 L 300,200.13 L 301,200.22 L 302,200.30 L 303,200.39 L 304,200.47 L 305,200.54 L 306,200.62 L 307,200.69 L 308,200.76 L 309,200.83 L 310,200.90 L 311,200.96 L 312,201.02 L 313,201.08 L 314,201.14 L 315,201.19 L 316,201.25 L 317,201.30 L 318,201.35" fill="none" stroke="#0f172a" stroke-width="1.8" />
+      <path d="M 58,202.22 L 59,202.19 L 60,202.15 L 61,202.11 L 62,202.08 L 63,202.04 L 64,202.00 L 65,201.96 L 66,201.92 L 67,201.87 L 68,201.83 L 69,201.78 L 70,201.74 L 71,201.69 L 72,201.64 L 73,201.59 L 74,201.53 L 75,201.48 L 76,201.42 L 77,201.36 L 78,201.30 L 79,201.23 L 80,201.17 L 81,201.10 L 82,201.03 L 83,200.96 L 84,200.88 L 85,200.80 L 86,200.72 L 87,200.63 L 88,200.54 L 89,200.45 L 90,200.36 L 91,200.26 L 92,200.15 L 93,200.05 L 94,199.93 L 95,199.82 L 96,199.69 L 97,199.57 L 98,199.43 L 99,199.29 L 100,199.15 L 101,199.00 L 102,198.84 L 103,198.67 L 104,198.49 L 105,198.31 L 106,198.12 L 107,197.91 L 108,197.70 L 109,197.48 L 110,197.24 L 111,196.99 L 112,196.73 L 113,196.45 L 114,196.16 L 115,195.85 L 116,195.52 L 117,195.18 L 118,194.81 L 119,194.42 L 120,194.00 L 121,193.56 L 122,193.09 L 123,192.58 L 124,192.05 L 125,191.48 L 126,190.86 L 127,190.21 L 128,189.50 L 129,188.75 L 130,187.93 L 131,187.06 L 132,186.12 L 133,185.10 L 134,184.00 L 135,182.81 L 136,181.52 L 137,180.13 L 138,178.61 L 139,176.97 L 140,175.18 L 141,173.23 L 142,171.11 L 143,168.81 L 144,166.31 L 145,163.59 L 146,160.64 L 147,157.44 L 148,154.00 L 149,150.30 L 150,146.35 L 151,142.17 L 152,137.78 L 153,133.24 L 154,128.62 L 155,124.00 L 156,119.52 L 157,115.31 L 158,111.55 L 159,108.39 L 160,106.00 L 161,104.51 L 162,104.00 L 163,104.51 L 164,106.00 L 165,108.39 L 166,111.55 L 167,115.31 L 168,119.52 L 169,124.00 L 170,128.62 L 171,133.24 L 172,137.78 L 173,142.17 L 174,146.35 L 175,150.30 L 176,154.00 L 177,157.44 L 178,160.64 L 179,163.59 L 180,166.31 L 181,168.81 L 182,171.11 L 183,173.23 L 184,175.18 L 185,176.97 L 186,178.61 L 187,180.13 L 188,181.52 L 189,182.81 L 190,184.00 L 191,185.10 L 192,186.12 L 193,187.06 L 194,187.93 L 195,188.75 L 196,189.50 L 197,190.21 L 198,190.86 L 199,191.48 L 200,192.05 L 201,192.58 L 202,193.09 L 203,193.56 L 204,194.00 L 205,194.42 L 206,194.81 L 207,195.18 L 208,195.52 L 209,195.85 L 210,196.16 L 211,196.45 L 212,196.73 L 213,196.99 L 214,197.24 L 215,197.48 L 216,197.70 L 217,197.91 L 218,198.12 L 219,198.31 L 220,198.49 L 221,198.67 L 222,198.84 L 223,199.00 L 224,199.15 L 225,199.29 L 226,199.43 L 227,199.57 L 228,199.69 L 229,199.82 L 230,199.93 L 231,200.05 L 232,200.15 L 233,200.26 L 234,200.36 L 235,200.45 L 236,200.54 L 237,200.63 L 238,200.72 L 239,200.80 L 240,200.88 L 241,200.96 L 242,201.03 L 243,201.10 L 244,201.17 L 245,201.23 L 246,201.30 L 247,201.36 L 248,201.42 L 249,201.48 L 250,201.53 L 251,201.59 L 252,201.64 L 253,201.69 L 254,201.74 L 255,201.78 L 256,201.83 L 257,201.87 L 258,201.92 L 259,201.96 L 260,202.00 L 261,202.04 L 262,202.08 L 263,202.11 L 264,202.15 L 265,202.19 L 266,202.22 L 267,202.25 L 268,202.29 L 269,202.32 L 270,202.35 L 271,202.38 L 272,202.41 L 273,202.43 L 274,202.46 L 275,202.49 L 276,202.51 L 277,202.54 L 278,202.56 L 279,202.59 L 280,202.61 L 281,202.63 L 282,202.66 L 283,202.68 L 284,202.70 L 285,202.72 L 286,202.74 L 287,202.76 L 288,202.78 L 289,202.80 L 290,202.82 L 291,202.84 L 292,202.85 L 293,202.87 L 294,202.89 L 295,202.90 L 296,202.92 L 297,202.94 L 298,202.95 L 299,202.97 L 300,202.98 L 301,203.00 L 302,203.01 L 303,203.02 L 304,203.04 L 305,203.05 L 306,203.06 L 307,203.08 L 308,203.09 L 309,203.10 L 310,203.11 L 311,203.12 L 312,203.14 L 313,203.15 L 314,203.16 L 315,203.17 L 316,203.18 L 317,203.19 L 318,203.20" fill="none" stroke="#2563eb" stroke-width="1.0" stroke-dasharray="3,3" />
+      <path d="M 58,203.46 L 59,203.45 L 60,203.45 L 61,203.44 L 62,203.43 L 63,203.43 L 64,203.42 L 65,203.41 L 66,203.40 L 67,203.40 L 68,203.39 L 69,203.38 L 70,203.37 L 71,203.37 L 72,203.36 L 73,203.35 L 74,203.34 L 75,203.33 L 76,203.32 L 77,203.31 L 78,203.30 L 79,203.30 L 80,203.29 L 81,203.28 L 82,203.27 L 83,203.26 L 84,203.25 L 85,203.24 L 86,203.22 L 87,203.21 L 88,203.20 L 89,203.19 L 90,203.18 L 91,203.17 L 92,203.15 L 93,203.14 L 94,203.13 L 95,203.12 L 96,203.10 L 97,203.09 L 98,203.07 L 99,203.06 L 100,203.04 L 101,203.03 L 102,203.01 L 103,203.00 L 104,202.98 L 105,202.97 L 106,202.95 L 107,202.93 L 108,202.91 L 109,202.89 L 110,202.88 L 111,202.86 L 112,202.84 L 113,202.82 L 114,202.80 L 115,202.77 L 116,202.75 L 117,202.73 L 118,202.71 L 119,202.68 L 120,202.66 L 121,202.63 L 122,202.61 L 123,202.58 L 124,202.55 L 125,202.52 L 126,202.50 L 127,202.47 L 128,202.43 L 129,202.40 L 130,202.37 L 131,202.34 L 132,202.30 L 133,202.27 L 134,202.23 L 135,202.19 L 136,202.15 L 137,202.11 L 138,202.07 L 139,202.02 L 140,201.98 L 141,201.93 L 142,201.88 L 143,201.83 L 144,201.78 L 145,201.73 L 146,201.67 L 147,201.62 L 148,201.56 L 149,201.49 L 150,201.43 L 151,201.36 L 152,201.29 L 153,201.22 L 154,201.14 L 155,201.07 L 156,200.99 L 157,200.90 L 158,200.81 L 159,200.72 L 160,200.62 L 161,200.52 L 162,200.42 L 163,200.31 L 164,200.19 L 165,200.07 L 166,199.94 L 167,199.81 L 168,199.67 L 169,199.53 L 170,199.37 L 171,199.21 L 172,199.04 L 173,198.86 L 174,198.67 L 175,198.47 L 176,198.26 L 177,198.04 L 178,197.80 L 179,197.55 L 180,197.29 L 181,197.01 L 182,196.71 L 183,196.39 L 184,196.05 L 185,195.68 L 186,195.30 L 187,194.88 L 188,194.44 L 189,193.96 L 190,193.45 L 191,192.90 L 192,192.30 L 193,191.66 L 194,190.96 L 195,190.21 L 196,189.39 L 197,188.50 L 198,187.53 L 199,186.47 L 200,185.30 L 201,184.03 L 202,182.62 L 203,181.07 L 204,179.36 L 205,177.46 L 206,175.35 L 207,173.00 L 208,170.38 L 209,167.44 L 210,164.15 L 211,160.46 L 212,156.31 L 213,151.64 L 214,146.38 L 215,140.48 L 216,133.86 L 217,126.50 L 218,118.36 L 219,109.49 L 220,99.97 L 221,90.03 L 222,80.00 L 223,70.38 L 224,61.80 L 225,54.96 L 226,50.53 L 227,49.00 L 228,50.53 L 229,54.96 L 230,61.80 L 231,70.38 L 232,80.00 L 233,90.03 L 234,99.97 L 235,109.49 L 236,118.36 L 237,126.50 L 238,133.86 L 239,140.48 L 240,146.38 L 241,151.64 L 242,156.31 L 243,160.46 L 244,164.15 L 245,167.44 L 246,170.38 L 247,173.00 L 248,175.35 L 249,177.46 L 250,179.36 L 251,181.07 L 252,182.62 L 253,184.03 L 254,185.30 L 255,186.47 L 256,187.53 L 257,188.50 L 258,189.39 L 259,190.21 L 260,190.96 L 261,191.66 L 262,192.30 L 263,192.90 L 264,193.45 L 265,193.96 L 266,194.44 L 267,194.88 L 268,195.30 L 269,195.68 L 270,196.05 L 271,196.39 L 272,196.71 L 273,197.01 L 274,197.29 L 275,197.55 L 276,197.80 L 277,198.04 L 278,198.26 L 279,198.47 L 280,198.67 L 281,198.86 L 282,199.04 L 283,199.21 L 284,199.37 L 285,199.53 L 286,199.67 L 287,199.81 L 288,199.94 L 289,200.07 L 290,200.19 L 291,200.31 L 292,200.42 L 293,200.52 L 294,200.62 L 295,200.72 L 296,200.81 L 297,200.90 L 298,200.99 L 299,201.07 L 300,201.14 L 301,201.22 L 302,201.29 L 303,201.36 L 304,201.43 L 305,201.49 L 306,201.56 L 307,201.62 L 308,201.67 L 309,201.73 L 310,201.78 L 311,201.83 L 312,201.88 L 313,201.93 L 314,201.98 L 315,202.02 L 316,202.07 L 317,202.11 L 318,202.15" fill="none" stroke="#dc2626" stroke-width="1.0" stroke-dasharray="3,3" />
+      
+      <!-- High-Density Smooth Experimental Data Points -->
+      <circle cx="58" cy="202.07" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="63" cy="200.67" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="68" cy="203.23" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="73" cy="200.71" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="78" cy="199.04" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="83" cy="201.12" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="88" cy="197.88" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="93" cy="201.97" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="98" cy="197.99" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="103" cy="199.56" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="108" cy="199.02" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="113" cy="198.39" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="118" cy="197.21" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="123" cy="190.42" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="128" cy="190.31" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="133" cy="185.71" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="138" cy="177.27" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="143" cy="165.59" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="148" cy="150.05" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="153" cy="128.95" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="158" cy="108.94" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="163" cy="100.36" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="168" cy="116.23" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="173" cy="133.70" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="178" cy="152.95" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="183" cy="166.11" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="188" cy="171.27" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="193" cy="176.23" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="198" cy="175.10" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="203" cy="172.73" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="208" cy="161.04" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="213" cy="144.86" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="218" cy="114.75" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="223" cy="65.02" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="228" cy="43.35" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="233" cy="87.67" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="238" cy="128.64" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="243" cy="158.64" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="248" cy="170.99" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="253" cy="179.83" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="258" cy="184.56" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="263" cy="192.41" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="268" cy="193.58" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="273" cy="193.91" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="278" cy="197.18" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="283" cy="199.45" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="288" cy="200.35" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="293" cy="198.83" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="298" cy="197.72" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="303" cy="201.22" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="308" cy="200.61" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="313" cy="200.81" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <circle cx="318" cy="201.75" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+
+      <!-- Peak Annotations (No border, clean text labels) -->
+      <text x="146" y="86" font-family="Arial" font-size="9.5" font-weight="bold" fill="#2563eb" text-anchor="end">Trion (<tspan font-style="italic" font-family="Times New Roman">X</tspan><tspan dy="3" font-size="6.5">-</tspan>)</text>
+      <text x="242" y="38" font-family="Arial" font-size="9.5" font-weight="bold" fill="#dc2626">Exciton (<tspan font-style="italic" font-family="Times New Roman">X</tspan><tspan dy="-3" font-size="6.5">0</tspan>)</text>
+
+      <!-- Legend in the Empty Space (Without Border Frame) -->
+      <circle cx="72" cy="48" r="2" fill="#ffffff" stroke="#475569" stroke-width="0.8"/>
+      <text x="82" y="51" font-family="Arial" font-size="8" fill="#334155">Data</text>
+      
+      <line x1="66" y1="60" x2="78" y2="60" stroke="#0f172a" stroke-width="1.2"/>
+      <text x="82" y="63" font-family="Arial" font-size="8" fill="#334155">Total Fit</text>
+      
+      <line x1="66" y1="72" x2="78" y2="72" stroke="#dc2626" stroke-width="1.0" stroke-dasharray="2,2"/>
+      <text x="82" y="75" font-family="Arial" font-size="8" fill="#334155">Exciton</text>
+      
+      <line x1="66" y1="84" x2="78" y2="84" stroke="#2563eb" stroke-width="1.0" stroke-dasharray="2,2"/>
+      <text x="82" y="87" font-family="Arial" font-size="8" fill="#334155">Trion</text>
+
+      <!-- Label and Ticks Typography -->
+      <text x="188" y="238" font-family="Arial" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="bold">Photon Energy <tspan font-style="italic" font-family="Times New Roman">E</tspan> (eV)</text>
+      <text x="16" y="118" font-family="Arial" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="bold" transform="rotate(-90 16 118)">PL Intensity <tspan font-style="italic" font-family="Times New Roman">I</tspan> (a.u.)</text>
+      
+      <text x="58" y="224" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.80</text>
+      <text x="123" y="224" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.85</text>
+      <text x="188" y="224" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.90</text>
+      <text x="253" y="224" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">1.95</text>
+      <text x="318" y="224" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="middle">2.00</text>
+      
+      <text x="47" y="209" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="end">0</text>
+      <text x="47" y="122" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="end">50</text>
+      <text x="47" y="35" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="end">100</text>
     </svg>
     <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">❌ 缺陷：留白不足导致轴标签被切边或挤压；刻度线外指破坏边界；霓虹配色极刺眼且对比度差；图例过大遮挡核心数据；混合多种不规范字体（Comic Sans, Impact）。</p>
   </div>
@@ -4461,7 +4552,7 @@ I++ 或完整四通道再次采集
       <text x="50" y="122" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="end">50</text>
       <text x="50" y="35" font-family="Times New Roman" font-size="9" fill="#0f172a" text-anchor="end">100</text>
     </svg>
-    <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">✅ 优点：合理的留白（左/下空间充足）；全图采用封闭式坐标框，刻度朝内；使用学术界的蓝/红配比；图例收拢悬浮于空白处不侵占数据点；字体统一为简洁的 Arial。</p>
+    <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">✅ 优点：合理的留白（左/下空间充足）；全图采用封闭式坐标框，刻度朝外；使用学术界的蓝/红配比；图例收拢悬浮于空白处不侵占数据点（无边框，极简明晰）；字体统一为简洁的 Arial；高密度平滑点线图展现了绝佳的拟合流畅度。</p>
   </div>
 </div>
 <div class="chapter-notes">
