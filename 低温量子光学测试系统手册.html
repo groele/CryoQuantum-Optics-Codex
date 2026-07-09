@@ -3954,6 +3954,86 @@ I++ 或完整四通道再次采集
   </li>
 </ul>
 
+<!-- Embedded Single Plot Comparison SVG Graphics -->
+<div class="comparison-container" style="display: flex; gap: 20px; justify-content: center; margin: 24px 0; flex-wrap: wrap;">
+  <!-- Bad Single Plot Card -->
+  <div style="flex: 1; min-width: 310px; max-width: 48%; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: var(--paper2);">
+    <h4 style="color: var(--danger); font-size: 13px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+      <span style="font-size: 16px;">⚠️</span> 违规作图示范 (Unprofessional Single Plot)
+    </h4>
+    <svg viewBox="0 0 340 260" style="width: 100%; height: auto; background: #fff; border: 1px solid #ddd; border-radius: 4px;">
+      <rect x="0" y="0" width="340" height="260" fill="#fff" />
+      <line x1="30" y1="220" x2="330" y2="220" stroke="#000" stroke-width="2"/>
+      <line x1="30" y1="20" x2="30" y2="220" stroke="#000" stroke-width="2"/>
+      <line x1="30" y1="220" x2="30" y2="226" stroke="#000" stroke-width="2"/>
+      <line x1="130" y1="220" x2="130" y2="226" stroke="#000" stroke-width="2"/>
+      <line x1="230" y1="220" x2="230" y2="226" stroke="#000" stroke-width="2"/>
+      <line x1="330" y1="220" x2="330" y2="226" stroke="#000" stroke-width="2"/>
+      <line x1="30" y1="220" x2="24" y2="220" stroke="#000" stroke-width="2"/>
+      <line x1="30" y1="120" x2="24" y2="120" stroke="#000" stroke-width="2"/>
+      <line x1="30" y1="20" x2="24" y2="20" stroke="#000" stroke-width="2"/>
+      <path d="M 30,120 L 130,40 L 230,190 L 330,80" fill="none" stroke="#ff0000" stroke-width="3" />
+      <path d="M 30,190 L 130,200 L 230,70 L 330,30" fill="none" stroke="#00ff00" stroke-width="3" />
+      <rect x="100" y="80" width="140" height="70" fill="#fff" stroke="#000" stroke-width="3" />
+      <text x="110" y="105" font-family="Courier New" font-size="12" fill="#000">LEGEND (Giant):</text>
+      <text x="110" y="125" font-family="Courier New" font-size="12" fill="#ff0000">-- Data A (Red)</text>
+      <text x="110" y="145" font-family="Courier New" font-size="12" fill="#00ff00">-- Data B (Green)</text>
+      <text x="180" y="248" font-family="Impact" font-size="14" fill="#000" text-anchor="middle">Magnetic Field B (T)</text>
+      <text x="10" y="120" font-family="Comic Sans MS" font-size="14" fill="#000" text-anchor="middle" transform="rotate(-90 10 120)">Intensity (a.u.)</text>
+      <text x="30" y="235" font-family="serif" font-size="10" text-anchor="middle">0</text>
+      <text x="130" y="235" font-family="serif" font-size="10" text-anchor="middle">5</text>
+      <text x="230" y="235" font-family="serif" font-size="10" text-anchor="middle">10</text>
+      <text x="20" y="223" font-family="serif" font-size="10" text-anchor="end">0</text>
+      <text x="20" y="123" font-family="serif" font-size="10" text-anchor="end">50</text>
+      <text x="20" y="23" font-family="serif" font-size="10" text-anchor="end">100</text>
+    </svg>
+    <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">❌ 缺陷：留白不足导致轴标签被切边或挤压；刻度线外指破坏边界；霓虹配色极刺眼且对比度差；图例过大遮挡核心数据；混合多种不规范字体（Comic Sans, Impact）。</p>
+  </div>
+
+  <!-- Good Single Plot Card -->
+  <div style="flex: 1; min-width: 310px; max-width: 48%; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: var(--paper2);">
+    <h4 style="color: var(--accent); font-size: 13px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+      <span style="font-size: 16px;">✅</span> 论文级规范示范 (Professional Single Plot)
+    </h4>
+    <svg viewBox="0 0 340 260" style="width: 100%; height: auto; background: #fafafa; border: 1px solid #cbd5e1; border-radius: 4px;">
+      <rect x="0" y="0" width="340" height="260" fill="#ffffff" />
+      <line x1="55" y1="35" x2="315" y2="35" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="55" y1="120" x2="315" y2="120" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="55" y1="205" x2="315" y2="205" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="141" y1="35" x2="141" y2="205" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="228" y1="35" x2="228" y2="205" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <rect x="55" y="35" width="260" height="170" fill="none" stroke="#334155" stroke-width="1.2"/>
+      <line x1="55" y1="205" x2="55" y2="200" stroke="#334155" stroke-width="1.2"/>
+      <line x1="141" y1="205" x2="141" y2="200" stroke="#334155" stroke-width="1.2"/>
+      <line x1="228" y1="205" x2="228" y2="200" stroke="#334155" stroke-width="1.2"/>
+      <line x1="315" y1="205" x2="315" y2="200" stroke="#334155" stroke-width="1.2"/>
+      <line x1="55" y1="205" x2="60" y2="205" stroke="#334155" stroke-width="1.2"/>
+      <line x1="55" y1="120" x2="60" y2="120" stroke="#334155" stroke-width="1.2"/>
+      <line x1="55" y1="35" x2="60" y2="35" stroke="#334155" stroke-width="1.2"/>
+      <path d="M 55,145 Q 120,45 200,105 T 315,65" fill="none" stroke="#2563eb" stroke-width="1.8" />
+      <path d="M 55,185 Q 120,150 200,85 T 315,45" fill="none" stroke="#dc2626" stroke-width="1.8" />
+      <circle cx="95" cy="115" r="3.5" fill="#2563eb" stroke="#1e293b" stroke-width="0.8"/>
+      <circle cx="180" cy="112" r="3.5" fill="#2563eb" stroke="#1e293b" stroke-width="0.8"/>
+      <circle cx="265" cy="72" r="3.5" fill="#2563eb" stroke="#1e293b" stroke-width="0.8"/>
+      <rect x="220" y="45" width="85" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" rx="2" />
+      <line x1="228" y1="56" x2="242" y2="56" stroke="#2563eb" stroke-width="1.5" />
+      <text x="248" y="60" font-family="Arial" font-size="8" fill="#1e293b">Exciton A</text>
+      <line x1="228" y1="72" x2="242" y2="72" stroke="#dc2626" stroke-width="1.5" />
+      <text x="248" y="76" font-family="Arial" font-size="8" fill="#1e293b">Trion B</text>
+      <text x="185" y="238" font-family="Arial" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold">Magnetic Field B (T)</text>
+      <text x="16" y="120" font-family="Arial" font-size="11" fill="#1e293b" text-anchor="middle" font-weight="bold" transform="rotate(-90 16 120)">PL Intensity (a.u.)</text>
+      <text x="55" y="218" font-family="Arial" font-size="9" fill="#475569" text-anchor="middle">0</text>
+      <text x="141" y="218" font-family="Arial" font-size="9" fill="#475569" text-anchor="middle">5</text>
+      <text x="228" y="218" font-family="Arial" font-size="9" fill="#475569" text-anchor="middle">10</text>
+      <text x="315" y="218" font-family="Arial" font-size="9" fill="#475569" text-anchor="middle">15</text>
+      <text x="48" y="208" font-family="Arial" font-size="9" fill="#475569" text-anchor="end">0</text>
+      <text x="48" y="123" font-family="Arial" font-size="9" fill="#475569" text-anchor="end">50</text>
+      <text x="48" y="38" font-family="Arial" font-size="9" fill="#475569" text-anchor="end">100</text>
+    </svg>
+    <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">✅ 优点：合理的留白（左/下空间充足）；全图采用封闭式坐标框，刻度朝内；使用学术界的蓝/红配比；图例收拢悬浮于空白处不侵占数据点；字体统一为简洁的 Arial。</p>
+  </div>
+</div>
+
 <h2 class="anchored-heading" id="plotting-23-2-multi-panel">23.2 规范化多图拼版 <a class="heading-anchor" href="#plotting-23-2-multi-panel" aria-label="Anchor">#</a></h2>
 <p>拼图（Multi-panel figures）用于在有限的论文版面内集中展示逻辑关联的实验链条。规范的拼图必须做到绝对对齐和统一：</p>
 <ul>
@@ -3972,7 +4052,7 @@ I++ 或完整四通道再次采集
   <li><strong>坐标轴共享与消隐 (Shared Axes)</strong>：
     <ul>
       <li>若多张图横向排列且共享相同的纵轴范围（例如不同温度下的PL光谱），应<strong>隐藏右侧子图的纵轴刻度标签</strong>，仅保留最左侧子图的刻度值，以节省版面并突出对比。</li>
-      <li>同理，纵向排列且共享横轴范围时，隐藏上方子图的横轴标签和刻度值，仅保留最下方子图的横轴坐标轴。</li>
+      <li>同理，纵向排列且共享横轴范围时，隐藏上方子图的横轴标签 and 刻度值，仅保留最下方子图的横轴坐标轴。</li>
     </ul>
   </li>
   <li><strong>图例与标注的规整 (Legends & Annotations)</strong>：
@@ -3982,6 +4062,56 @@ I++ 或完整四通道再次采集
     </ul>
   </li>
 </ul>
+
+<!-- Embedded Multi-panel Comparison SVG Graphics -->
+<div class="comparison-container" style="display: flex; gap: 20px; justify-content: center; margin: 24px 0; flex-wrap: wrap;">
+  <!-- Bad Panels Card -->
+  <div style="flex: 1; min-width: 310px; max-width: 48%; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: var(--paper2);">
+    <h4 style="color: var(--danger); font-size: 13px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+      <span style="font-size: 16px;">⚠️</span> 错误拼图示范 (Misaligned Multi-panels)
+    </h4>
+    <svg viewBox="0 0 340 180" style="width: 100%; height: auto; background: #fff; border: 1px solid #ddd; border-radius: 4px;">
+      <rect x="0" y="0" width="340" height="180" fill="#fff" />
+      <text x="15" y="25" font-family="Times New Roman" font-size="16" font-weight="bold" fill="#ff0000">(a)</text>
+      <rect x="25" y="35" width="125" height="100" fill="none" stroke="#333" stroke-width="1"/>
+      <text x="87" y="90" font-family="serif" font-size="10" text-anchor="middle">Plot A</text>
+      <text x="175" y="40" font-family="Comic Sans MS" font-size="12" fill="#000">b)</text>
+      <rect x="180" y="48" width="140" height="108" fill="none" stroke="#333" stroke-width="1"/>
+      <text x="250" y="105" font-family="sans-serif" font-size="10" text-anchor="middle">Plot B</text>
+      <line x1="25" y1="35" x2="320" y2="35" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="25" y1="135" x2="320" y2="135" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="152" cy="42" r="6" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+      <text x="152" y="45" font-family="Arial" font-size="8" fill="#ef4444" text-anchor="middle">!</text>
+    </svg>
+    <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">❌ 缺陷：子图 a 和 b 的框线高度不一致，顶边与底边未水平对齐；拼图标签 (a) 与 b) 样式混杂（一个带括号、一个半括号，字体字号不同）；子图尺寸和长宽比失调；图间空白不均匀。</p>
+  </div>
+
+  <!-- Good Panels Card -->
+  <div style="flex: 1; min-width: 310px; max-width: 48%; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: var(--paper2);">
+    <h4 style="color: var(--accent); font-size: 13px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+      <span style="font-size: 16px;">✅</span> 标准拼图示范 (Aligned Multi-panels Grid)
+    </h4>
+    <svg viewBox="0 0 340 180" style="width: 100%; height: auto; background: #fafafa; border: 1px solid #cbd5e1; border-radius: 4px;">
+      <rect x="0" y="0" width="340" height="180" fill="#ffffff" />
+      <text x="25" y="24" font-family="Arial" font-size="13" font-weight="bold" fill="#1e293b">a</text>
+      <rect x="35" y="30" width="120" height="105" fill="#fafafa" stroke="#334155" stroke-width="1.2"/>
+      <text x="95" y="88" font-family="Arial" font-size="10" fill="#475569" text-anchor="middle">Spectrum A</text>
+      <line x1="35" y1="135" x2="35" y2="130" stroke="#334155" stroke-width="1.2"/>
+      <line x1="155" y1="135" x2="155" y2="130" stroke="#334155" stroke-width="1.2"/>
+      <text x="180" y="24" font-family="Arial" font-size="13" font-weight="bold" fill="#1e293b">b</text>
+      <rect x="190" y="30" width="120" height="105" fill="#fafafa" stroke="#334155" stroke-width="1.2"/>
+      <text x="250" y="88" font-family="Arial" font-size="10" fill="#475569" text-anchor="middle">Spectrum B</text>
+      <line x1="190" y1="135" x2="190" y2="130" stroke="#334155" stroke-width="1.2"/>
+      <line x1="310" y1="135" x2="310" y2="130" stroke="#334155" stroke-width="1.2"/>
+      <text x="95" y="152" font-family="Arial" font-size="8.5" fill="#1e293b" text-anchor="middle">Energy (eV)</text>
+      <text x="250" y="152" font-family="Arial" font-size="8.5" fill="#1e293b" text-anchor="middle">Energy (eV)</text>
+      <text x="16" y="82" font-family="Arial" font-size="8.5" fill="#1e293b" text-anchor="middle" transform="rotate(-90 16 82)">Intensity</text>
+      <line x1="35" y1="30" x2="310" y2="30" stroke="#10b981" stroke-width="0.8" stroke-dasharray="2,2"/>
+      <line x1="35" y1="135" x2="310" y2="135" stroke="#10b981" stroke-width="0.8" stroke-dasharray="2,2"/>
+    </svg>
+    <p style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">✅ 优点：子图 a 和 b 的框线边际高宽完全一致，水平基线绝对对齐；分图标识 a、b 样式完全统一（小写加粗无括号，纵向水平坐标完全等距配置）；图间留白与轴标文字极具规范美感。</p>
+  </div>
+</div>
 
 <h2 class="anchored-heading" id="plotting-23-3-templates">23.3 绘图代码模板 <a class="heading-anchor" href="#plotting-23-3-templates" aria-label="Anchor">#</a></h2>
 <p>为了使实验人员快速绘制出符合上述美观标准的论文插图，以下给出一段标准的 Python Matplotlib 科研绘图代码模板，可直接复制使用：</p>
