@@ -1603,7 +1603,7 @@ mjx-container svg {
 <a class="nav-item" data-search="4. 标准快速使用流程" href="#quickstart">4. 标准快速流程</a>
 <a class="nav-item" data-search="5. 样品准确命名与测试标签" href="#sample_labels">5. 样品命名与标签</a>
 </div>
-<div class="nav-group"><div class="nav-group-title">6–17 光谱测试与物理理论</div>
+<div class="nav-group"><div class="nav-group-title">6–14 光谱测试模块</div>
 <a class="nav-item" data-search="6. PL 测试与分析" href="#pl">6. PL 测试与分析</a>
 <a class="nav-item" data-search="7. Raman 测试与分析" href="#raman">7. Raman 测试与分析</a>
 <a class="nav-item" data-search="8. 反射/反射差分光谱测试模块" href="#reflectance">8. 反射/反射差分</a>
@@ -1613,6 +1613,8 @@ mjx-container svg {
 <a class="nav-item" data-search="12. 磁场依赖与磁光分析" href="#magneto">12. 磁场与磁光</a>
 <a class="nav-item" data-search="13. 温度、功率与时间依赖" href="#temperature_power">13. 温度/功率/时间</a>
 <a class="nav-item" data-search="14. 空间 Mapping 与器件成像" href="#mapping">14. Mapping 与成像</a>
+</div>
+<div class="nav-group"><div class="nav-group-title">15–17 二维材料物理与速查</div>
 <a class="nav-item" data-search="15. 2D 材料激子物理基础" href="#exciton_physics">15. 2D 激子物理基础</a>
 <a class="nav-item" data-search="16. 磁光谱理论与 g 因子计算" href="#magneto_theory">16. 磁光谱理论与g因子</a>
 <a class="nav-item" data-search="17. 常用材料参数速查表" href="#parameter_tables">17. 常用材料参数速查</a>
@@ -3513,6 +3515,41 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
 </tbody>
 </table>
 </div>
+<p style="margin-top:16px;"><strong>常见 TMD 异质结层间激子 (Interlayer Excitons, ILE) 低温发光能量：</strong></p>
+<div style="overflow-x:auto;margin:12px 0;">
+<table style="border-collapse:collapse;width:100%;min-width:540px;font-size:12.5px;">
+<thead><tr style="background:#0f172a;color:#fff;">
+  <th style="padding:8px 12px;text-align:left;">异质结体系 (单层/单层)</th>
+  <th style="padding:8px 12px;text-align:center;">对齐类型</th>
+  <th style="padding:8px 12px;text-align:center;">ILE 发光能量 (eV)</th>
+  <th style="padding:8px 12px;text-align:center;">对应波长 (nm)</th>
+  <th style="padding:8px 12px;text-align:left;">激子物理特征与机制说明</th>
+</tr></thead>
+<tbody>
+  <tr style="border-bottom:1px solid var(--line);">
+    <td style="padding:7px 12px;font-weight:600;">MoSe₂ / WSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">Type-II 对齐</td>
+    <td style="padding:7px 12px;text-align:center;">1.30 - 1.40</td>
+    <td style="padding:7px 12px;text-align:center;">885 - 950</td>
+    <td style="padding:7px 12px;">空穴局域在 WSe₂，电子在 MoSe₂；复合寿命极长（达数十纳秒），PL 发光峰红移明显。</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);background:var(--paper2);">
+    <td style="padding:7px 12px;font-weight:600;">WS₂ / WSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">Type-II 对齐</td>
+    <td style="padding:7px 12px;text-align:center;">1.40 - 1.50</td>
+    <td style="padding:7px 12px;text-align:center;">825 - 885</td>
+    <td style="padding:7px 12px;">受到莫尔超晶格势阱 (Moiré potential) 的强局域化调制，表现出显著的功率饱和特征。</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);">
+    <td style="padding:7px 12px;font-weight:600;">MoS₂ / WSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">Type-II 对齐</td>
+    <td style="padding:7px 12px;text-align:center;">1.15 - 1.25</td>
+    <td style="padding:7px 12px;text-align:center;">990 - 1080</td>
+    <td style="padding:7px 12px;">能带带阶极大，层间电荷转移极快（< 100 fs），发射能量最低，PL 发光效率较弱。</td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 <h2 class="anchored-heading" id="params-17-2-raman">17.2 TMD 典型拉曼散射频率 <a class="heading-anchor" href="#params-17-2-raman" aria-label="Anchor">#</a></h2>
 <p>拉曼频移差是判别 TMD 二维纳米薄膜层数的最简易标准：</p>
@@ -3532,12 +3569,18 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
     <td style="padding:7px 12px;">两峰间距 Δν &le; 20 cm⁻¹ 为典型单层判据</td>
   </tr>
   <tr style="border-bottom:1px solid var(--line);background:var(--paper2);">
+    <td style="padding:7px 12px;font-weight:600;">MoSe₂</td>
+    <td style="padding:7px 12px;text-align:center;">~ 287 cm⁻¹</td>
+    <td style="padding:7px 12px;text-align:center;">~ 240 cm⁻¹</td>
+    <td style="padding:7px 12px;">单层中 A'_1 峰 (~240 cm⁻¹) 强度极高，而多层中活跃的 B_2g^1 峰 (~353 cm⁻¹) 在单层中完全消失。</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--line);">
     <td style="padding:7px 12px;font-weight:600;">WSe₂</td>
     <td style="padding:7px 12px;text-align:center;">~ 250 cm⁻¹</td>
     <td style="padding:7px 12px;text-align:center;">~ 260 cm⁻¹</td>
     <td style="padding:7px 12px;">面内与面外振动频率高度接近，单层常合并为一个共振峰</td>
   </tr>
-  <tr style="border-bottom:1px solid var(--line);">
+  <tr style="border-bottom:1px solid var(--line);background:var(--paper2);">
     <td style="padding:7px 12px;font-weight:600;">WS₂</td>
     <td style="padding:7px 12px;text-align:center;">~ 357 cm⁻¹</td>
     <td style="padding:7px 12px;text-align:center;">~ 420 cm⁻¹</td>
@@ -5229,6 +5272,7 @@ I++ 或完整四通道再次采集
 </div>
 <a class="back-top" href="#mainContent">返回顶部 ↑</a>
 </section>
+
 </div><footer class="footer">单文件离线手册 · 数学公式已预渲染为 SVG · 交互数据和笔记仅保存在当前浏览器</footer></main>
 <div class="floating-tools"><button onclick="scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button><button onclick="toggleTheme()" title="切换主题">◐</button></div><button aria-label="打开目录" class="mobile-toggle" onclick="toggleSidebar()">☰</button><div class="toast" id="toast"></div><script>
 const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
