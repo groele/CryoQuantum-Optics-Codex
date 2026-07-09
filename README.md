@@ -1,6 +1,6 @@
 # CryoQuantum-Optics-Codex (低温量子光学测试系统手册)
 
-> **Version: 1.1**
+> **Version: 1.6**
 > 
 > A comprehensive, self-contained offline user manual and interactive data analysis system for low-temperature micro-spectroscopy (PL, Raman, and Reflectance) with multi-field coupling (cryostat temperature, high magnetic field, and gate/bias voltages) and polarization resolution.
 
@@ -10,15 +10,16 @@
 
 This manual is compiled into a single, fully offline, interactive HTML document:
 
-### 1. Reorganized Modular Chapters (1–28)
+### 1. Reorganized Modular Chapters (1–31)
 - **Tier 1: Overview & Preparation (Ch 1–5)**: Standard coordinates, optical polarizations, checklist, and sample naming conventions.
 - **Tier 2: Spectroscopy Testing Modules (Ch 6–14)**: Photoluminescence (PL), Raman, Reflectance, linear/circular polarization resolves, electrical coupling (gate scan, Stark shifts, ferroelectric loops), magneto-optics (Valley Zeeman splits, Faraday configuration), temperature/power/time dependencies, and spatial mapping.
 - **Tier 3: Data Analysis & Calibration (Ch 15–20)**: Processing pipelines, polarization calibration (Mueller/Stokes matrices), statistical uncertainties, and templates.
-- **Tier 4: Outputs, Safety & Quality Gates (Ch 21–28)**: Academic reporting, scientific plotting standards, multi-panel layouts alignment, laser safety, checklists, device acceptance, and data quality scores.
+- **Tier 4: Outputs, Safety & Quality Gates (Ch 21–27)**: Academic reporting, laser safety, checklists, device acceptance, and data quality scores.
+- **Tier 5: Scientific Plotting & Panel Layouts (Ch 28–31)**: Basic plotting standards, font hierarchies, mathematical symbols formatting, color accessibility, and multi-panel grid alignment.
 
 ### 2. Interactive Analytical Toolbox
-- **g-Factor Fitting**: Dynamic linear regression on Zeeman splitting $\Delta E(B) = g_{\text{eff}} \mu_B B + \Delta E_0$, outputting standard error and 95% confidence intervals.
-- **Linear Polarization Fit & Polar Plots**: Peanut-shaped/dipole emission profile rendering in a high-tech polar coordinate system. Supports three independent angle sweeps (0-360°, 180-540°, 360-720°).
+- **g-Factor Fitting**: Dynamic linear regression on Valley Zeeman splitting $\Delta E(B) = g_{\text{eff}} \mu_B B + \Delta E_0$, outputting standard error and 95% confidence intervals with full physical formula displays.
+- **Linear Polarization Fit & Polar Plots**: Peanut-shaped/dipole emission profile rendering in a high-tech polar coordinate system. Supports three independent angle sweeps (0-360°, 180-540°, 360-720°) with direct intensity Y-value extraction.
 - **Four-Channel Circular Polarization**: Corrects circular intensities, subtracts substrate backgrounds, and executes Monte Carlo simulations for valley polarization (DOCP) uncertainties.
 - **Power Law Fit**: Exponent $\alpha$ fitting with statistical significance reporting.
 - **Filename Generator**: Generates standardized file names matching Chapter 5 guidelines with conditional input layouts.
