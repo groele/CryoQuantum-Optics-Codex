@@ -1391,9 +1391,16 @@ p code, li code {
 
 .tool-panel {
   display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tool-panel.active {
   display: block;
+}
+.tool-panel.active.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .tool-grid {
@@ -2146,7 +2153,7 @@ mjx-container svg {
 </style></head><body id="top"><a class="skip-link" href="#mainContent">跳到正文</a><div class="progress"><span id="progressBar"></span></div>
 <aside aria-label="章节导航" class="sidebar">
 <div class="brand">低温量子光学测试系统手册</div>
-<div class="version">V2.8 增强版 · 2026-07-10</div>
+<div class="version">V2.9 增强版 · 2026-07-10</div>
 <div class="math-status"><span class="status-dot ready" id="mathStatusDot"></span><span id="mathStatusText">公式已静态渲染（离线）</span></div>
 <div class="search-wrap"><input class="search" id="searchBox" placeholder="搜索章节、物理量或公式…"/><button aria-label="清空搜索" class="clear-search" onclick="clearSearch()">×</button></div>
 <div class="search-count" id="searchCount">输入关键词筛选全部章节</div>
@@ -2213,7 +2220,7 @@ mjx-container svg {
 <button onclick="resetLocal()">重置状态</button>
 </div>
 </aside>
-<main class="main" id="mainContent"><header class="hero"><div class="hero-inner"><span class="badge">V2.8 · 公式离线渲染 · 本地交互分析</span><h1>低温量子光学测试系统 系统完整使用与数据分析手册</h1><p>面向二维材料、范德华异质结、磁性/铁电体系和手性界面，从设备验收到四通道圆偏振分析、磁电耦合、误差传播、数据质量门槛与论文级表达的完整实验规范。</p><div class="hero-actions"><a class="primary" href="#workflow">开始阅读</a><a href="#toolbox">打开分析工具</a><button onclick="window.print()">打印或另存 PDF</button></div></div></header><div class="hero-cards-wrap"><section class="hero-cards">
+<main class="main" id="mainContent"><header class="hero"><div class="hero-inner"><span class="badge">V2.9 · 公式离线渲染 · 本地交互分析</span><h1>低温量子光学测试系统 系统完整使用与数据分析手册</h1><p>面向二维材料、范德华异质结、磁性/铁电体系和手性界面，从设备验收到四通道圆偏振分析、磁电耦合、误差传播、数据质量门槛与论文级表达的完整实验规范。</p><div class="hero-actions"><a class="primary" href="#workflow">开始阅读</a><a href="#toolbox">打开分析工具</a><button onclick="window.print()">打印或另存 PDF</button></div></div></header><div class="hero-cards-wrap"><section class="hero-cards">
 <div class="hero-card"><span>激发源</span><strong>532 nm</strong><small>约 2.33 eV</small></div>
 <div class="hero-card"><span>低温能力</span><strong>≈1.65–2 K</strong><small>记录样品实际温度</small></div>
 <div class="hero-card"><span>磁场能力</span><strong>±9 T</strong><small>正负场与奇偶分解</small></div>
@@ -2270,7 +2277,7 @@ mjx-container svg {
 <button class="tool-tab" data-panel="naming">命名规范</button>
 <button class="tool-tab" data-panel="time-estimate">采集时间估算</button>
 </div>
-<div class="tool-panel active" id="panel-wizard"><div class="tool-grid">
+<div class="tool-panel active show" id="panel-wizard"><div class="tool-grid">
 <div class="tool-card"><h3>选择研究任务</h3><div class="field-grid">
 <label>主要测量<select id="wizType"><option value="circular">圆偏振 PL（四通道）</option><option value="linear">线偏振 PL/Raman</option><option value="gate">电压依赖 PL</option><option value="magnet">磁场依赖 PL</option><option value="ferro">铁电零偏读取</option><option value="raman">Raman 张量/声子</option><option value="mapping">空间 Mapping</option></select></label>
 <label>样品体系<select id="wizSample"><option>TMD 单层</option><option>范德华异质结</option><option>磁性二维材料/TMD</option><option>铁电/TMD</option><option>手性分子/TMD</option><option>低对称材料</option></select></label>
@@ -6956,12 +6963,36 @@ const observer=new IntersectionObserver(es=>es.forEach(e=>{
 
 $$('.manual-section').forEach(s=>observer.observe(s));
 
-$$('.tool-tab').forEach(b=>b.addEventListener('click',()=>{
-  $$('.tool-tab').forEach(x=>x.classList.remove('active'));
-  $$('.tool-panel').forEach(x=>x.classList.remove('active'));
+// Pre-cache tabs and panels map to optimize DOM queries and performance
+const toolTabs = $$('.tool-tab');
+const toolPanelsMap = {};
+$$('.tool-panel').forEach(p => {
+  toolPanelsMap[p.id] = p;
+});
+
+toolTabs.forEach(b => b.addEventListener('click', () => {
+  const panelId = 'panel-' + b.dataset.panel;
+  const targetPanel = toolPanelsMap[panelId];
+  
+  if (b.classList.contains('active')) return;
+  
+  toolTabs.forEach(x => x.classList.remove('active'));
+  Object.values(toolPanelsMap).forEach(x => {
+    x.classList.remove('show');
+    x.classList.remove('active');
+  });
+  
   b.classList.add('active');
-  $('#panel-'+b.dataset.panel).classList.add('active');
-  if(window.MathJax?.typesetPromise) MathJax.typesetPromise([$('#panel-'+b.dataset.panel)]);
+  if (targetPanel) {
+    targetPanel.classList.add('active');
+    // Force reflow to ensure display: block is processed by browser before animating opacity
+    void targetPanel.offsetWidth;
+    targetPanel.classList.add('show');
+    
+    if (window.MathJax?.typesetPromise) {
+      MathJax.typesetPromise([targetPanel]);
+    }
+  }
 }));
 
 $('#searchBox').addEventListener('input', debounce(runSearch, 150));
