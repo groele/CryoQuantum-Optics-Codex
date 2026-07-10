@@ -2153,7 +2153,7 @@ mjx-container svg {
 </style></head><body id="top"><a class="skip-link" href="#mainContent">跳到正文</a><div class="progress"><span id="progressBar"></span></div>
 <aside aria-label="章节导航" class="sidebar">
 <div class="brand">低温量子光学测试系统手册</div>
-<div class="version">V2.9 增强版 · 2026-07-10</div>
+<div class="version">V3.0 增强版 · 2026-07-10</div>
 <div class="math-status"><span class="status-dot ready" id="mathStatusDot"></span><span id="mathStatusText">公式已静态渲染（离线）</span></div>
 <div class="search-wrap"><input class="search" id="searchBox" placeholder="搜索章节、物理量或公式…"/><button aria-label="清空搜索" class="clear-search" onclick="clearSearch()">×</button></div>
 <div class="search-count" id="searchCount">输入关键词筛选全部章节</div>
@@ -2220,7 +2220,7 @@ mjx-container svg {
 <button onclick="resetLocal()">重置状态</button>
 </div>
 </aside>
-<main class="main" id="mainContent"><header class="hero"><div class="hero-inner"><span class="badge">V2.9 · 公式离线渲染 · 本地交互分析</span><h1>低温量子光学测试系统 系统完整使用与数据分析手册</h1><p>面向二维材料、范德华异质结、磁性/铁电体系和手性界面，从设备验收到四通道圆偏振分析、磁电耦合、误差传播、数据质量门槛与论文级表达的完整实验规范。</p><div class="hero-actions"><a class="primary" href="#workflow">开始阅读</a><a href="#toolbox">打开分析工具</a><button onclick="window.print()">打印或另存 PDF</button></div></div></header><div class="hero-cards-wrap"><section class="hero-cards">
+<main class="main" id="mainContent"><header class="hero"><div class="hero-inner"><span class="badge">V3.0 · 公式离线渲染 · 本地交互分析</span><h1>低温量子光学测试系统 系统完整使用与数据分析手册</h1><p>面向二维材料、范德华异质结、磁性/铁电体系和手性界面，从设备验收到四通道圆偏振分析、磁电耦合、误差传播、数据质量门槛与论文级表达的完整实验规范。</p><div class="hero-actions"><a class="primary" href="#workflow">开始阅读</a><a href="#toolbox">打开分析工具</a><button onclick="window.print()">打印或另存 PDF</button></div></div></header><div class="hero-cards-wrap"><section class="hero-cards">
 <div class="hero-card"><span>激发源</span><strong>532 nm</strong><small>约 2.33 eV</small></div>
 <div class="hero-card"><span>低温能力</span><strong>≈1.65–2 K</strong><small>记录样品实际温度</small></div>
 <div class="hero-card"><span>磁场能力</span><strong>±9 T</strong><small>正负场与奇偶分解</small></div>
@@ -3020,6 +3020,54 @@ mjx-container svg {
 <div><strong>常见风险</strong>局域加热、光漂白、焦点漂移、CCD 饱和、背景扣除过强和拟合窗口改变都会伪造物理趋势。</div>
 </div>
 </div>
+
+<div class="pl-generation-diagram" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;">
+  <svg viewBox="0 0 600 350" width="100%" height="auto" style="max-width: 500px; display: block; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif;">
+    <defs>
+      <marker id="pl-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--text)" />
+      </marker>
+      <marker id="pl-arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#5cb85c" />
+      </marker>
+      <marker id="pl-arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d9534f" />
+      </marker>
+    </defs>
+    <path d="M 60 300 L 60 50" stroke="var(--text)" stroke-width="2" marker-end="url(#pl-arrow)" />
+    <text x="35" y="60" fill="var(--text)" font-weight="bold" font-size="14" transform="rotate(-90 35 60)">能量 (Energy)</text>
+    <line x1="120" y1="280" x2="480" y2="280" stroke="var(--text)" stroke-width="3" />
+    <text x="495" y="285" fill="var(--text)" font-weight="bold" font-size="13">价带 (Valence Band, VB)</text>
+    <line x1="120" y1="100" x2="480" y2="100" stroke="var(--text)" stroke-width="3" />
+    <text x="495" y="105" fill="var(--text)" font-weight="bold" font-size="13">导带 (Conduction Band, CB)</text>
+    <path d="M 180 280 L 180 70" stroke="#5cb85c" stroke-width="3" marker-end="url(#pl-arrow-green)" stroke-dasharray="2 2" />
+    <circle cx="180" cy="280" r="6" fill="#d9534f" />
+    <path d="M 120 200 C 130 180, 140 180, 150 200 C 160 220, 170 220, 180 200" fill="none" stroke="#5cb85c" stroke-width="2" />
+    <text x="100" y="165" fill="#5cb85c" font-weight="bold" font-size="13">① 激光激发</text>
+    <text x="100" y="182" fill="#5cb85c" font-size="11">hν_ex &gt; E_g</text>
+    <path d="M 180 70 L 270 100" stroke="var(--text)" stroke-width="2" marker-end="url(#pl-arrow)" />
+    <path d="M 215 72 Q 225 80 235 88" fill="none" stroke="var(--ink-light)" stroke-width="1.5" />
+    <text x="210" y="60" fill="var(--ink-light)" font-size="11">② 声子非辐射弛豫</text>
+    <circle cx="270" cy="100" r="7" fill="#0066cc" />
+    <text x="266" y="104" fill="#fff" font-size="10" font-weight="bold">-</text>
+    <text x="260" y="85" fill="#0066cc" font-weight="bold" font-size="12">电子 (e⁻)</text>
+    <circle cx="270" cy="280" r="7" fill="#d9534f" />
+    <text x="266" y="284" fill="#fff" font-size="10" font-weight="bold">+</text>
+    <text x="260" y="302" fill="#d9534f" font-weight="bold" font-size="12">空穴 (h⁺)</text>
+    <path d="M 270 107 L 270 273" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="3 3" />
+    <text x="280" y="195" fill="#ff8c00" font-weight="bold" font-size="11">库仑相互作用 (激子态)</text>
+    <path d="M 380 100 L 380 280" stroke="#d9534f" stroke-width="3" marker-end="url(#pl-arrow-red)" />
+    <circle cx="380" cy="100" r="5" fill="#0066cc" opacity="0.7" />
+    <circle cx="380" cy="280" r="5" fill="#d9534f" opacity="0.7" />
+    <path d="M 380 190 C 390 170, 400 170, 410 190 C 420 210, 430 210, 440 190" fill="none" stroke="#d9534f" stroke-width="2" />
+    <path d="M 440 190 L 450 190" stroke="#d9534f" stroke-width="2" marker-end="url(#pl-arrow-red)" />
+    <text x="410" y="160" fill="#d9534f" font-weight="bold" font-size="13">③ 辐射复合发光 (PL)</text>
+    <text x="410" y="177" fill="#d9534f" font-size="11">hν_em = E_g - E_b</text>
+  </svg>
+  <div style="font-size: 13px; color: var(--ink-light); margin-top: 10px;" class="figure-caption">
+    图 6.1: 光致发光 (PL) 的微观物理过程（激光激发 → 载流子超快热弛豫与激子形成 → 辐射复合发射光子）
+  </div>
+</div>
 <h2 class="anchored-heading" id="pl-6-1-pl-原始数据">6.1 PL 原始数据<a aria-label="复制本节链接" class="heading-anchor" href="#pl-6-1-pl-原始数据">§</a></h2>
 <p>PL 原始数据的核心是二维数组：横轴为波长或光子能量，纵轴为计数强度。原始谱本身还不是“物理结论”，它只是记录了在特定激发、收集、温度、电场和偏振条件下的发光响应。只有把原始谱和完整元数据绑定，峰位移动、强度变化、线宽变宽、峰面积转移等现象才可用于物理解释。</p>
 <div style="overflow-x:auto;margin:12px 0;">
@@ -3166,6 +3214,54 @@ I_{\mathrm{PL}}(E)"><div class="equation-content"><mjx-container class="MathJax"
 <div><strong>常见风险</strong>荧光背景、激光加热、滤光片截止、低频 Rayleigh 漏光和光谱仪零点漂移都会改变峰形判断。</div>
 </div>
 </div>
+
+<div class="raman-test-diagram" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;">
+  <svg viewBox="0 0 600 350" width="100%" height="auto" style="max-width: 500px; display: block; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif;">
+    <defs>
+      <marker id="raman-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--text)" />
+      </marker>
+      <marker id="raman-arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#5cb85c" />
+      </marker>
+      <marker id="raman-arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ff8c00" />
+      </marker>
+      <marker id="raman-arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0066cc" />
+      </marker>
+    </defs>
+    <line x1="80" y1="80" x2="520" y2="80" stroke="var(--text)" stroke-width="2" stroke-dasharray="6 4" />
+    <text x="300" y="65" text-anchor="middle" fill="var(--ink-light)" font-weight="bold" font-size="13">虚能态 (Virtual State)</text>
+    <line x1="80" y1="240" x2="520" y2="240" stroke="var(--text)" stroke-width="1.5" />
+    <text x="530" y="244" fill="var(--text)" font-size="12">v = 1 (振动激发态)</text>
+    <line x1="80" y1="280" x2="520" y2="280" stroke="var(--text)" stroke-width="2" />
+    <text x="530" y="284" fill="var(--text)" font-size="12" font-weight="bold">v = 0 (基态)</text>
+    <path d="M 500 240 L 500 280" stroke="var(--text)" stroke-width="1" marker-end="url(#raman-arrow)" marker-start="url(#raman-arrow)" />
+    <text x="445" y="265" fill="var(--text)" font-size="11">ΔE = hν_phonon</text>
+    <path d="M 150 280 L 150 80" stroke="#5cb85c" stroke-width="2.5" marker-end="url(#raman-arrow-green)" />
+    <text x="138" y="180" fill="#5cb85c" font-size="11" font-weight="bold" transform="rotate(-90 138 180)">激发光 hν_L</text>
+    <path d="M 175 80 L 175 240" stroke="#ff8c00" stroke-width="2.5" marker-end="url(#raman-arrow-orange)" />
+    <text x="187" y="160" fill="#ff8c00" font-size="11" font-weight="bold" transform="rotate(90 187 160)">Stokes 散射 h(ν_L - ν_p)</text>
+    <text x="162" y="315" text-anchor="middle" fill="var(--text)" font-weight="bold" font-size="14">Stokes 散射</text>
+    <text x="162" y="332" text-anchor="middle" fill="var(--ink-light)" font-size="12">产生声子 (红移)</text>
+    <path d="M 300 280 L 300 80" stroke="#5cb85c" stroke-width="2.5" marker-end="url(#raman-arrow-green)" />
+    <path d="M 320 80 L 320 280" stroke="#5cb85c" stroke-width="2.5" marker-end="url(#raman-arrow-green)" />
+    <text x="332" y="180" fill="#5cb85c" font-size="11" font-weight="bold" transform="rotate(90 332 180)">Rayleigh 散射 hν_L</text>
+    <text x="310" y="315" text-anchor="middle" fill="var(--text)" font-weight="bold" font-size="14">瑞利 (Rayleigh) 散射</text>
+    <text x="310" y="332" text-anchor="middle" fill="var(--ink-light)" font-size="12">双向弹性散射 (无位移)</text>
+    <path d="M 430 240 L 430 80" stroke="#5cb85c" stroke-width="2.5" marker-end="url(#raman-arrow-green)" />
+    <text x="418" y="160" fill="#5cb85c" font-size="11" font-weight="bold" transform="rotate(-90 418 160)">激发光 hν_L</text>
+    <path d="M 455 80 L 455 280" stroke="#0066cc" stroke-width="2.5" marker-end="url(#raman-arrow-blue)" />
+    <text x="467" y="180" fill="#0066cc" font-size="11" font-weight="bold" transform="rotate(90 467 180)">Anti-Stokes h(ν_L + ν_p)</text>
+    <text x="442" y="315" text-anchor="middle" fill="var(--text)" font-weight="bold" font-size="14">Anti-Stokes 散射</text>
+    <text x="442" y="332" text-anchor="middle" fill="var(--ink-light)" font-size="12">吸收声子 (蓝移)</text>
+  </svg>
+  <div style="font-size: 13px; color: var(--ink-light); margin-top: 10px;" class="figure-caption">
+    图 7.1: Raman 散射能级与弹性/非弹性散射模式（Stokes、Rayleigh 与 Anti-Stokes 散射）示意图
+  </div>
+</div>
+
 <div style="overflow-x:auto;margin:12px 0;">
 <table class="method-setting-table">
 <thead><tr><th>设置项</th><th>常用选择</th><th>适用场景</th><th>记录要求</th></tr></thead>
@@ -4253,6 +4349,72 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
 
 <h2 class="anchored-heading" id="exciton-15-2-rules">15.2 光学选择定则与偏振耦合 <a class="heading-anchor" href="#exciton-15-2-rules" aria-label="Anchor">#</a></h2>
 <p>在 <i>K</i> 和 <i>K'</i> 能谷中，带间跃迁遵循特定的谷选择定则：</p>
+
+<div class="exciton-valley-diagram" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;">
+  <svg viewBox="0 0 700 350" width="100%" height="auto" style="max-width: 600px; display: block; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif;">
+    <defs>
+      <marker id="exciton-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--text)" />
+      </marker>
+      <marker id="exciton-arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0066cc" />
+      </marker>
+      <marker id="exciton-arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d9534f" />
+      </marker>
+    </defs>
+    <line x1="50" y1="300" x2="650" y2="300" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4" />
+    <line x1="350" y1="50" x2="350" y2="300" stroke="var(--line)" stroke-width="1" stroke-dasharray="6 6" />
+    <g transform="translate(180, 0)">
+      <text x="0" y="325" text-anchor="middle" font-weight="bold" fill="var(--text)" font-size="16">K 谷 (K Valley)</text>
+      <text x="0" y="342" text-anchor="middle" fill="var(--ink-light)" font-size="12">遵循 σ⁺ 光学选择定则</text>
+      <path d="M -100 80 Q 0 130 100 80" fill="none" stroke="#0066cc" stroke-width="3" />
+      <text x="75" y="70" fill="#0066cc" font-weight="bold" font-size="13">CB</text>
+      <path d="M -100 240 Q 0 190 100 240" fill="none" stroke="#0066cc" stroke-width="3" />
+      <text x="75" y="250" fill="#0066cc" font-weight="bold" font-size="13">VB</text>
+      <path d="M -100 270 Q 0 220 100 270" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="2 2" />
+      <circle cx="0" cy="202" r="7" fill="#d9534f" />
+      <text x="-4" y="206" fill="#fff" font-size="11" font-weight="bold">+</text>
+      <path d="M -25 202 L -25 182" stroke="#d9534f" stroke-width="2" marker-end="url(#exciton-arrow-red)" />
+      <text x="-38" y="194" fill="#d9534f" font-size="12" font-weight="bold">↑</text>
+      <circle cx="0" cy="118" r="7" fill="#5cb85c" />
+      <text x="-4" y="122" fill="#fff" font-size="11" font-weight="bold">-</text>
+      <path d="M 25 118 L 25 138" stroke="#5cb85c" stroke-width="2" marker-end="url(#exciton-arrow)" />
+      <text x="35" y="132" fill="#5cb85c" font-size="12" font-weight="bold">↓</text>
+      <path d="M 0 190 L 0 140" stroke="#ff8c00" stroke-width="3" marker-end="url(#exciton-arrow)" stroke-dasharray="4 2" />
+      <path d="M -60 160 C -50 140, -30 140, -20 160 C -10 180, 10 180, 20 160" fill="none" stroke="#ff8c00" stroke-width="2" />
+      <text x="-50" y="135" fill="#ff8c00" font-weight="bold" font-size="14">σ⁺ 激发</text>
+      <path d="M -50 148 A 8 8 0 1 1 -35 158" fill="none" stroke="#ff8c00" stroke-width="2" marker-end="url(#exciton-arrow)" />
+    </g>
+    <g transform="translate(520, 0)">
+      <text x="0" y="325" text-anchor="middle" font-weight="bold" fill="var(--text)" font-size="16">-K (K') 谷</text>
+      <text x="0" y="342" text-anchor="middle" fill="var(--ink-light)" font-size="12">遵循 σ⁻ 光学选择定则</text>
+      <path d="M -100 80 Q 0 130 100 80" fill="none" stroke="#d9534f" stroke-width="3" />
+      <text x="75" y="70" fill="#d9534f" font-weight="bold" font-size="13">CB</text>
+      <path d="M -100 240 Q 0 190 100 240" fill="none" stroke="#d9534f" stroke-width="3" />
+      <text x="75" y="250" fill="#d9534f" font-weight="bold" font-size="13">VB</text>
+      <path d="M -100 270 Q 0 220 100 270" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="2 2" />
+      <circle cx="0" cy="202" r="7" fill="#d9534f" />
+      <text x="-4" y="206" fill="#fff" font-size="11" font-weight="bold">+</text>
+      <path d="M -25 202 L -25 222" stroke="#d9534f" stroke-width="2" marker-end="url(#exciton-arrow-red)" />
+      <text x="-38" y="218" fill="#d9534f" font-size="12" font-weight="bold">↓</text>
+      <circle cx="0" cy="118" r="7" fill="#5cb85c" />
+      <text x="-4" y="122" fill="#fff" font-size="11" font-weight="bold">-</text>
+      <path d="M 25 118 L 25 98" stroke="#5cb85c" stroke-width="2" marker-end="url(#exciton-arrow)" />
+      <text x="35" y="106" fill="#5cb85c" font-size="12" font-weight="bold">↑</text>
+      <path d="M 0 190 L 0 140" stroke="#9932cc" stroke-width="3" marker-end="url(#exciton-arrow)" stroke-dasharray="4 2" />
+      <path d="M -60 160 C -50 140, -30 140, -20 160 C -10 180, 10 180, 20 160" fill="none" stroke="#9932cc" stroke-width="2" />
+      <text x="-50" y="135" fill="#9932cc" font-weight="bold" font-size="14">σ⁻ 激发</text>
+      <path d="M -35 158 A 8 8 0 1 0 -50 148" fill="none" stroke="#9932cc" stroke-width="2" marker-end="url(#exciton-arrow)" />
+    </g>
+    <text x="350" y="160" text-anchor="middle" fill="var(--text)" font-weight="bold" font-size="13">自旋-谷锁定 (Spin-Valley Locking)</text>
+    <path d="M 290 170 L 410 170" stroke="var(--text)" stroke-width="1" marker-end="url(#exciton-arrow)" marker-start="url(#exciton-arrow)" />
+  </svg>
+  <div style="font-size: 13px; color: var(--ink-light); margin-top: 10px;" class="figure-caption">
+    图 15.1: 二维 TMDs 材料中的自旋-谷锁定与圆偏振选择定则示意图（σ⁺ 选择性激发 K 谷电子，σ⁻ 选择性激发 -K 谷电子）
+  </div>
+</div>
+
 <ul>
   <li><strong>右旋圆偏振光 (σ⁺)</strong>：仅选择性激发 <i>K</i> 谷的带间跃迁，选择定则要求轨道角动量变化 Δ<i>m</i> = +1。</li>
   <li><strong>左旋圆偏振光 (σ⁻)</strong>：仅选择性激发 <i>K'</i> 谷的带间跃迁，选择定则要求轨道角动量变化 Δ<i>m</i> = −1。</li>
