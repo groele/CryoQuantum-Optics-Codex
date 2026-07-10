@@ -63,12 +63,65 @@ def main() -> None:
         'class="figure-compare-grid"',
         'class="figure-panel bad"',
         'class="figure-panel good"',
+        'id="plot-example-ineffective"',
+        'id="plot-example-effective"',
+        'class="figure-data-summary"',
+        'class="figure-caption"',
+        'class="figure-audit-table"',
+        'data-plot-role="data-with-uncertainty"',
+        'data-plot-role="residuals"',
+        '残差 (data − fit)/σ',
+        '示意数据，不代表实测结果',
         'id="plot_basic-31-2-formula-expression"',
         'class="equation equation-standard"',
     ]
     missing_plot_markers = [marker for marker in required_plot_markers if marker not in html]
     if missing_plot_markers:
         fail("chapter 31 comparison/formula markers missing: " + ", ".join(missing_plot_markers))
+
+    required_zeeman_explanation_markers = [
+        'class="zeeman-intuition"',
+        'aria-label="Zeeman 分裂物理图像"',
+        "磁矩与磁场耦合",
+        "示意图，不代表实测数据",
+        'class="zeeman-sign-note"',
+        'class="zeeman-example"',
+        "−0.230 meV/T",
+        "≈ −3.97",
+        'class="zeeman-extraction-steps"',
+        'class="zeeman-special-case"',
+        "强度差不是 Zeeman 能量分裂",
+        'href="#magneto-16-1-zeeman"',
+    ]
+    missing_zeeman_explanation_markers = [
+        marker for marker in required_zeeman_explanation_markers if marker not in html
+    ]
+    if missing_zeeman_explanation_markers:
+        fail(
+            "chapter 12.2 Zeeman explanation markers missing: "
+            + ", ".join(repr(marker) for marker in missing_zeeman_explanation_markers)
+        )
+
+    required_explanation_markers = [
+        'class="concept-diagram"',
+        'class="theory-note"',
+        'id="plot_fonts-32-1-字体与符号总则"',
+        'id="plot_colors-33-1-配色与可达性总则"',
+        'id="plot_panels-34-1-多面板逻辑总则"',
+        "多维参数空间不是数学乘法",
+        "Mapping 数据立方体",
+        "谷选择定则示意",
+        "g 因子拟合示意",
+        "从原始谱到论文图",
+    ]
+    missing_explanation_markers = [
+        marker for marker in required_explanation_markers if marker not in html
+    ]
+    if missing_explanation_markers:
+        fail(
+            "global theory/visual explanation markers missing: "
+            + ", ".join(repr(marker) for marker in missing_explanation_markers)
+        )
 
     formula_blocks = re.findall(r'<div class="equation(?: [^"]*)?"[^>]*>', html)
     formula_contents = re.findall(r'<div class="equation-content"', html)
