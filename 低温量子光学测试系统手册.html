@@ -2106,6 +2106,8 @@ mjx-container svg {
       <option value="MagnetDep">磁场依赖 PL</option>
       <option value="CircularPol">圆偏振 (Circular Pol)</option>
       <option value="Helicity">四通道 helicity</option>
+      <option value="LinearPolPL">线偏振 PL (LP PL)</option>
+      <option value="LinearPolRaman">线偏振 Raman (LP Raman)</option>
     </select>
   </div>
   
@@ -2584,6 +2586,20 @@ mjx-container svg {
 <td>材料、层数、区域号</td>
 <td>角度、温度、电压或位置</td>
 <td>光栅建议写入标签；PL=150 g/mm，Raman=1800 g/mm</td>
+</tr>
+<tr>
+<td>线偏振 PL</td>
+<td><span class="field-name">LP_PL_1L_MoS2_R03_0_1.65K.csv</span></td>
+<td>材料、层数、修饰、区域号</td>
+<td>LP + 偏振角 + T</td>
+<td>线偏振标准关键词为 LP；角度建议写入标签</td>
+</tr>
+<tr>
+<td>线偏振 Raman</td>
+<td><span class="field-name">LP_Raman_1L_MoS2_R03_1800g_0_1.65K.csv</span></td>
+<td>材料、层数、区域号</td>
+<td>LP + 光栅 + 偏振角 + T</td>
+<td>线偏振标准关键词为 LP；光栅和角度建议写入标签</td>
 </tr>
 <tr>
 <td>反射/反射差分</td>
@@ -6095,12 +6111,56 @@ function updateFilenameForm() {
     if (el) el.style.display = show ? 'block' : 'none';
   };
   
-  showField('#lbl_fnGrating', type === 'Raman');
-  showField('#lbl_fnPol', type === 'CircularPol' || type === 'Helicity');
+  showField('#lbl_fnGrating', type === 'Raman' || type === 'LinearPolRaman');
+  showField('#lbl_fnPol', type === 'CircularPol' || type === 'Helicity' || type === 'LinearPolPL' || type === 'LinearPolRaman');
   showField('#lbl_fnP', type === 'PowerDep');
   showField('#lbl_fnV', type === 'GateDep');
   showField('#lbl_fnB', type === 'MagnetDep' || type === 'CircularPol' || type === 'Helicity');
-  showField('#lbl_fnT', type === 'PL' || type === 'Raman' || type === 'TempDep' || type === 'Helicity');
+  showField('#lbl_fnT', type === 'PL' || type === 'Raman' || type === 'TempDep' || type === 'Helicity' || type === 'LinearPolPL' || type === 'LinearPolRaman');
+  
+  // Update polarization options dynamically
+  const polSelect = $('#fnPol');
+  if (polSelect) {
+    const currentVal = polSelect.value;
+    polSelect.innerHTML = '';
+    if (type === 'LinearPolPL' || type === 'LinearPolRaman') {
+      const options = [
+        { val: '0', text: '0° (Parallel)' },
+        { val: '45', text: '45°' },
+        { val: '90', text: '90° (Perpendicular)' },
+        { val: '135', text: '135°' }
+      ];
+      options.forEach(opt => {
+        const o = document.createElement('option');
+        o.value = opt.val;
+        o.textContent = opt.text;
+        polSelect.appendChild(o);
+      });
+      if (['0', '45', '90', '135'].includes(currentVal)) {
+        polSelect.value = currentVal;
+      } else {
+        polSelect.value = '0';
+      }
+    } else {
+      const options = [
+        { val: '45_0', text: '45_0 (I++)' },
+        { val: '45_90', text: '45_90 (I+-)' },
+        { val: '-45_0', text: '-45_0 (I-+)' },
+        { val: '-45_90', text: '-45_90 (I--)' }
+      ];
+      options.forEach(opt => {
+        const o = document.createElement('option');
+        o.value = opt.val;
+        o.textContent = opt.text;
+        polSelect.appendChild(o);
+      });
+      if (['45_0', '45_90', '-45_0', '-45_90'].includes(currentVal)) {
+        polSelect.value = currentVal;
+      } else {
+        polSelect.value = '45_0';
+      }
+    }
+  }
   
   // Show/hide section wrap depending on if any of the conditional fields are visible
   const condIds = ['#lbl_fnGrating', '#lbl_fnPol', '#lbl_fnP', '#lbl_fnV', '#lbl_fnB', '#lbl_fnT'];
@@ -6114,7 +6174,7 @@ function updateFilenameForm() {
 
 function makeFilename() {
   const clean = x => {
-    let s = String(x).trim().replace(/\s+/g, '').replace(/\./g, 'p');
+    let s = String(x).trim().replace(/\s+/g, '');
     return s;
   };
   
@@ -6152,6 +6212,10 @@ function makeFilename() {
     name = `PL_${sampleLabel}_${pol}_${b}T.csv`;
   } else if (type === 'Helicity') {
     name = `Helicity_${sampleLabel}_${pol}_${b}T_${t}K.csv`;
+  } else if (type === 'LinearPolPL') {
+    name = `LP_PL_${sampleLabel}_${pol}_${t}K.csv`;
+  } else if (type === 'LinearPolRaman') {
+    name = `LP_Raman_${sampleLabel}_${grating}_${pol}_${t}K.csv`;
   }
   
   $('#filenameOut').textContent = name;
