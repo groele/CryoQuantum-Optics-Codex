@@ -1497,6 +1497,211 @@ html[data-theme="dark"] .notice {
   border-color: rgba(254, 240, 138, 0.2);
 }
 
+.temperature-definition {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.08), transparent 72%);
+}
+.temperature-definition h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+.temperature-definition p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+.filename-generator-input,
+.filename-generator-output { grid-row: 1; }
+.filename-generator-input { grid-column: 1; }
+.filename-generator-output {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+}
+.filename-generator-intro { margin: -4px 0 16px; color: var(--muted); font-size: 12.5px; }
+.filename-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.filename-field-grid .filename-type-field { grid-column: 1 / -1; }
+.filename-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 132px;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid rgba(var(--accent-rgb), 0.28);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.11), rgba(var(--accent-rgb), 0.035));
+}
+.filename-preview span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.filename-preview code {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+.filename-conditions {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.filename-conditions-title {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.filename-actions { display: flex; gap: 8px; margin-top: 14px; }
+.filename-actions .primary-btn { flex: 1; }
+.filename-logic {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.filename-logic h4 { margin: 0 0 10px; font-size: 13px; }
+.filename-token-flow { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+.filename-token-flow span {
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 650;
+}
+.filename-token-flow b { color: var(--muted); font-weight: 600; }
+.filename-output-note { margin: auto 0 0; padding-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.wizard-reference-section {
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.wizard-reference-section > h2 { margin: 2px 0 8px; }
+.wizard-reference-section > p { margin: 0 0 18px; color: var(--muted); }
+.spectral-unit-card > p,
+.raman-convert-card > p { margin: -4px 0 16px; color: var(--muted); font-size: 13px; }
+.spectral-sync-list { display: grid; gap: 10px; }
+.spectral-sync-row {
+  display: grid;
+  grid-template-columns: minmax(118px, 0.8fr) minmax(150px, 1.35fr) 64px;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  transition: var(--transition);
+}
+.spectral-sync-row.is-source {
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.065);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.1);
+}
+.spectral-quantity { display: flex; flex-direction: column; gap: 2px; }
+.spectral-quantity b { font-size: 13px; }
+.spectral-quantity small {
+  display: none;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.spectral-sync-row.is-source .spectral-quantity small { display: block; }
+.spectral-sync-row input { margin: 0; width: 100%; }
+.spectral-unit {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+.spectral-sync-status {
+  min-height: 24px;
+  padding: 8px 2px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.spectral-sync-status.error { color: var(--danger); }
+.time-estimate-input > p,
+.time-estimate-output > p { margin: -4px 0 16px; color: var(--muted); font-size: 13px; }
+.time-estimate-input .primary-btn { margin-top: 16px; width: 100%; }
+.time-estimate-output { display: flex; flex-direction: column; }
+.time-estimate-output .result-panel {
+  flex: 1;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  white-space: pre-line;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.time-estimate-output .notice { margin-bottom: 0; }
+.test-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.test-reference-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  background: var(--paper2);
+}
+.test-reference-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--accent);
+}
+.test-reference-card h3 { margin: 0 0 6px; }
+.test-reference-card p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+.test-reference-card ul { margin: 0; padding-left: 20px; line-height: 1.85; }
+.optional-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  vertical-align: middle;
+}
+.test-decision-rule {
+  margin-top: 18px;
+  border: 1px solid rgba(var(--accent-rgb), 0.24);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  background: rgba(var(--accent-rgb), 0.06);
+}
+.test-decision-rule strong { color: var(--accent); }
+@media (max-width: 760px) {
+  .test-reference-grid { grid-template-columns: 1fr; }
+  .filename-generator-input,
+  .filename-generator-output { grid-column: 1; grid-row: auto; }
+  .spectral-sync-row { grid-template-columns: minmax(100px, 0.8fr) minmax(120px, 1.4fr) 58px; }
+}
+
 /* Figures & Figures SVG */
 .spectrum-figure {
   margin: 26px 0;
@@ -1861,7 +2066,7 @@ mjx-container svg {
 </style></head><body id="top"><a class="skip-link" href="#mainContent">跳到正文</a><div class="progress"><span id="progressBar"></span></div>
 <aside aria-label="章节导航" class="sidebar">
 <div class="brand">低温量子光学测试系统手册</div>
-<div class="version">V2.6 增强版 · 2026-07-09</div>
+<div class="version">V2.7 增强版 · 2026-07-10</div>
 <div class="math-status"><span class="status-dot ready" id="mathStatusDot"></span><span id="mathStatusText">公式已静态渲染（离线）</span></div>
 <div class="search-wrap"><input class="search" id="searchBox" placeholder="搜索章节、物理量或公式…"/><button aria-label="清空搜索" class="clear-search" onclick="clearSearch()">×</button></div>
 <div class="search-count" id="searchCount">输入关键词筛选全部章节</div>
@@ -1928,7 +2133,7 @@ mjx-container svg {
 <button onclick="resetLocal()">重置状态</button>
 </div>
 </aside>
-<main class="main" id="mainContent"><header class="hero"><div class="hero-inner"><span class="badge">V2.6 · 公式离线渲染 · 本地交互分析</span><h1>低温量子光学测试系统 系统完整使用与数据分析手册</h1><p>面向二维材料、范德华异质结、磁性/铁电体系和手性界面，从设备验收到四通道圆偏振分析、磁电耦合、误差传播、数据质量门槛与论文级表达的完整实验规范。</p><div class="hero-actions"><a class="primary" href="#workflow">开始阅读</a><a href="#toolbox">打开分析工具</a><button onclick="window.print()">打印或另存 PDF</button></div></div></header><div class="hero-cards-wrap"><section class="hero-cards">
+<main class="main" id="mainContent"><header class="hero"><div class="hero-inner"><span class="badge">V2.7 · 公式离线渲染 · 本地交互分析</span><h1>低温量子光学测试系统 系统完整使用与数据分析手册</h1><p>面向二维材料、范德华异质结、磁性/铁电体系和手性界面，从设备验收到四通道圆偏振分析、磁电耦合、误差传播、数据质量门槛与论文级表达的完整实验规范。</p><div class="hero-actions"><a class="primary" href="#workflow">开始阅读</a><a href="#toolbox">打开分析工具</a><button onclick="window.print()">打印或另存 PDF</button></div></div></header><div class="hero-cards-wrap"><section class="hero-cards">
 <div class="hero-card"><span>激发源</span><strong>532 nm</strong><small>约 2.33 eV</small></div>
 <div class="hero-card"><span>低温能力</span><strong>≈1.65–2 K</strong><small>记录样品实际温度</small></div>
 <div class="hero-card"><span>磁场能力</span><strong>±9 T</strong><small>正负场与奇偶分解</small></div>
@@ -1953,22 +2158,35 @@ mjx-container svg {
 <p>所有计算均在浏览器本地完成，不上传数据。正式论文分析仍应使用版本化脚本、完整协方差和系统校准。</p>
 <div class="tool-tabs" role="tablist">
 <button class="tool-tab active" data-panel="wizard">实验设计向导</button>
-<button class="tool-tab" data-panel="four">四通道分析</button>
+<button class="tool-tab" data-panel="four">圆偏振 PL / 四通道分析</button>
 <button class="tool-tab" data-panel="gfit">g 因子拟合</button>
 <button class="tool-tab" data-panel="polfit">线偏振拟合</button>
 <button class="tool-tab" data-panel="powerfit">功率律拟合</button>
 <button class="tool-tab" data-panel="convert">光谱换算</button>
-<button class="tool-tab" data-panel="acq">采集规划</button>
+<button class="tool-tab" data-panel="naming">命名规范</button>
+<button class="tool-tab" data-panel="time-estimate">采集时间估算</button>
 </div>
 <div class="tool-panel active" id="panel-wizard"><div class="tool-grid">
 <div class="tool-card"><h3>选择研究任务</h3><div class="field-grid">
-<label>主要测量<select id="wizType"><option value="circular">四通道圆偏振 PL</option><option value="linear">线偏振 PL/Raman</option><option value="gate">电压依赖 PL</option><option value="magnet">磁场依赖 PL</option><option value="ferro">铁电零偏读取</option><option value="raman">Raman 张量/声子</option><option value="mapping">空间 Mapping</option></select></label>
+<label>主要测量<select id="wizType"><option value="circular">圆偏振 PL（四通道）</option><option value="linear">线偏振 PL/Raman</option><option value="gate">电压依赖 PL</option><option value="magnet">磁场依赖 PL</option><option value="ferro">铁电零偏读取</option><option value="raman">Raman 张量/声子</option><option value="mapping">空间 Mapping</option></select></label>
 <label>样品体系<select id="wizSample"><option>TMD 单层</option><option>范德华异质结</option><option>磁性二维材料/TMD</option><option>铁电/TMD</option><option>手性分子/TMD</option><option>低对称材料</option></select></label>
 <label>是否施加磁场<select id="wizB"><option value="no">否</option><option value="yes">是，正负场</option></select></label>
 <label>是否施加电压<select id="wizV"><option value="no">否</option><option value="gate">连续栅压</option><option value="write">脉冲写入/零偏读取</option></select></label>
 </div><button class="primary-btn" onclick="buildWizard()">生成建议方案</button></div>
 <div class="tool-card"><h3>推荐 SOP 与输出</h3><div class="result-panel" id="wizardOut">选择条件后生成。</div><button class="soft-btn" onclick="copyText(document.getElementById('wizardOut').innerText)">复制方案</button></div>
-</div></div>
+</div>
+<div class="wizard-reference-section">
+<div class="section-kicker">MEASUREMENT MATRIX</div><h2>测试数据内容参考</h2>
+<p>以下清单用于建立可比较的数据基线，并不要求在每个外场点机械地重复全部测量。先完成代表性快速筛查，再根据物理性质是否发生可靠变化决定扫描密度。</p>
+<div class="test-reference-grid">
+  <article class="test-reference-card"><h3>基态温度</h3><p>零场、零偏压和低功率条件下建立样品基准。</p><ul><li>PL 光谱</li><li>圆偏振 PL</li><li>线偏振 PL</li><li>Raman 光谱</li><li>线偏振 Raman</li><li>功率依赖</li><li>反射光谱（可选）<span class="optional-badge">按需</span></li></ul></article>
+  <article class="test-reference-card"><h3>磁场下</h3><p>建议覆盖正场、零场和负场，并安排回零参考点。</p><ul><li>PL 光谱</li><li>圆偏振 PL</li><li>线偏振 PL</li><li>Raman 光谱</li><li>线偏振 Raman</li></ul></article>
+  <article class="test-reference-card"><h3>温度下</h3><p>以充分稳定后的样品实际温度作为每个扫描点定义。</p><ul><li>PL 光谱</li><li>圆偏振 PL</li><li>线偏振 PL</li><li>Raman 光谱</li><li>线偏振 Raman</li></ul></article>
+  <article class="test-reference-card"><h3>电压下</h3><p>记录扫描方向、等待时间，并保留零偏压参考点。</p><ul><li>PL 光谱</li><li>圆偏振 PL</li><li>线偏振 PL</li><li>Raman 光谱</li><li>线偏振 Raman</li></ul></article>
+</div>
+<div class="test-decision-rule"><strong>是否细化测试的判据：</strong>比较峰位、线宽、积分强度、偏振响应、Raman 模式位置与线形等物理量。若变化超过实验重复性或测量不确定度，应增加扫描点并开展细致测试；若未观察到可靠变化，则保留代表性数据即可，<strong>无可靠变化时可略过重复测试</strong>。</div>
+</div>
+</div>
 <div class="tool-panel" id="panel-four"><div class="tool-grid">
 <div class="tool-card"><h3>原始积分面积、误差与通道效率</h3><div class="field-grid cols4">
 <label>I++<input id="ipp" type="number" value="1200"/></label><label>σ(I++)<input id="eipp" type="number" value="35"/></label><label>η++<input id="etapp" step="0.01" type="number" value="1"/></label><span></span>
@@ -1977,7 +2195,7 @@ mjx-container svg {
 <label>I--<input id="imm" type="number" value="1100"/></label><label>σ(I--)<input id="eimm" type="number" value="32"/></label><label>η--<input id="etamm" step="0.01" type="number" value="1"/></label><span></span>
 <label>基底背景 (Bg)<input id="fourBg" type="number" value="485"/></label><span></span><span></span><span></span>
 </div><button class="primary-btn" onclick="calcFourAdvanced()">校正并计算</button></div>
-<div class="tool-card"><h3>结果</h3><div class="metric-grid" id="fourMetrics"></div><div class="result-panel" id="fourOut"></div><div class="notice">误差使用浏览器端 Monte Carlo 传播；通道效率应来自波长分辨偏振校准。</div></div>
+<div class="tool-card"><h3>结果</h3><div class="metric-grid" id="fourMetrics"></div><div class="result-panel" id="fourOut"></div><div class="notice">圆偏振 PL 的四个激发/探测组合通道用于重建圆偏振可观测量，因此统一归入本模块。误差使用浏览器端 Monte Carlo 传播；通道效率应来自波长分辨偏振校准。</div></div>
 </div></div>
 <div class="tool-panel" id="panel-gfit"><div class="tool-grid">
 <div class="tool-card"><h3>粘贴 B 与 ΔE</h3><p>每行格式：<code>B(T), ΔE(meV)</code></p><textarea class="data-input" id="gData">-9,-4.45
@@ -2083,47 +2301,49 @@ mjx-container svg {
 <div class="tool-card"><h3>拟合结果</h3><div class="result-panel" id="powerFitOut"></div><svg class="plot" id="powerPlot" viewbox="0 0 600 300"></svg></div>
 </div></div>
 <div class="tool-panel" id="panel-convert"><div class="tool-grid">
-<div class="tool-card"><h3>波长、能量与 Raman 位移</h3><div class="field-grid">
-<label>发射波长 λ (nm)<input id="wl" step="0.01" type="number" value="750"/></label><label>激光波长 λL (nm)<input id="laserWl" step="0.01" type="number" value="532"/></label>
-<label>散射光波长 λS (nm)<input id="scatterWl" step="0.01" type="number" value="545"/></label><label>Raman 位移 (cm⁻¹)<input id="ramanShift" step="0.01" type="number" value="448"/></label>
-</div><button class="primary-btn" onclick="convertSpectra()">计算</button><div class="result-panel" id="convertOut"></div></div>
-<div class="tool-card"><h3>单栅载流子密度</h3><div class="field-grid"><label>εr<input id="er" step="0.1" type="number" value="3.5"/></label><label>d (nm)<input id="thick" step="0.1" type="number" value="20"/></label><label>Vg (V)<input id="vg" type="number" value="1"/></label><label>V0 (V)<input id="v0" type="number" value="0"/></label></div><button class="primary-btn" onclick="calcDensity()">估算</button><div class="result-panel" id="densityOut"></div></div>
+<div class="tool-card spectral-unit-card"><h3>能量、波长与波数互转</h3><p>直接修改任意一项，其余两项会立即同步；高亮行表示当前换算源。</p>
+<div class="spectral-sync-list">
+  <label class="spectral-sync-row is-source" id="rowSpecWavelength"><span class="spectral-quantity"><b>波长 λ</b><small>当前输入</small></span><input id="specWavelength" inputmode="decimal" oninput="syncPhotonUnits('wavelength')" step="any" type="number" value="620"/><span class="spectral-unit">nm</span></label>
+  <label class="spectral-sync-row" id="rowSpecEnergy"><span class="spectral-quantity"><b>能量 E</b><small>当前输入</small></span><input id="specEnergy" inputmode="decimal" oninput="syncPhotonUnits('energy')" step="any" type="number"/><span class="spectral-unit">eV</span></label>
+  <label class="spectral-sync-row" id="rowSpecWavenumber"><span class="spectral-quantity"><b>绝对波数 ν̃</b><small>当前输入</small></span><input id="specWavenumber" inputmode="decimal" oninput="syncPhotonUnits('wavenumber')" step="any" type="number"/><span class="spectral-unit">cm⁻¹</span></label>
+</div>
+<div class="spectral-sync-status" id="specSyncStatus" aria-live="polite"></div>
+<div class="notice"><strong>定义边界：</strong>绝对波数为 <span class="field-name">1/λ</span>，不是 Raman 位移；换算采用 <span class="field-name">hc = 1239.841984 eV·nm</span>。</div></div>
+<div class="tool-card raman-convert-card"><h3>Raman 位移换算</h3><p>由激光与散射波长计算 Raman 位移，或由激光波长和位移反算 Stokes 波长。</p><div class="field-grid">
+<label>激光波长 λL (nm)<input id="laserWl" step="0.01" type="number" value="532"/></label><label>散射光波长 λS (nm)<input id="scatterWl" step="0.01" type="number" value="545"/></label>
+<label>Raman 位移 (cm⁻¹)<input id="ramanShift" step="0.01" type="number" value="448"/></label>
+</div><button class="primary-btn" onclick="convertSpectra()">执行 Raman 换算</button><div class="result-panel" id="convertOut"></div></div>
 </div></div>
-<div class="tool-panel" id="panel-acq"><div class="tool-grid">
-<div class="tool-card"><h3>采集时间估算</h3><div class="field-grid"><label>扫描点数<input id="nPoints" type="number" value="19"/></label><label>偏振通道数<input id="nChannels" type="number" value="4"/></label><label>单次积分 (s)<input id="intTime" type="number" value="5"/></label><label>累积次数<input id="nAccum" type="number" value="2"/></label><label>每谱额外开销 (s)<input id="overhead" type="number" value="3"/></label><label>每点稳定等待 (s)<input id="settle" type="number" value="15"/></label><label>重复循环<input id="nRepeat" type="number" value="2"/></label><label>参考点额外数量<input id="nRef" type="number" value="4"/></label></div><button class="primary-btn" onclick="estimateTime()">估算总时间</button><div class="result-panel" id="timeOut"></div></div>
-<div class="tool-card">
+<div class="tool-panel" id="panel-naming"><div class="tool-grid">
+<div class="tool-card filename-generator-input">
   <h3>标准文件名生成器</h3>
-  
-  <div style="margin-bottom: 20px;">
-    <label>测试类型</label>
-    <select id="fnType" onchange="updateFilenameForm()" style="max-width: 320px; margin-top: 6px;">
-      <option value="PL">普通 PL (PL)</option>
-      <option value="Raman">Raman 光谱</option>
-      <option value="Reflect">反射/反射差分</option>
-      <option value="PowerDep">功率依赖 PL</option>
-      <option value="GateDep">电压依赖 PL</option>
-      <option value="TempDep">温度依赖 PL</option>
-      <option value="MagnetDep">磁场依赖 PL</option>
-      <option value="CircularPol">圆偏振 (Circular Pol)</option>
-      <option value="Helicity">四通道 helicity</option>
-      <option value="LinearPolPL">线偏振 PL (LP PL)</option>
-      <option value="LinearPolRaman">线偏振 Raman (LP Raman)</option>
-    </select>
-  </div>
-  
-  <div style="border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 20px;">
-    <h4 style="font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">1. 样品核心参数 (Always Active)</h4>
-    <div class="field-grid cols3">
-      <label>材料 (Material)<input id="fnMaterial" value="MoS2"/></label>
-      <label>层数 (Layer)<input id="fnLayer" value="1L"/></label>
-      <label>测试区域 (Region)<input id="fnRegion" value="R03"/></label>
+  <p class="filename-generator-intro">在左栏集中调整命名字段；输入变化后自动刷新右侧结果。</p>
+  <div class="filename-field-grid">
+    <label class="filename-type-field">测试类型<select id="fnType" onchange="updateFilenameForm()">
+      <option value="PL">PL光谱 (PL)</option>
+      <option value="CircularPol">圆偏振PL (Circular Pol)</option>
+      <option value="LinearPolPL">线偏振PL (LP PL)</option>
+      <option value="Raman">Raman光谱 (Raman)</option>
+      <option value="LinearPolRaman">线偏振Raman (LP Raman)</option>
+      <option value="PowerDep">功率依赖</option>
+      <option value="MagnetDep">磁场依赖</option>
+      <option value="GateDep">电压依赖</option>
+      <option value="TempDep">温度依赖</option>
+      <option value="Reflect">反射光谱</option>
+    </select></label>
+    <label>层数 (Layer)<input id="fnLayer" value="1L"/></label>
+    <label>材料 (Material)<input id="fnMaterial" value="MoS2"/></label>
+    <label>区域 (Region)<input id="fnRegion" value="R01"/></label>
+    <div class="temperature-definition">
+      <h4>温度定义</h4>
+      <label id="lbl_fnT">样品温度 T (K)<input id="fnT" value="1.65"/></label>
+      <p>普通测量中表示样品实际温度；温度依赖中表示当前扫描点温度。</p>
     </div>
   </div>
-  
-  <div id="fnConditionsWrap" style="border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 18px;">
-    <h4 style="font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">2. 测试环境条件 (Conditional)</h4>
-    <div class="field-grid cols3">
-      <label id="lbl_fnT">温度 T (K)<input id="fnT" value="2"/></label>
+
+  <div class="filename-conditions" id="fnConditionsWrap">
+    <h4 class="filename-conditions-title">当前测试所需的附加条件</h4>
+    <div class="field-grid">
       <label id="lbl_fnB">磁场 B (T)<input id="fnB" value="+9"/></label>
       <label id="lbl_fnV">栅压 Vg (V)<input id="fnV" value="+1.0"/></label>
       <label id="lbl_fnP">激发功率 (Power)<input id="fnP" value="0.05mW"/></label>
@@ -2138,10 +2358,28 @@ mjx-container svg {
       <label id="lbl_fnGrating">光栅 (Grating)<input id="fnGrating" value="1800g"/></label>
     </div>
   </div>
-  
-  <button class="primary-btn" onclick="makeFilename()">生成文件名</button>
-  <div class="result-panel" id="filenameOut"></div>
-  <button class="soft-btn" onclick="copyText(document.getElementById('filenameOut').innerText)">复制文件名</button>
+  <div class="filename-actions"><button class="soft-btn" onclick="makeFilename()">刷新预览</button></div>
+</div>
+<div class="tool-card filename-generator-output">
+  <div class="section-kicker">LIVE OUTPUT</div><h3>实时名称预览</h3>
+  <p class="filename-generator-intro">只生成标准名称本体，不附加 <code>.csv</code>、<code>.txt</code> 等扩展名。</p>
+  <div class="filename-preview"><span>当前标准名称</span><code id="filenameOut" aria-live="polite">正在生成…</code></div>
+  <div class="filename-actions"><button class="primary-btn" onclick="copyText(document.getElementById('filenameOut').innerText)">复制标准名称</button></div>
+  <div class="filename-logic"><h4>命名结构</h4><div class="filename-token-flow"><span>测试类型</span><b>→</b><span>偏振标识</span><b>→</b><span>样品标识</span><b>→</b><span>实验条件</span></div></div>
+  <p class="filename-output-note"><strong>示例：</strong><code>PL_CP_1L_MoS2_R03_45_0_+9T_2K</code><br/>小数点会原样保留：<code>1.65</code> → <code>1.65K</code>。所有处理均在浏览器本地完成。</p>
+</div>
+</div></div>
+<div class="tool-panel" id="panel-time-estimate"><div class="tool-grid">
+<div class="tool-card time-estimate-input">
+  <h3>采集参数</h3><p>输入扫描规模、曝光设置和稳定等待时间，估算完整测量所需的光谱数量与总时长。</p>
+  <div class="field-grid"><label>扫描点数<input id="nPoints" type="number" value="19"/></label><label>偏振通道数<input id="nChannels" type="number" value="4"/></label><label>单次积分 (s)<input id="intTime" type="number" value="5"/></label><label>累积次数<input id="nAccum" type="number" value="2"/></label><label>每谱额外开销 (s)<input id="overhead" type="number" value="3"/></label><label>每点稳定等待 (s)<input id="settle" type="number" value="15"/></label><label>重复循环<input id="nRepeat" type="number" value="2"/></label><label>参考点额外数量<input id="nRef" type="number" value="4"/></label></div>
+  <button class="primary-btn" onclick="estimateTime()">估算总时间</button>
+</div>
+<div class="tool-card time-estimate-output">
+  <div class="section-kicker">TIME BUDGET</div><h3>时间预算</h3>
+  <p>结果同时给出总光谱数、分钟和小时，便于安排制冷机、磁场与值守时段。</p>
+  <div class="result-panel" id="timeOut"></div>
+  <div class="notice"><strong>实验余量：</strong>建议在计算结果之外再预留 15–30%，用于重新对焦、异常点重测以及磁场或温度稳定。</div>
 </div>
 </div></div>
 </section>
@@ -2560,13 +2798,13 @@ mjx-container svg {
 <div class="section-body">
 <nav aria-label="本章目录" class="subtoc"><span>本章导航</span><a href="#sample_labels-5-1-不同测试的样品标签">5.1 不同测试的样品标签</a></nav>
 <p>本章只强调样品的准确命名。样品名应能稳定回答四个问题：是什么材料、几层或什么结构、做过什么修饰/器件处理、测的是哪个区域。不同测试、不同日期和不同处理流程中，同一个样品与同一个区域必须使用同一套写法。</p>
-<div class="notice"><strong>命名原则：</strong>不要只写 MoS2、sample1 或 today。推荐至少包含 <span class="field-name">material</span>、<span class="field-name">layer/stack</span>、<span class="field-name">treatment/device</span>、<span class="field-name">region_id</span>；温度、磁场、电压、功率和偏振是测试条件，不应替代样品名。</div>
+<div class="notice"><strong>命名原则：</strong>不要只写 MoS2、sample1 或 today。推荐至少包含 <span class="field-name">material</span>、<span class="field-name">layer/stack</span>、<span class="field-name">treatment/device</span>、<span class="field-name">region_id</span>；温度、磁场、电压、功率和偏振是测试条件，不应替代样品名。下表给出的是<strong>标准名称本体</strong>，不包含 <code>.csv</code>、<code>.txt</code> 等文件格式后缀。</div>
 <h2 class="anchored-heading" id="sample_labels-5-1-不同测试的样品标签">5.1 不同测试的样品标签<a aria-label="复制本节链接" class="heading-anchor" href="#sample_labels-5-1-不同测试的样品标签">§</a></h2>
 <table class="excel-table">
 <thead>
 <tr>
 <th>测试</th>
-<th>推荐样品/文件标签</th>
+<th>推荐标准名称（不含扩展名）</th>
 <th>样品名必须写清</th>
 <th>条件标签</th>
 <th>命名提醒</th>
@@ -2574,88 +2812,74 @@ mjx-container svg {
 </thead>
 <tbody>
 <tr>
-<td>普通 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_2K.csv</span></td>
+<td>PL 光谱</td>
+<td><span class="field-name">PL_1L_MoS2_R03_2K</span></td>
 <td>材料、层数、修饰、区域号</td>
 <td>T/B/V/P</td>
 <td>样品名应包含材料、层数、修饰、区域</td>
 </tr>
 <tr>
-<td>Raman</td>
-<td><span class="field-name">Raman_1L_MoS2_R03_1800g.csv</span></td>
+<td>圆偏振 PL（四通道）</td>
+<td><span class="field-name">PL_CP_1L_MoS2_R03_45_0_+9T_2K</span></td>
 <td>材料、层数、区域号</td>
-<td>角度、温度、电压或位置</td>
-<td>光栅建议写入标签；PL=150 g/mm，Raman=1800 g/mm</td>
+<td>CP + 通道 + B + T</td>
+<td>四通道统一归入圆偏振模块；保留 45_0、45_90、-45_0、-45_90 通道写法</td>
 </tr>
 <tr>
 <td>线偏振 PL</td>
-<td><span class="field-name">LP_PL_1L_MoS2_R03_0_1.65K.csv</span></td>
+<td><span class="field-name">PL_LP_1L_MoS2_R03_2K</span></td>
 <td>材料、层数、修饰、区域号</td>
-<td>LP + 偏振角 + T</td>
-<td>线偏振标准关键词为 LP；角度建议写入标签</td>
+<td>LP + 可选偏振角 + T</td>
+<td>测量类型写在 LP 前；单角度文件可增加 Pol000deg 等通道标签</td>
+</tr>
+<tr>
+<td>Raman 光谱</td>
+<td><span class="field-name">Raman_1L_MoS2_R03_1800g_2K</span></td>
+<td>材料、层数、区域号</td>
+<td>光栅 + T</td>
+<td>光栅建议写入标签；PL=150 g/mm，Raman=1800 g/mm</td>
 </tr>
 <tr>
 <td>线偏振 Raman</td>
-<td><span class="field-name">LP_Raman_1L_MoS2_R03_1800g_0_1.65K.csv</span></td>
+<td><span class="field-name">Raman_LP_1L_MoS2_R03_1800g_2K</span></td>
 <td>材料、层数、区域号</td>
-<td>LP + 光栅 + 偏振角 + T</td>
-<td>线偏振标准关键词为 LP；光栅和角度建议写入标签</td>
-</tr>
-<tr>
-<td>反射/反射差分</td>
-<td><span class="field-name">Reflect_1L_MoS2_R03_sample.csv</span> + <span class="field-name">Reflect_1L_MoS2_R03_sub.csv</span></td>
-<td>样品区域、相邻基底区域</td>
-<td><span class="field-name">Rsample</span> / <span class="field-name">Rsub</span></td>
-<td>样品和基底必须同光路、同功率、同积分时间、相邻位置采集</td>
+<td>LP + 光栅 + 可选偏振角 + T</td>
+<td>测量类型写在 LP 前；完整角度扫描可不写单个角度</td>
 </tr>
 <tr>
 <td>功率依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_0.05mW.csv</span></td>
+<td><span class="field-name">PL_1L_MoS2_R03_0.05mW_2K</span></td>
 <td>同一样品、同一区域</td>
-<td>功率与单位</td>
+<td>功率与单位 + T</td>
 <td>低功率线性区和高功率饱和区分开拟合</td>
 </tr>
 <tr>
+<td>磁场依赖 PL</td>
+<td><span class="field-name">PL_1L_MoS2_R03_-9T_2K</span></td>
+<td>同一样品、同一区域、同一偏振设置</td>
+<td>B + T，另记扫场方向</td>
+<td>正负场、扫场方向和回零点都要保留</td>
+</tr>
+<tr>
 <td>电压依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_Vg-1.5V.csv</span></td>
+<td><span class="field-name">PL_1L_MoS2_R03_Vg-1.5V_2K</span></td>
 <td>器件编号、区域、电极状态</td>
-<td>Vg/Vds、扫描方向</td>
+<td>Vg/Vds + T，另记扫描方向</td>
 <td>必须同步记录漏电、扫描方向、等待时间和写入历史</td>
 </tr>
 <tr>
 <td>温度依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_77K.csv</span></td>
+<td><span class="field-name">PL_1L_MoS2_R03_77K</span></td>
 <td>同一样品、同一区域、同一焦点策略</td>
-<td>K，实际稳定温度</td>
+<td>样品实际稳定温度</td>
 <td>记录样品实际温度，不只记录控温器设定值</td>
 </tr>
 <tr>
-<td>磁场依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_-9T.csv</span></td>
-<td>同一样品、同一区域、同一偏振设置</td>
-<td>T，扫场方向</td>
-<td>正负场、扫场方向和回零点都要保留</td>
-</tr>
-<tr>
-<td>圆偏振 45deg</td>
-<td><span class="field-name">PL_1L_MoS2_45_0_9T.csv</span>, <span class="field-name">PL_..._45_90_9T.csv</span></td>
-<td>样品、区域、激发圆偏振组</td>
-<td>B/T/V + 检测角</td>
-<td>45 0 与 45 90 是同一组激发圆偏振下不同检测通道</td>
-</tr>
-<tr>
-<td>圆偏振 minus45deg</td>
-<td><span class="field-name">PL_1L_MoS2_-45_0_9T.csv</span>, <span class="field-name">PL_..._-45_90_9T.csv</span></td>
-<td>样品、区域、激发圆偏振组</td>
-<td>B/T/V + 检测角</td>
-<td>-45 0 与 -45 90 必须与 45deg 组来自同一位置和相近时间</td>
-</tr>
-<tr>
-<td>四通道 helicity</td>
-<td><span class="field-name">*_angle_pivot_45deg.xlsx</span> + <span class="field-name">*_angle_pivot_minus45deg.xlsx</span></td>
-<td>同一样品、同一区域、同一控制变量序列</td>
-<td>B/T/V + 四通道偏振</td>
-<td>磁场才输出 g-factor；温度/电压只输出 DOCP 和 DeltaE 对 T/V</td>
+<td>反射/反射差分</td>
+<td><span class="field-name">Reflect_1L_MoS2_R03_sample_2K</span> + <span class="field-name">Reflect_1L_MoS2_R03_sub_2K</span></td>
+<td>样品区域、相邻基底区域</td>
+<td><span class="field-name">sample</span> / <span class="field-name">sub</span> + T</td>
+<td>样品和基底必须同光路、同功率、同积分时间、相邻位置采集</td>
 </tr>
 </tbody>
 </table>
@@ -6083,17 +6307,72 @@ log–log R² = ${fmt(r.r2,5)}
   plot('powerPlot',log,x=>r.m*x+r.b,'log₁₀ P','log₁₀ I');
 }
 
-function convertSpectra(){
-  const wl=+$('#wl').value,L=+$('#laserWl').value,S=+$('#scatterWl').value,shift=+$('#ramanShift').value;
-  const E=1239.841984/wl,rs=1e7*(1/L-1/S),sFrom=1/(1/L-shift/1e7);
-  $('#convertOut').textContent=`发射光子能量：${fmt(E,6)} eV\n由 λL 与 λS 得 Raman 位移：${fmt(rs,3)} cm⁻¹\n由 λL 与 Raman 位移得 Stokes 波长：${fmt(sFrom,4)} nm`;
+function syncPhotonUnits(source){
+  const inputs={
+    wavelength:$('#specWavelength'),
+    energy:$('#specEnergy'),
+    wavenumber:$('#specWavenumber')
+  };
+  const rows={
+    wavelength:$('#rowSpecWavelength'),
+    energy:$('#rowSpecEnergy'),
+    wavenumber:$('#rowSpecWavenumber')
+  };
+  const status=$('#specSyncStatus');
+  Object.keys(rows).forEach(key=>rows[key].classList[key===source?'add':'remove']('is-source'));
+  const sourceInput=inputs[source];
+  if(!sourceInput){
+    status.className='spectral-sync-status error';
+    status.textContent='无法识别当前输入物理量。';
+    return;
+  }
+  const raw=String(sourceInput.value).trim();
+  const clearDerived=()=>Object.keys(inputs).forEach(key=>{ if(key!==source) inputs[key].value=''; });
+  if(raw===''){
+    clearDerived();
+    status.className='spectral-sync-status';
+    status.textContent='';
+    return;
+  }
+  const value=Number(raw);
+  if(!Number.isFinite(value) || value<=0){
+    clearDerived();
+    status.className='spectral-sync-status error';
+    status.textContent='请输入有限的正数。';
+    return;
+  }
+  const HC_EV_NM=1239.841984;
+  let wavelength;
+  if(source==='wavelength') wavelength=value;
+  else if(source==='energy') wavelength=HC_EV_NM/value;
+  else wavelength=1e7/value;
+  const energy=HC_EV_NM/wavelength;
+  const wavenumber=1e7/wavelength;
+  if(source!=='wavelength') inputs.wavelength.value=fmt(wavelength,6);
+  if(source!=='energy') inputs.energy.value=fmt(energy,6);
+  if(source!=='wavenumber') inputs.wavenumber.value=fmt(wavenumber,6);
+  status.className='spectral-sync-status';
+  status.textContent='已同步换算其余两项。';
 }
 
-function calcDensity(){
-  const er=+$('#er').value,d=+$('#thick').value,vg=+$('#vg').value,v0=+$('#v0').value;
-  if(d<=0) return;
-  const eps=8.8541878128e-12,e=1.602176634e-19,C=eps*er/(d*1e-9),n=C*(vg-v0)/e/1e4;
-  $('#densityOut').textContent=`Cg = ${C.toExponential(5)} F/m²\nn = ${n.toExponential(5)} cm⁻²\n\n该值未计入量子电容、陷阱、接触势和铁电极化。`;
+function convertSpectra(){
+  const rawL=String($('#laserWl').value).trim();
+  const rawS=String($('#scatterWl').value).trim();
+  const rawShift=String($('#ramanShift').value).trim();
+  const L=Number(rawL),S=Number(rawS),shift=Number(rawShift);
+  const out=$('#convertOut');
+  if([rawL,rawS,rawShift].some(x=>x==='') || ![L,S,shift].every(Number.isFinite) || L<=0 || S<=0 || shift<=0){
+    out.textContent='请输入有限的正波长与正 Raman 位移。';
+    return;
+  }
+  const rs=1e7*(1/L-1/S);
+  const denominator=1/L-shift/1e7;
+  if(denominator<=0){
+    out.textContent='该激光波长与 Raman 位移组合不具物理意义：反算波长的分母必须大于 0。';
+    return;
+  }
+  const sFrom=1/denominator;
+  out.textContent=`由 λL 与 λS 得 Raman 位移：${fmt(rs,3)} cm⁻¹\n由 λL 与 Raman 位移得 Stokes 波长：${fmt(sFrom,4)} nm`;
 }
 
 function estimateTime(){
@@ -6112,11 +6391,10 @@ function updateFilenameForm() {
   };
   
   showField('#lbl_fnGrating', type === 'Raman' || type === 'LinearPolRaman');
-  showField('#lbl_fnPol', type === 'CircularPol' || type === 'Helicity' || type === 'LinearPolPL' || type === 'LinearPolRaman');
+  showField('#lbl_fnPol', type === 'CircularPol' || type === 'LinearPolPL' || type === 'LinearPolRaman');
   showField('#lbl_fnP', type === 'PowerDep');
   showField('#lbl_fnV', type === 'GateDep');
-  showField('#lbl_fnB', type === 'MagnetDep' || type === 'CircularPol' || type === 'Helicity');
-  showField('#lbl_fnT', type === 'PL' || type === 'Raman' || type === 'TempDep' || type === 'Helicity' || type === 'LinearPolPL' || type === 'LinearPolRaman');
+  showField('#lbl_fnB', type === 'MagnetDep' || type === 'CircularPol');
   
   // Update polarization options dynamically
   const polSelect = $('#fnPol');
@@ -6125,10 +6403,11 @@ function updateFilenameForm() {
     polSelect.innerHTML = '';
     if (type === 'LinearPolPL' || type === 'LinearPolRaman') {
       const options = [
-        { val: '0', text: '0° (Parallel)' },
-        { val: '45', text: '45°' },
-        { val: '90', text: '90° (Perpendicular)' },
-        { val: '135', text: '135°' }
+        { val: '', text: '未指定 / 完整角度扫描' },
+        { val: 'Pol000deg', text: '0° (Pol000deg)' },
+        { val: 'Pol045deg', text: '45° (Pol045deg)' },
+        { val: 'Pol090deg', text: '90° (Pol090deg)' },
+        { val: 'Pol135deg', text: '135° (Pol135deg)' }
       ];
       options.forEach(opt => {
         const o = document.createElement('option');
@@ -6136,10 +6415,10 @@ function updateFilenameForm() {
         o.textContent = opt.text;
         polSelect.appendChild(o);
       });
-      if (['0', '45', '90', '135'].includes(currentVal)) {
+      if (['', 'Pol000deg', 'Pol045deg', 'Pol090deg', 'Pol135deg'].includes(currentVal)) {
         polSelect.value = currentVal;
       } else {
-        polSelect.value = '0';
+        polSelect.value = '';
       }
     } else {
       const options = [
@@ -6163,13 +6442,14 @@ function updateFilenameForm() {
   }
   
   // Show/hide section wrap depending on if any of the conditional fields are visible
-  const condIds = ['#lbl_fnGrating', '#lbl_fnPol', '#lbl_fnP', '#lbl_fnV', '#lbl_fnB', '#lbl_fnT'];
+  const condIds = ['#lbl_fnGrating', '#lbl_fnPol', '#lbl_fnP', '#lbl_fnV', '#lbl_fnB'];
   const anyVisible = condIds.some(id => {
     const el = $(id);
     return el && el.style.display !== 'none';
   });
   
   showField('#fnConditionsWrap', anyVisible);
+  makeFilename();
 }
 
 function makeFilename() {
@@ -6185,40 +6465,48 @@ function makeFilename() {
   
   let sampleLabel = `${layer}_${mat}_${reg}`;
   
-  const t = clean($('#fnT').value);
+  const t = clean($('#fnT').value) || '2';
   const b = clean($('#fnB').value);
   const v = clean($('#fnV').value);
   const p = clean($('#fnP').value);
   const pol = clean($('#fnPol').value);
   const grating = clean($('#fnGrating').value);
+  const polToken = pol ? `_${pol}` : '';
   
   let name = "";
   
   if (type === 'PL') {
-    name = `PL_${sampleLabel}_${t}K.csv`;
+    name = `PL_${sampleLabel}_${t}K`;
   } else if (type === 'Raman') {
-    name = `Raman_${sampleLabel}_${grating}_${t}K.csv`;
+    name = `Raman_${sampleLabel}_${grating}_${t}K`;
   } else if (type === 'Reflect') {
-    name = `Reflect_${sampleLabel}_sample.csv\nReflect_${sampleLabel}_sub.csv`;
+    name = `Reflect_${sampleLabel}_sample_${t}K\nReflect_${sampleLabel}_sub_${t}K`;
   } else if (type === 'PowerDep') {
-    name = `PL_${sampleLabel}_${p}.csv`;
+    name = `PL_${sampleLabel}_${p}_${t}K`;
   } else if (type === 'GateDep') {
-    name = `PL_${sampleLabel}_Vg${v}V.csv`;
+    name = `PL_${sampleLabel}_Vg${v}V_${t}K`;
   } else if (type === 'TempDep') {
-    name = `PL_${sampleLabel}_${t}K.csv`;
+    name = `PL_${sampleLabel}_${t}K`;
   } else if (type === 'MagnetDep') {
-    name = `PL_${sampleLabel}_${b}T.csv`;
+    name = `PL_${sampleLabel}_${b}T_${t}K`;
   } else if (type === 'CircularPol') {
-    name = `PL_${sampleLabel}_${pol}_${b}T.csv`;
-  } else if (type === 'Helicity') {
-    name = `Helicity_${sampleLabel}_${pol}_${b}T_${t}K.csv`;
+    name = `PL_CP_${sampleLabel}_${pol}_${b}T_${t}K`;
   } else if (type === 'LinearPolPL') {
-    name = `LP_PL_${sampleLabel}_${pol}_${t}K.csv`;
+    name = `PL_LP_${sampleLabel}${polToken}_${t}K`;
   } else if (type === 'LinearPolRaman') {
-    name = `LP_Raman_${sampleLabel}_${grating}_${pol}_${t}K.csv`;
+    name = `Raman_LP_${sampleLabel}_${grating}${polToken}_${t}K`;
   }
   
   $('#filenameOut').textContent = name;
+}
+
+function initFilenameGenerator() {
+  ['fnMaterial', 'fnLayer', 'fnRegion', 'fnT', 'fnB', 'fnV', 'fnP', 'fnGrating'].forEach(id => {
+    const field = $('#' + id);
+    if (field) field.addEventListener('input', makeFilename);
+  });
+  const polField = $('#fnPol');
+  if (polField) polField.addEventListener('change', makeFilename);
 }
 function initChecks(){
   $$('input[type="checkbox"]').forEach((b,i)=>{
@@ -6418,11 +6706,11 @@ fitG();
 setPolGroup(1);
 calcPolSites();
 fitPower();
+syncPhotonUnits('wavelength');
 convertSpectra();
-calcDensity();
 estimateTime();
+initFilenameGenerator();
 updateFilenameForm();
-makeFilename();
 updateProgress();
 </script>
 <div id="plot-tooltip" style="position:absolute; background:#1e293b; color:#fff; padding:6px 10px; border-radius:6px; font-size:11px; pointer-events:none; opacity:0; transition:opacity 0.1s; z-index:999; box-shadow:0 4px 12px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.1)"></div>

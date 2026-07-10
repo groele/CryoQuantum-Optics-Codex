@@ -146,6 +146,99 @@ def main() -> None:
             + ", ".join(repr(marker) for marker in missing_formula_layout_markers)
         )
 
+    filename_type_options = re.findall(
+        r'<option value="(PL|CircularPol|LinearPolPL|Raman|LinearPolRaman|PowerDep|MagnetDep|GateDep|TempDep|Reflect)">',
+        html,
+    )
+    expected_filename_type_options = [
+        "PL",
+        "CircularPol",
+        "LinearPolPL",
+        "Raman",
+        "LinearPolRaman",
+        "PowerDep",
+        "MagnetDep",
+        "GateDep",
+        "TempDep",
+        "Reflect",
+    ]
+    if filename_type_options != expected_filename_type_options:
+        fail(
+            "filename test-type order is "
+            f"{filename_type_options}, expected {expected_filename_type_options}"
+        )
+
+    if ".replace(/\\./g, 'p')" in html or '.replace(/\\./g, "p")' in html:
+        fail("filename sanitizer must preserve decimal points")
+
+    required_filename_tool_markers = [
+        'class="temperature-definition"',
+        'class="tool-card filename-generator-input"',
+        'class="tool-card filename-generator-output"',
+        'data-panel="naming">命名规范</button>',
+        'id="panel-naming"',
+        'data-panel="time-estimate">采集时间估算</button>',
+        'id="panel-time-estimate"',
+        'class="tool-card time-estimate-input"',
+        'class="tool-card time-estimate-output"',
+        'class="filename-preview"',
+        "function initFilenameGenerator()",
+        "输入变化后自动刷新",
+        "普通测量中表示样品实际温度",
+        "温度依赖中表示当前扫描点温度",
+        "{ val: '', text: '未指定 / 完整角度扫描' }",
+        "{ val: 'Pol000deg', text: '0° (Pol000deg)' }",
+        "{ val: 'Pol045deg', text: '45° (Pol045deg)' }",
+        "{ val: 'Pol090deg', text: '90° (Pol090deg)' }",
+        "{ val: 'Pol135deg', text: '135° (Pol135deg)' }",
+        "{ val: '45_0', text: '45_0 (I++)' }",
+        "{ val: '45_90', text: '45_90 (I+-)' }",
+        "{ val: '-45_0', text: '-45_0 (I-+)' }",
+        "{ val: '-45_90', text: '-45_90 (I--)' }",
+        "`PL_CP_${sampleLabel}_${pol}_${b}T_${t}K`",
+        "`PL_LP_${sampleLabel}${polToken}_${t}K`",
+        "`Raman_LP_${sampleLabel}_${grating}${polToken}_${t}K`",
+        "圆偏振 PL / 四通道分析",
+        "圆偏振 PL（四通道）",
+        'class="wizard-reference-section"',
+        'id="specWavelength"',
+        'id="specEnergy"',
+        'id="specWavenumber"',
+        'id="specSyncStatus"',
+        "function syncPhotonUnits(source)",
+        'id="fnRegion" value="R01"',
+        'id="fnT" value="1.65"',
+        "测试数据内容参考",
+        "反射光谱（可选）",
+        "超过实验重复性或测量不确定度",
+        "无可靠变化时可略过重复测试",
+    ]
+    missing_filename_tool_markers = [
+        marker for marker in required_filename_tool_markers if marker not in html
+    ]
+    if missing_filename_tool_markers:
+        fail(
+            "filename/test-reference markers missing: "
+            + ", ".join(repr(marker) for marker in missing_filename_tool_markers)
+        )
+
+    if 'data-panel="acq"' in html or '>采集规划</button>' in html:
+        fail("legacy acquisition-planning tab must be replaced by naming and time-estimate modules")
+    if 'data-panel="test-reference"' in html or 'id="panel-test-reference"' in html:
+        fail("test-reference content must be merged into the experiment wizard")
+    if "function calcDensity()" in html or 'id="densityOut"' in html or "calcDensity();" in html:
+        fail("interactive single-gate density tool must be removed")
+    if 'id="specInputType"' in html or 'id="specInputValue"' in html or 'id="specConvertOut"' in html:
+        fail("selector-based photon converter must be replaced by synchronized inputs")
+
+    filename_function = re.search(
+        r"function makeFilename\(\) \{(?P<body>.*?)\n\}", html, re.DOTALL
+    )
+    if not filename_function:
+        fail("makeFilename function missing")
+    if ".csv" in filename_function.group("body"):
+        fail("generated naming convention must not append .csv")
+
     print(
         "PASS: manual structure is valid "
         f"({len(sections)} sections, {len(nav_items)} nav items, {len(ids)} ids)"
