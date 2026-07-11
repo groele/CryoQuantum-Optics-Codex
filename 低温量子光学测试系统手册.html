@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="light" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="light dark" name="color-scheme"/><title>低温量子光学测试系统手册_V2增强版</title><meta name="description" content="低温量子光学测试系统离线手册，覆盖 PL、Raman、反射、偏振、磁光、电学耦合、数据处理和论文级绘图规范。"/><style>
+<html data-theme="light" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="light dark" name="color-scheme"/><title>低温量子光学测试系统手册</title><meta name="description" content="低温量子光学测试系统离线手册，覆盖 PL、Raman、反射、偏振、磁光、电学耦合、数据处理和论文级绘图规范。"/><style>
 
 :root {
   --bg: #f8fafc;
@@ -2548,7 +2548,7 @@ mjx-container svg {
   <div class="filename-preview"><span>当前标准名称</span><code id="filenameOut" aria-live="polite">正在生成…</code></div>
   <div class="filename-actions"><button class="primary-btn" onclick="copyText(document.getElementById('filenameOut').innerText)">复制标准名称</button></div>
   <div class="filename-logic"><h4>命名结构</h4><div class="filename-token-flow"><span>测试类型</span><b>→</b><span>偏振标识</span><b>→</b><span>样品标识</span><b>→</b><span>实验条件</span></div></div>
-  <p class="filename-output-note"><strong>示例：</strong><code>PL_CP_1L_MoS2_R03_45_0_+9T_2K</code><br/>小数点会原样保留：<code>1.65</code> → <code>1.65K</code>。所有处理均在浏览器本地完成。</p>
+<p class="filename-output-note"><strong>示例：</strong><code>PL_CP_1L_MoS2_R01_45_0_+9T_1.65K</code><br/>小数点会原样保留：<code>1.65</code> → <code>1.65K</code>。所有处理均在浏览器本地完成。</p>
 </div>
 </div></div>
 <div class="tool-panel" id="panel-time-estimate"><div class="tool-grid">
@@ -2995,70 +2995,70 @@ mjx-container svg {
 <tbody>
 <tr>
 <td>PL 光谱</td>
-<td><span class="field-name">PL_1L_MoS2_R03_2K</span></td>
+<td><span class="field-name">PL_1L_MoS2_R01_1.65K</span></td>
 <td>材料、层数、修饰、区域号</td>
 <td>T/B/V/P</td>
 <td>样品名应包含材料、层数、修饰、区域</td>
 </tr>
 <tr>
 <td>圆偏振 PL（四通道）</td>
-<td><span class="field-name">PL_CP_1L_MoS2_R03_45_0_+9T_2K</span></td>
+<td><span class="field-name">PL_CP_1L_MoS2_R01_45_0_+9T_1.65K</span></td>
 <td>材料、层数、区域号</td>
 <td>CP + 通道 + B + T</td>
 <td>四通道统一归入圆偏振模块；保留 45_0、45_90、-45_0、-45_90 通道写法</td>
 </tr>
 <tr>
 <td>线偏振 PL</td>
-<td><span class="field-name">PL_LP_1L_MoS2_R03_2K</span></td>
+<td><span class="field-name">PL_LP_1L_MoS2_R01_1.65K</span></td>
 <td>材料、层数、修饰、区域号</td>
 <td>LP + 可选偏振角 + T</td>
 <td>测量类型写在 LP 前；单角度文件可增加 Pol000deg 等通道标签</td>
 </tr>
 <tr>
 <td>Raman 光谱</td>
-<td><span class="field-name">Raman_1L_MoS2_R03_1800g_2K</span></td>
+<td><span class="field-name">Raman_1L_MoS2_R01_1800g_1.65K</span></td>
 <td>材料、层数、区域号</td>
 <td>光栅 + T</td>
 <td>光栅建议写入标签；PL=150 g/mm，Raman=1800 g/mm</td>
 </tr>
 <tr>
 <td>线偏振 Raman</td>
-<td><span class="field-name">Raman_LP_1L_MoS2_R03_1800g_2K</span></td>
+<td><span class="field-name">Raman_LP_1L_MoS2_R01_1800g_1.65K</span></td>
 <td>材料、层数、区域号</td>
 <td>LP + 光栅 + 可选偏振角 + T</td>
 <td>测量类型写在 LP 前；完整角度扫描可不写单个角度</td>
 </tr>
 <tr>
 <td>功率依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_0.05mW_2K</span></td>
+<td><span class="field-name">PL_1L_MoS2_R01_0.05mW_1.65K</span></td>
 <td>同一样品、同一区域</td>
 <td>功率与单位 + T</td>
 <td>低功率线性区和高功率饱和区分开拟合</td>
 </tr>
 <tr>
 <td>磁场依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_-9T_2K</span></td>
+<td><span class="field-name">PL_1L_MoS2_R01_-9T_1.65K</span></td>
 <td>同一样品、同一区域、同一偏振设置</td>
 <td>B + T，另记扫场方向</td>
 <td>正负场、扫场方向和回零点都要保留</td>
 </tr>
 <tr>
 <td>电压依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_Vg-1.5V_2K</span></td>
+<td><span class="field-name">PL_1L_MoS2_R01_Vg-1.5V_1.65K</span></td>
 <td>器件编号、区域、电极状态</td>
 <td>Vg/Vds + T，另记扫描方向</td>
 <td>必须同步记录漏电、扫描方向、等待时间和写入历史</td>
 </tr>
 <tr>
 <td>温度依赖 PL</td>
-<td><span class="field-name">PL_1L_MoS2_R03_77K</span></td>
+<td><span class="field-name">PL_1L_MoS2_R01_77K</span></td>
 <td>同一样品、同一区域、同一焦点策略</td>
 <td>样品实际稳定温度</td>
 <td>记录样品实际温度，不只记录控温器设定值</td>
 </tr>
 <tr>
 <td>反射/反射差分</td>
-<td><span class="field-name">Reflect_1L_MoS2_R03_sample_2K</span> + <span class="field-name">Reflect_1L_MoS2_R03_sub_2K</span></td>
+<td><span class="field-name">Reflect_1L_MoS2_R01_sample_1.65K</span> + <span class="field-name">Reflect_1L_MoS2_R01_sub_1.65K</span></td>
 <td>样品区域、相邻基底区域</td>
 <td><span class="field-name">sample</span> / <span class="field-name">sub</span> + T</td>
 <td>样品和基底必须同光路、同功率、同积分时间、相邻位置采集</td>
@@ -7263,11 +7263,11 @@ function makeFilename() {
   const type = $('#fnType').value;
   const mat = clean($('#fnMaterial').value) || 'MoS2';
   const layer = clean($('#fnLayer').value) || '1L';
-  const reg = clean($('#fnRegion').value) || 'R03';
+  const reg = clean($('#fnRegion').value) || 'R01';
   
   let sampleLabel = `${layer}_${mat}_${reg}`;
   
-  const t = clean($('#fnT').value) || '2';
+  const t = clean($('#fnT').value) || '1.65';
   const b = clean($('#fnB').value);
   const v = clean($('#fnV').value);
   const p = clean($('#fnP').value);

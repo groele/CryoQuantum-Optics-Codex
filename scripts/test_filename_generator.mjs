@@ -98,11 +98,11 @@ for (const match of namingChapter.matchAll(/<span class="field-name">([^<]+)<\/s
   assert.ok(!match[1].endsWith('.csv'), `chapter 5 naming example must omit .csv: ${match[1]}`);
 }
 for (const marker of [
-  'PL_1L_MoS2_R03_2K',
-  'PL_CP_1L_MoS2_R03_45_0_+9T_2K',
-  'PL_LP_1L_MoS2_R03_2K',
-  'Raman_1L_MoS2_R03_1800g_2K',
-  'Raman_LP_1L_MoS2_R03_1800g_2K',
+  'PL_1L_MoS2_R01_1.65K',
+  'PL_CP_1L_MoS2_R01_45_0_+9T_1.65K',
+  'PL_LP_1L_MoS2_R01_1.65K',
+  'Raman_1L_MoS2_R01_1800g_1.65K',
+  'Raman_LP_1L_MoS2_R01_1800g_1.65K',
 ]) {
   assert.ok(namingChapter.includes(marker), `chapter 5 must include ${marker}`);
 }
