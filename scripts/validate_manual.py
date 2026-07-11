@@ -105,6 +105,17 @@ def main() -> None:
     required_explanation_markers = [
         'class="concept-diagram"',
         'class="theory-note"',
+        'id="pl-process-diagram-v2"',
+        'data-formula="E_g = E_b + E_PL"',
+        'data-inverse="E_PL = E_g − E_b"',
+        'id="raman-process-diagram-v2"',
+        '虚中间态：非稳定电子本征态',
+        'ωAS = ωL + Ω',
+        'ωR = ωL',
+        'id="valley-selection-diagram"',
+        'σ+ → K',
+        'σ− → −K',
+        '传播或观察方向反转',
         'id="plot_fonts-32-1-字体与符号总则"',
         'id="plot_colors-33-1-配色与可达性总则"',
         'id="plot_panels-34-1-多面板逻辑总则"',
@@ -121,6 +132,14 @@ def main() -> None:
         fail(
             "global theory/visual explanation markers missing: "
             + ", ".join(repr(marker) for marker in missing_explanation_markers)
+        )
+
+    rendered_body = html.split("<script", 1)[0]
+    raw_inline_math = re.findall(r"\$[^$\r\n]+\$", rendered_body)
+    if raw_inline_math:
+        fail(
+            "raw LaTeX delimiters remain in rendered content: "
+            + ", ".join(repr(item) for item in raw_inline_math[:8])
         )
 
     formula_blocks = re.findall(r'<div class="equation(?: [^"]*)?"[^>]*>', html)

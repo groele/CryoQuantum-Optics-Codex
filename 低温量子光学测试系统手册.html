@@ -999,6 +999,40 @@ p code, li code {
   font-size: 0.85em;
   color: var(--muted);
 }
+.physics-process-figure {
+  margin: 24px 0;
+  padding: clamp(14px, 2.5vw, 24px);
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+.physics-process-figure[hidden] { display: none !important; }
+.physics-process-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+}
+.physics-process-figure figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.86em;
+  line-height: 1.65;
+  text-align: center;
+}
+.physics-process-figure .figure-reading-note {
+  display: block;
+  margin-top: 4px;
+  color: var(--text);
+}
+@media (max-width: 720px) {
+  .physics-process-figure { margin-inline: -4px; padding: 12px 8px; overflow-x: auto; }
+  .physics-process-figure svg { min-width: 760px; }
+  .physics-process-figure figcaption { min-width: 720px; padding-inline: 12px; }
+}
 .theory-note {
   margin: 18px 0;
   padding: 16px 20px;
@@ -3021,7 +3055,7 @@ mjx-container svg {
 </div>
 </div>
 
-<div class="pl-generation-diagram" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;">
+<div class="pl-generation-diagram" hidden aria-hidden="true" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;">
   <svg viewBox="0 0 620 340" width="100%" height="auto" style="max-width: 540px; display: block; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif;">
     <defs>
       <!-- Gradients -->
@@ -3119,6 +3153,81 @@ mjx-container svg {
     图 6.1: 光致发光 (PL) 的微观物理过程（激光激发 → 载流子超快热弛豫与激子形成 → 辐射复合发射光子）
   </div>
 </div>
+<figure class="physics-process-figure concept-diagram" hidden aria-hidden="true" aria-labelledby="pl-process-title pl-process-caption">
+<svg id="pl-process-diagram-v2-legacy" viewBox="0 0 1040 430" role="img" aria-labelledby="pl-process-title pl-process-desc">
+<title id="pl-process-title">光致发光从非平衡载流子到辐射与非辐射复合的四阶段过程</title>
+<desc id="pl-process-desc">激光先产生高能电子空穴对，随后经声子冷却和谷内或谷间弛豫形成可发光复合态，最终发生辐射复合或非辐射损失。</desc>
+<defs>
+<marker id="plv2-green-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#28a56a"/></marker>
+<marker id="plv2-red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#e45757"/></marker>
+<marker id="plv2-gray-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7b8794"/></marker>
+</defs>
+<text x="520" y="28" text-anchor="middle" fill="var(--text)" font-size="20" font-weight="700">PL 微观过程：产生 → 弛豫 → 成态 → 复合</text>
+<g fill="var(--paper2)" stroke="var(--line)" stroke-width="1.5">
+<rect x="18" y="50" width="238" height="318" rx="16"/><rect x="274" y="50" width="238" height="318" rx="16"/>
+<rect x="530" y="50" width="238" height="318" rx="16"/><rect x="786" y="50" width="238" height="318" rx="16"/>
+</g>
+<g fill="var(--accent)" font-size="20" font-weight="700"><text x="36" y="78">01 · 光吸收</text><text x="292" y="78">02 · 能量与动量弛豫</text><text x="548" y="78">03 · 发光态形成</text><text x="804" y="78">04 · 竞争复合通道</text></g>
+<g stroke-linecap="round" fill="none">
+<path d="M55 285 H220" stroke="#d96959" stroke-width="4"/><path d="M55 125 H220" stroke="#2774b8" stroke-width="4"/>
+<path d="M92 276 V137" stroke="#28a56a" stroke-width="4" marker-end="url(#plv2-green-arrow)"/>
+<path d="M128 145 q18 -22 36 0 t36 0" stroke="#28a56a" stroke-width="2.5"/>
+</g>
+<circle cx="92" cy="125" r="9" fill="#2774b8"/><circle cx="92" cy="285" r="9" fill="#d96959"/>
+<text x="110" y="190" fill="#28a56a" font-size="14" font-weight="700">hν<tspan baseline-shift="sub" font-size="10">ex</tspan> &gt; E<tspan baseline-shift="sub" font-size="10">g</tspan></text>
+<text x="36" y="325" fill="var(--text)" font-size="13">高能非平衡 e⁻–h⁺ 对</text><text x="36" y="347" fill="var(--muted)" font-size="12">光子能量先注入电子系统</text>
+<g fill="none" stroke-linecap="round"><path d="M306 122 C350 150 348 190 394 215 S450 245 476 278" stroke="#7b8794" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#plv2-gray-arrow)"/><path d="M320 142 q9 -10 18 0 t18 0" stroke="#7b8794" stroke-width="2"/><path d="M378 196 q9 -10 18 0 t18 0" stroke="#7b8794" stroke-width="2"/></g>
+<circle cx="306" cy="112" r="9" fill="#2774b8"/><circle cx="476" cy="286" r="9" fill="#d96959"/>
+<text x="292" y="306" fill="var(--text)" font-size="13" font-weight="700">声子冷却 · 谷内 / 谷间弛豫</text><text x="292" y="330" fill="#7b8794" font-size="13">τ_relax ≪ τ_rad（典型情形）</text><text x="292" y="350" fill="var(--muted)" font-size="11">动量暗态参与程度取决于材料与条件</text>
+<ellipse cx="607" cy="188" rx="42" ry="72" fill="rgba(231,145,43,.08)" stroke="#e7912b" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="607" cy="132" r="10" fill="#2774b8"/><circle cx="607" cy="244" r="10" fill="#d96959"/><path d="M607 147 V229" stroke="#e7912b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="667" y="139" fill="var(--text)" font-size="20" font-weight="700">X⁰</text><text x="667" y="173" fill="#e7912b" font-size="17" font-weight="700">X±</text><text x="548" y="303" fill="var(--text)" font-size="13">中性激子 / 带电激子</text><text x="548" y="326" fill="var(--muted)" font-size="12">也可能形成局域态或层间激子</text><text x="548" y="348" fill="var(--muted)" font-size="12">具体归属需由能量与依赖关系判定</text>
+<path d="M836 120 V230" stroke="#e45757" stroke-width="4" marker-end="url(#plv2-red-arrow)"/><path d="M850 174 q12 -14 24 0 t24 0 t24 0" fill="none" stroke="#e45757" stroke-width="2.5"/>
+<text x="858" y="115" fill="#e45757" font-size="14" font-weight="700">辐射复合</text><text x="858" y="207" fill="#e45757" font-size="13">hν<tspan baseline-shift="sub" font-size="10">PL</tspan></text>
+<path d="M824 270 C858 292 900 302 962 320" fill="none" stroke="#7b8794" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#plv2-gray-arrow)"/>
+<text x="804" y="278" fill="var(--text)" font-size="13" font-weight="700">非辐射竞争</text><text x="804" y="344" fill="var(--muted)" font-size="11">缺陷俘获 · Auger / 激子-激子湮灭</text>
+<g fill="var(--muted)" font-size="11"><circle cx="35" cy="396" r="5" fill="#2774b8"/><text x="47" y="400">电子 / 导带</text><circle cx="152" cy="396" r="5" fill="#d96959"/><text x="164" y="400">空穴 / 价带</text><line x1="270" y1="396" x2="294" y2="396" stroke="#28a56a" stroke-width="3"/><text x="302" y="400">激发</text><line x1="365" y1="396" x2="389" y2="396" stroke="#e45757" stroke-width="3"/><text x="397" y="400">发光</text><line x1="458" y1="396" x2="482" y2="396" stroke="#7b8794" stroke-width="3" stroke-dasharray="5 4"/><text x="490" y="400">声子 / 非辐射过程</text></g>
+</svg>
+<figcaption id="pl-process-caption">图 6.1　光吸收后，非平衡载流子通常先经快速冷却和动量弛豫，再由真实发光态参与复合。<span class="figure-reading-note"><strong>能量说明：</strong>发射光子能量由实际初态与终态之差决定；“E<sub>g</sub>−E<sub>b</sub>”只适用于理想中性激子的一级近似，不能直接套用于三激子、局域态或层间激子。物理示意，能量与时间尺度不按比例。</span></figcaption>
+</figure>
+<figure class="physics-process-figure concept-diagram" aria-labelledby="pl-process-title-v3 pl-process-caption-v3">
+<svg id="pl-process-diagram-v2" viewBox="0 0 1240 540" role="img" aria-labelledby="pl-process-title-v3 pl-process-desc-v3">
+<title id="pl-process-title-v3">PL 能量账本与四阶段微观过程</title>
+<desc id="pl-process-desc-v3">左侧能级账本展示带隙、激子束缚能和 PL 发射能量的关系，右侧展示光吸收、弛豫、成态和辐射或非辐射复合。</desc>
+<defs>
+<linearGradient id="plv3-ledger-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf5ff" stop-opacity=".78"/><stop offset="1" stop-color="#f8fbff" stop-opacity=".2"/></linearGradient>
+<linearGradient id="plv3-process-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6fbf8" stop-opacity=".78"/><stop offset="1" stop-color="#fffaf4" stop-opacity=".32"/></linearGradient>
+<marker id="plv3-green-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#239b68"/></marker>
+<marker id="plv3-red-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#d94d58"/></marker>
+<marker id="plv3-gray-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#778495"/></marker>
+</defs>
+<text x="620" y="30" text-anchor="middle" fill="var(--text)" font-size="22" font-weight="800">PL 微观过程与能量账本</text>
+<text x="620" y="55" text-anchor="middle" fill="var(--muted)" font-size="12">把可测的发射能量 E_PL 与由模型推断的带隙 E_g 分开记录</text>
+<rect x="18" y="75" width="360" height="422" rx="20" fill="url(#plv3-ledger-bg)" stroke="#b8c9dc" stroke-width="1.5"/>
+<rect x="398" y="75" width="824" height="422" rx="20" fill="url(#plv3-process-bg)" stroke="#cbd8d1" stroke-width="1.5"/>
+<text x="42" y="106" fill="#2774b8" font-size="15" font-weight="800">A · 能量账本（理想中性激子）</text>
+<text x="422" y="106" fill="#239b68" font-size="15" font-weight="800">B · 产生 → 弛豫 → 成态 → 复合</text>
+<g stroke-linecap="round" fill="none"><line x1="66" y1="157" x2="326" y2="157" stroke="#2774b8" stroke-width="4"/><line x1="66" y1="365" x2="326" y2="365" stroke="#d96959" stroke-width="4"/><line x1="102" y1="284" x2="290" y2="284" stroke="#e28b2e" stroke-width="4" stroke-dasharray="8 5"/>
+<path d="M300 159 V363" stroke="#526174" stroke-width="1.5"/><path d="M294 165 L300 154 L306 165 M294 357 L300 368 L306 357" stroke="#526174" stroke-width="1.5"/>
+<path d="M272 159 V280" stroke="#e28b2e" stroke-width="1.5"/><path d="M266 165 L272 154 L278 165 M266 274 L272 285 L278 274" stroke="#e28b2e" stroke-width="1.5"/>
+<path d="M180 280 V360" stroke="#d94d58" stroke-width="2.5" marker-end="url(#plv3-red-arrow)"/>
+</g>
+<text x="74" y="149" fill="#2774b8" font-size="13" font-weight="700">导带底 CB</text><text x="74" y="382" fill="#d96959" font-size="13" font-weight="700">价带顶 VB</text><text x="112" y="277" fill="#e28b2e" font-size="13" font-weight="700">发光态 X⁰</text>
+<text x="312" y="263" fill="#526174" font-size="12">E<tspan baseline-shift="sub" font-size="9">g</tspan></text><text x="282" y="219" fill="#e28b2e" font-size="12">E<tspan baseline-shift="sub" font-size="9">b</tspan></text><text x="190" y="326" fill="#d94d58" font-size="12" font-weight="700">E<tspan baseline-shift="sub" font-size="9">PL</tspan></text>
+<text class="pl-energy-ledger" data-formula="E_g = E_b + E_PL" data-inverse="E_PL = E_g − E_b" x="42" y="420" fill="var(--text)" font-size="16" font-weight="800">E<tspan baseline-shift="sub" font-size="11">g</tspan> = E<tspan baseline-shift="sub" font-size="11">b</tspan> + E<tspan baseline-shift="sub" font-size="11">PL</tspan></text>
+<text x="42" y="446" fill="var(--muted)" font-size="11">E<tspan baseline-shift="sub" font-size="8">PL</tspan> = E<tspan baseline-shift="sub" font-size="8">g</tspan> − E<tspan baseline-shift="sub" font-size="8">b</tspan>（理想中性激子）</text>
+<text x="42" y="470" fill="#d94d58" font-size="11" font-weight="700">E_PL：直接测得的 PL 峰能量</text><text x="42" y="488" fill="#2774b8" font-size="11">E_g：由模型推断的带隙</text>
+<g fill="var(--paper2)" stroke="var(--line)" stroke-width="1.2"><rect x="418" y="130" width="184" height="310" rx="15"/><rect x="616" y="130" width="184" height="310" rx="15"/><rect x="814" y="130" width="184" height="310" rx="15"/><rect x="1012" y="130" width="184" height="310" rx="15"/></g>
+<g fill="var(--text)" font-size="16" font-weight="800"><text x="434" y="157">01 · 光吸收</text><text x="632" y="157">02 · 快速弛豫</text><text x="830" y="157">03 · 发光态</text><text x="1028" y="157">04 · 复合分支</text></g>
+<g stroke-linecap="round" fill="none"><line x1="450" y1="350" x2="570" y2="350" stroke="#d96959" stroke-width="3"/><line x1="450" y1="225" x2="570" y2="225" stroke="#2774b8" stroke-width="3"/><path d="M492 340 V235" stroke="#239b68" stroke-width="3" marker-end="url(#plv3-green-arrow)"/><path d="M506 235 q12 -13 24 0 t24 0" stroke="#239b68" stroke-width="2"/>
+<path d="M650 215 C686 238 687 283 735 324" stroke="#778495" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#plv3-gray-arrow)"/><path d="M672 229 q9 -10 18 0 t18 0" stroke="#778495" stroke-width="2"/>
+<path d="M855 224 V315" stroke="#e28b2e" stroke-width="2" stroke-dasharray="5 4"/><circle cx="855" cy="224" r="8" fill="#2774b8"/><circle cx="855" cy="315" r="8" fill="#d96959"/>
+<path d="M1048 230 V315" stroke="#d94d58" stroke-width="3" marker-end="url(#plv3-red-arrow)"/><path d="M1070 345 C1100 365 1140 370 1175 388" stroke="#778495" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#plv3-gray-arrow)"/></g>
+<g fill="var(--muted)" font-size="13"><text x="434" y="205">hν<tspan baseline-shift="sub" font-size="8">ex</tspan> &gt; E<tspan baseline-shift="sub" font-size="8">g</tspan></text><text x="434" y="388">非平衡 e⁻–h⁺ 对</text><text x="434" y="407">光子能量注入</text><text x="632" y="365">声子冷却 / 谷间弛豫</text><text x="632" y="388">τ<tspan baseline-shift="sub" font-size="8">relax</tspan> ≪ τ<tspan baseline-shift="sub" font-size="8">rad</tspan></text><text x="632" y="407">动量暗态可能参与</text><text x="830" y="355" fill="#e28b2e" font-weight="700">X⁰ · X±</text><text x="830" y="378">局域态 / 层间激子</text><text x="830" y="407">归属需结合依赖关系</text><text x="1028" y="355" fill="#d94d58" font-weight="700">hν<tspan baseline-shift="sub" font-size="8">PL</tspan> · 辐射</text><text x="1028" y="378">缺陷俘获 / Auger</text><text x="1028" y="397">激子-激子湮灭</text></g>
+<g fill="var(--muted)" font-size="13"><circle cx="430" cy="468" r="5" fill="#2774b8"/><text x="442" y="472">电子 / CB</text><circle cx="520" cy="468" r="5" fill="#d96959"/><text x="532" y="472">空穴 / VB</text><line x1="610" y1="468" x2="634" y2="468" stroke="#239b68" stroke-width="3"/><text x="642" y="472">激发</text><line x1="700" y1="468" x2="724" y2="468" stroke="#d94d58" stroke-width="3"/><text x="732" y="472">PL</text><line x1="770" y1="468" x2="794" y2="468" stroke="#778495" stroke-width="3" stroke-dasharray="5 4"/><text x="802" y="472">声子 / 非辐射</text></g>
+</svg>
+<figcaption id="pl-process-caption-v3">图 6.1　PL 的能量账本与微观过程。<span class="figure-reading-note"><strong>读图边界：</strong>E<sub>PL</sub> 是直接测得的发射峰能量；E<sub>g</sub> = E<sub>b</sub> + E<sub>PL</sub> 仅适用于理想中性激子的一阶近似。三激子、局域态和层间激子的峰位必须单独归属。物理示意，能量与时间尺度不按比例。</span></figcaption>
+</figure>
 <h2 class="anchored-heading" id="pl-6-1-pl-原始数据">6.1 PL 原始数据<a aria-label="复制本节链接" class="heading-anchor" href="#pl-6-1-pl-原始数据">§</a></h2>
 <p>PL 原始数据的核心是二维数组：横轴为波长或光子能量，纵轴为计数强度。原始谱本身还不是“物理结论”，它只是记录了在特定激发、收集、温度、电场和偏振条件下的发光响应。只有把原始谱和完整元数据绑定，峰位移动、强度变化、线宽变宽、峰面积转移等现象才可用于物理解释。</p>
 <div style="overflow-x:auto;margin:12px 0;">
@@ -3266,7 +3375,7 @@ I_{\mathrm{PL}}(E)"><div class="equation-content"><mjx-container class="MathJax"
 </div>
 </div>
 
-<div class="raman-test-diagram" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;">
+<div class="raman-test-diagram" hidden aria-hidden="true" style="text-align: center; margin: 24px 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;">
   <svg viewBox="0 0 600 340" width="100%" height="auto" style="max-width: 500px; display: block; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif;">
     <defs>
       <!-- Sleek arrow markers -->
@@ -3337,6 +3446,39 @@ I_{\mathrm{PL}}(E)"><div class="equation-content"><mjx-container class="MathJax"
     图 7.1: Raman 散射能级与弹性/非弹性散射模式（Stokes、Rayleigh 与 Anti-Stokes 散射）示意图
   </div>
 </div>
+
+<figure class="physics-process-figure concept-diagram" aria-labelledby="raman-process-title-v5 raman-process-caption-v5">
+<svg id="raman-process-diagram-v2" viewBox="0 0 1180 600" role="img" aria-labelledby="raman-process-title-v5 raman-process-desc-v5">
+<title id="raman-process-title-v5">Raman 散射的能量交换与虚中间态示意图</title>
+<desc id="raman-process-desc-v5">入射频率为 ω 的光经过虚中间态，在 anti-Stokes、Rayleigh 和 Stokes 三条路径中分别交换声子能量。</desc>
+<defs>
+<linearGradient id="rmv5-virtual-band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8392a5" stop-opacity=".06"/><stop offset=".5" stop-color="#8392a5" stop-opacity=".3"/><stop offset="1" stop-color="#8392a5" stop-opacity=".06"/></linearGradient>
+<marker id="rmv5-in-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#239b68"/></marker>
+<marker id="rmv5-as-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2774b8"/></marker>
+<marker id="rmv5-ray-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#6f7f95"/></marker>
+<marker id="rmv5-s-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#d95757"/></marker>
+</defs>
+<text x="590" y="30" text-anchor="middle" fill="var(--text)" font-size="23" font-weight="800">Raman 散射的能量交换</text>
+<text x="590" y="54" text-anchor="middle" fill="var(--muted)" font-size="12">参考能级图：入射光先到达虚中间态，再由终态振动态决定散射频率</text>
+<g transform="translate(590 82)"><circle cx="0" cy="0" r="24" fill="#c95757" stroke="#7f3030" stroke-width="2"/><circle cx="-48" cy="30" r="14" fill="#d7dce4" stroke="#59677b" stroke-width="2"/><circle cx="48" cy="30" r="14" fill="#d7dce4" stroke="#59677b" stroke-width="2"/><path d="M-18 17 L-39 30 M18 17 L39 30" stroke="#59677b" stroke-width="6" stroke-linecap="round"/><path d="M-18 17 L-39 30 M18 17 L39 30" stroke="#eef1f5" stroke-width="2" stroke-linecap="round"/></g>
+<text x="590" y="140" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">散射中心：晶格 / 分子振动耦合</text>
+<path d="M590 143 C590 155 590 169 590 184" stroke="#239b68" stroke-width="3" marker-end="url(#rmv5-in-arrow)"/><text x="606" y="174" fill="#239b68" font-size="13" font-weight="800">入射频率 ω</text>
+<rect x="98" y="203" width="984" height="54" rx="16" fill="url(#rmv5-virtual-band)" stroke="#8996a8" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="590" y="226" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="800">虚中间态</text><text x="590" y="244" text-anchor="middle" fill="var(--muted)" font-size="11">虚中间态：非稳定电子本征态 · 不是可长期占据的稳定能级</text>
+<g stroke="var(--text)" stroke-width="2.2"><line x1="118" y1="350" x2="1062" y2="350"/><line x1="118" y1="465" x2="1062" y2="465"/></g>
+<text x="72" y="356" fill="var(--text)" font-size="14" font-weight="800">S₁</text><text x="72" y="374" fill="var(--muted)" font-size="11">振动激发态 |g,n+1⟩</text><text x="72" y="471" fill="var(--text)" font-size="14" font-weight="800">S₀</text><text x="72" y="489" fill="var(--muted)" font-size="11">基态 |g,n⟩</text>
+<g stroke="#8a97a8" stroke-width="1.5" stroke-dasharray="5 5"><line x1="118" y1="410" x2="1062" y2="410"/></g><text x="72" y="416" fill="var(--muted)" font-size="11">中间振动态</text>
+<g fill="var(--paper2)" stroke="var(--line)" stroke-width="1.2"><rect x="128" y="276" width="276" height="258" rx="16"/><rect x="452" y="276" width="276" height="258" rx="16"/><rect x="776" y="276" width="276" height="258" rx="16"/></g>
+<g text-anchor="middle"><circle cx="154" cy="300" r="13" fill="#2774b8"/><text x="154" y="305" fill="#fff" font-size="10" font-weight="800">A</text><text x="266" y="304" fill="var(--text)" font-size="17" font-weight="800">anti-Stokes</text><circle cx="478" cy="300" r="13" fill="#6f7f95"/><text x="478" y="305" fill="#fff" font-size="10" font-weight="800">B</text><text x="590" y="304" fill="var(--text)" font-size="17" font-weight="800">Rayleigh</text><circle cx="802" cy="300" r="13" fill="#d95757"/><text x="802" y="305" fill="#fff" font-size="10" font-weight="800">C</text><text x="914" y="304" fill="var(--text)" font-size="17" font-weight="800">Stokes</text></g>
+<g fill="none" stroke-linecap="round"><path d="M198 350 L198 257" stroke="#239b68" stroke-width="3" marker-end="url(#rmv5-in-arrow)"/><path d="M302 257 L302 465" stroke="#2774b8" stroke-width="3" marker-end="url(#rmv5-as-arrow)"/><path d="M522 465 L522 257" stroke="#239b68" stroke-width="3" marker-end="url(#rmv5-in-arrow)"/><path d="M626 257 L626 465" stroke="#6f7f95" stroke-width="3" marker-end="url(#rmv5-ray-arrow)"/><path d="M846 465 L846 257" stroke="#239b68" stroke-width="3" marker-end="url(#rmv5-in-arrow)"/><path d="M950 257 L950 350" stroke="#d95757" stroke-width="3" marker-end="url(#rmv5-s-arrow)"/></g>
+<g fill="var(--paper)" stroke="none"><rect x="156" y="364" width="84" height="24" rx="8"/><rect x="262" y="386" width="92" height="24" rx="8"/><rect x="480" y="382" width="84" height="24" rx="8"/><rect x="590" y="386" width="78" height="24" rx="8"/><rect x="804" y="382" width="84" height="24" rx="8"/><rect x="968" y="324" width="76" height="24" rx="8"/></g>
+<g font-size="16" font-weight="800"><text x="168" y="361" fill="#239b68">入射 ω</text><text x="272" y="403" fill="#2774b8">散射 ω+Ω</text><text x="492" y="399" fill="#239b68">入射 ω</text><text x="602" y="403" fill="#6f7f95">散射 ω</text><text x="816" y="400" fill="#239b68">入射 ω</text><text x="978" y="340" fill="#d95757">散射 ω−Ω</text></g>
+<g text-anchor="middle"><text x="266" y="457" fill="var(--text)" font-size="13" font-weight="800">|g,n⟩ → |g,n−1⟩</text><text x="266" y="481" fill="#1c5c98" font-size="13" font-weight="800">ωAS = ωL + Ω</text><rect x="202" y="492" width="128" height="24" rx="8" fill="rgba(39,116,184,.1)"/><text x="266" y="509" fill="#1c5c98" font-size="14" font-weight="800">湮灭声子 · 蓝移</text><text x="590" y="457" fill="var(--text)" font-size="13" font-weight="800">|g,n⟩ → |g,n⟩</text><text x="590" y="481" fill="#596b82" font-size="13" font-weight="800">ωR = ωL</text><rect x="526" y="492" width="128" height="24" rx="8" fill="rgba(112,128,150,.1)"/><text x="590" y="509" fill="#596b82" font-size="14" font-weight="800">振动态不变 · 弹性</text><text x="914" y="457" fill="var(--text)" font-size="13" font-weight="800">|g,n⟩ → |g,n+1⟩</text><text x="914" y="481" fill="#a63e3e" font-size="13" font-weight="800">ωS = ωL − Ω</text><rect x="850" y="492" width="128" height="24" rx="8" fill="rgba(217,87,87,.1)"/><text x="914" y="509" fill="#a63e3e" font-size="14" font-weight="800">产生声子 · 红移</text></g>
+<path d="M1040 350 V465" stroke="var(--text)" stroke-width="1.5"/><path d="M1034 358 L1040 348 L1046 358 M1034 457 L1040 467 L1046 457" fill="none" stroke="var(--text)"/><text x="1026" y="414" text-anchor="end" fill="var(--text)" font-size="13" font-weight="800">ℏΩ</text>
+<rect x="98" y="548" width="984" height="30" rx="10" fill="rgba(226,139,46,.08)" stroke="#e2c38c"/><text x="590" y="568" text-anchor="middle" fill="var(--text)" font-size="14">anti-Stokes 需要初态已有声子（声子占据 n）；强度受玻色占据、Raman 张量、共振增强与仪器响应共同影响</text>
+</svg>
+<figcaption id="raman-process-caption-v5">图 7.1　参考能级图重绘的 Raman 散射能量交换过程。<span class="figure-reading-note"><strong>读图原则：</strong>虚中间态只表示光学跃迁路径；Stokes 产生声子，Rayleigh 振动态不变，anti-Stokes 湮灭预先存在的声子。物理示意，能量与时间尺度不按比例。</span></figcaption>
+</figure>
 
 <div style="overflow-x:auto;margin:12px 0;">
 <table class="method-setting-table">
@@ -3711,6 +3853,34 @@ S_3=I_R-I_L"><div class="equation-content"><mjx-container class="MathJax" displa
     <div><strong>定量建议</strong><p>所有四通道应在同功率、同积分时间、同焦点、同光栅和同温度/磁场条件下采集，并先做暗谱、系统偏振响应和探测效率修正。</p></div>
   </div>
 </div>
+<figure class="physics-process-figure concept-diagram" aria-labelledby="valley-selection-title valley-selection-caption">
+<svg id="valley-selection-diagram" viewBox="0 0 1040 490" role="img" aria-labelledby="valley-selection-title valley-selection-desc">
+<title id="valley-selection-title">圆偏振光与 K 和负 K 谷的选择定则及四通道映射</title>
+<desc id="valley-selection-desc">在图示约定中，光沿样品法向正 z 方向传播，正圆偏振激发 K 谷，负圆偏振激发负 K 谷；同谷发光形成共偏振通道，谷间散射形成交叉通道。</desc>
+<defs>
+<marker id="valley-plus-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2774b8"/></marker>
+<marker id="valley-minus-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d96959"/></marker>
+<marker id="valley-emission-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#e45757"/></marker>
+<marker id="valley-scatter-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7b8794"/></marker>
+</defs>
+<text x="520" y="28" text-anchor="middle" fill="var(--text)" font-size="20" font-weight="700">圆偏振选择定则与四通道读法</text>
+<rect x="260" y="44" width="520" height="40" rx="20" fill="rgba(40,165,106,.09)" stroke="#28a56a"/><text x="520" y="69" text-anchor="middle" fill="#28a56a" font-size="13" font-weight="700">本图约定：光沿 +z 传播（+z 为样品法向），由光源朝样品观察</text>
+<g fill="var(--paper2)" stroke="var(--line)" stroke-width="1.5"><rect x="34" y="104" width="446" height="252" rx="18"/><rect x="560" y="104" width="446" height="252" rx="18"/></g>
+<text x="257" y="133" text-anchor="middle" fill="#2774b8" font-size="18" font-weight="700">K 谷</text><text x="783" y="133" text-anchor="middle" fill="#d96959" font-size="18" font-weight="700">−K 谷</text>
+<path data-band="cb" data-curvature="up" d="M86 160 Q257 270 428 160" fill="none" stroke="#2774b8" stroke-width="4"/><path data-band="vb" data-curvature="down" d="M86 330 Q257 210 428 330" fill="none" stroke="#d96959" stroke-width="4"/>
+<path data-band="cb" data-curvature="up" d="M612 160 Q783 270 954 160" fill="none" stroke="#d96959" stroke-width="4"/><path data-band="vb" data-curvature="down" d="M612 330 Q783 210 954 330" fill="none" stroke="#2774b8" stroke-width="4"/>
+<g fill="var(--paper2)" stroke="var(--line)" stroke-width="1"><rect x="137" y="145" width="48" height="28" rx="7"/><rect x="137" y="322" width="48" height="28" rx="7"/><rect x="663" y="145" width="48" height="28" rx="7"/><rect x="663" y="322" width="48" height="28" rx="7"/></g>
+<g fill="var(--text)" font-size="18" font-weight="800"><text x="147" y="166">CB</text><text x="147" y="343">VB</text><text x="673" y="166">CB</text><text x="673" y="343">VB</text></g>
+<path d="M190 282 V205" stroke="#2774b8" stroke-width="4" marker-end="url(#valley-plus-arrow)"/><path d="M716 282 V205" stroke="#d96959" stroke-width="4" marker-end="url(#valley-minus-arrow)"/>
+<text x="108" y="242" fill="#2774b8" font-size="17" font-weight="700">σ+ → K</text><text x="624" y="242" fill="#d96959" font-size="17" font-weight="700">σ− → −K</text>
+<path d="M324 205 V282" stroke="#e45757" stroke-width="3.5" marker-end="url(#valley-emission-arrow)"/><path d="M850 205 V282" stroke="#e45757" stroke-width="3.5" marker-end="url(#valley-emission-arrow)"/>
+<text x="338" y="239" fill="#e45757" font-size="16" font-weight="700">同谷辐射 σ+</text><text x="864" y="239" fill="#e45757" font-size="16" font-weight="700">同谷辐射 σ−</text>
+<path d="M405 177 C495 145 545 145 635 177" fill="none" stroke="#7b8794" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#valley-scatter-arrow)"/><path d="M635 319 C545 347 495 347 405 319" fill="none" stroke="#7b8794" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#valley-scatter-arrow)"/>
+<rect x="440" y="226" width="160" height="48" rx="12" fill="var(--paper)" stroke="#7b8794" stroke-dasharray="5 4"/><text x="520" y="247" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">弱谷间散射</text><text x="520" y="264" text-anchor="middle" fill="var(--muted)" font-size="10">产生交叉手性分量</text>
+<g transform="translate(34 374)"><text x="0" y="16" fill="var(--text)" font-size="14" font-weight="700">四通道矩阵（第一下标：激发；第二下标：检测）</text><g transform="translate(0 34)"><rect x="0" y="0" width="226" height="52" rx="12" fill="rgba(39,116,184,.09)" stroke="#2774b8"/><text x="20" y="22" fill="#2774b8" font-size="15" font-weight="700">I++</text><text x="20" y="41" fill="var(--text)" font-size="11">σ+ 激发 / σ+ 检测 · 同谷</text><rect x="242" y="0" width="226" height="52" rx="12" fill="rgba(123,135,148,.07)" stroke="#7b8794"/><text x="262" y="22" fill="var(--text)" font-size="15" font-weight="700">I+-</text><text x="262" y="41" fill="var(--text)" font-size="11">σ+ 激发 / σ− 检测 · 交叉</text><rect x="484" y="0" width="226" height="52" rx="12" fill="rgba(123,135,148,.07)" stroke="#7b8794"/><text x="504" y="22" fill="var(--text)" font-size="15" font-weight="700">I-+</text><text x="504" y="41" fill="var(--text)" font-size="11">σ− 激发 / σ+ 检测 · 交叉</text><rect x="726" y="0" width="246" height="52" rx="12" fill="rgba(217,105,89,.09)" stroke="#d96959"/><text x="746" y="22" fill="#d96959" font-size="15" font-weight="700">I--</text><text x="746" y="41" fill="var(--text)" font-size="11">σ− 激发 / σ− 检测 · 同谷</text></g></g>
+</svg>
+<figcaption id="valley-selection-caption">图 10.1　在本图的 +z 传播与手性约定下，σ⁺、σ⁻ 分别选择性耦合 K、−K 谷；同手性通道反映偏振保持，交叉通道可包含谷间散射、退相干和系统串扰。<span class="figure-reading-note"><strong>约定边界：</strong>传播或观察方向反转，或采用另一套 σ 定义时，σ⁺ / σ⁻ 与 K / −K 标签会互换；报告数据时必须同时给出传播方向、波片设置和通道定义。物理示意，能量与时间尺度不按比例。</span></figcaption>
+</figure>
 <h2 class="anchored-heading" id="circular_pol-10-1-四种模式">10.1 四种模式<a aria-label="复制本节链接" class="heading-anchor" href="#circular_pol-10-1-四种模式">§</a></h2>
 <p>定义 <span class="inline-math"><mjx-container class="MathJax" jax="SVG"><svg focusable="false" height="2.195ex" role="img" style="vertical-align: -0.65ex;" viewbox="0 -683 1375.8 970.2" width="3.113ex" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" stroke="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z" data-c="1D43C"></path></g><g data-mjx-texclass="ORD" data-mml-node="TeXAtom" transform="translate(473,-150) scale(0.707)"><g data-mml-node="mi"><path d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z" data-c="1D6FC"></path></g><g data-mml-node="mi" transform="translate(640,0)"><path d="M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z" data-c="1D6FD"></path></g></g></g></g></g></svg></mjx-container></span>，第一下标表示激发，第二下标表示检测。</p>
 <table>
@@ -4009,7 +4179,7 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
   <figcaption>图 12.2：谷 Zeeman 分裂能级演化与圆偏振通道读出（示意图，不代表实测数据）</figcaption>
 </div>
 
-<p>我们首先定义实验中可直接观测的物理量——两个偏振通道探测到的激子发射峰能量之差 $\Delta E(B)$：</p>
+<p>首先定义实验中可直接观测的物理量——两个偏振通道探测到的激子发射峰能量之差 <span class="inline-math-static">ΔE(B)</span>：</p>
 
 <div class="equation equation-text" data-tex="\Delta E(B)=E_{\sigma^+}(B)-E_{\sigma^-}(B)">
   <div class="equation-content">
@@ -4026,7 +4196,7 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
   <button aria-label="复制 LaTeX" class="equation-copy" onclick="copyEquation(this)" type="button">复制公式</button>
 </div>
 
-<p>上式中，$E_{\sigma^+}(B)$ 和 $E_{\sigma^-}(B)$ 分别表示在垂直外磁场 $B$ 下，通过拟合实验光谱提取出的右手偏振和左手偏振通道发射峰位置能值（通常以 $\mathrm{meV}$ 为单位）。在材料的磁场线性响应区间内，我们将分裂值 $\Delta E(B)$ 随外磁场 $B$ 的演化关系用线性模型进行拟合：</p>
+<p>上式中，<span class="inline-math-static">E<sub>σ<sup>+</sup></sub>(B)</span> 和 <span class="inline-math-static">E<sub>σ<sup>−</sup></sub>(B)</span> 分别表示在垂直外磁场 <span class="inline-math-static">B</span> 下，通过拟合实验光谱提取出的 σ<sup>+</sup> 与 σ<sup>−</sup> 偏振通道发射峰的能量（通常以 meV 为单位）。在材料的磁场线性响应区间内，将分裂值 <span class="inline-math-static">ΔE(B)</span> 随外磁场 <span class="inline-math-static">B</span> 的演化关系用线性模型进行拟合：</p>
 
 <div class="equation equation-text" data-tex="\Delta E(B)=g_{\mathrm{eff}}\mu_B B+\Delta E_0">
   <div class="equation-content">
@@ -4041,7 +4211,7 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
   <button aria-label="复制 LaTeX" class="equation-copy" onclick="copyEquation(this)" type="button">复制公式</button>
 </div>
 
-<p>其中，$g_{\mathrm{eff}}$ 是无量纲的有效 Landé $g$ 因子，$\mu_B$ 是玻尔磁子，$\Delta E_0$ 为代表零磁场下由于系统非对称性或样品残余劈裂导致的残余能量截距。基于这一线性响应模型，我们可以由分裂能随磁场的变化斜率 $d\Delta E/dB$ 换算出有效 $g$ 因子：</p>
+<p>其中，<span class="inline-math-static">g<sub>eff</sub></span> 是无量纲的有效 Landé <span class="inline-math-static">g</span> 因子，<span class="inline-math-static">μ<sub>B</sub></span> 是玻尔磁子，<span class="inline-math-static">ΔE<sub>0</sub></span> 是零磁场残余分裂对应的截距。基于这一线性响应模型，可以由分裂能随磁场的变化斜率 <span class="inline-math-static">dΔE/dB</span> 换算有效 <span class="inline-math-static">g</span> 因子：</p>
 
 <div class="equation equation-text" data-tex="g_{\mathrm{eff}}=\frac{d\Delta E/dB}{\mu_B}">
   <div class="equation-content">
@@ -4056,7 +4226,7 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
   <button aria-label="复制 LaTeX" class="equation-copy" onclick="copyEquation(this)" type="button">复制公式</button>
 </div>
 
-<p>为了在拟合斜率单位 $\mathrm{meV/T}$ 与有效 $g$ 因子之间建立精确的物理换算，我们使用如下高精度的玻尔磁子常数进行计算：</p>
+<p>为了在拟合斜率单位 meV/T 与有效 <span class="inline-math-static">g</span> 因子之间建立精确的物理换算，使用如下玻尔磁子常数进行计算：</p>
 
 <div class="equation equation-text" data-tex="\mu_B \approx 57.8838~\mu\mathrm{eV/T} = 0.0578838~\mathrm{meV/T}">
   <div class="equation-content">
@@ -4073,12 +4243,12 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
 
 <div class="zeeman-sign-note">
   <strong>💡 符号约定重要说明</strong>
-  本手册统一定义能量差为 $\Delta E = E_{\sigma^+} - E_{\sigma^-}$。请特别注意，如果您在数据处理时反转了相减顺序（例如写成 $\Delta E = E_{\sigma^-} - E_{\sigma^+}$）或反转了外磁场的定义方向，则求得的 $g_{\mathrm{eff}}$ 符号将会完全相反。因此在学术交流与论文撰写中，务必清晰报告您的偏振相减顺序、磁场极性定义以及样品的空间朝向约定。
+  本手册统一定义能量差为 <span class="inline-math-static">ΔE = E<sub>σ<sup>+</sup></sub> − E<sub>σ<sup>−</sup></sub></span>。请特别注意，如果数据处理时反转相减顺序（例如写成 <span class="inline-math-static">ΔE = E<sub>σ<sup>−</sup></sub> − E<sub>σ<sup>+</sup></sub></span>）或反转外磁场定义方向，则求得的 <span class="inline-math-static">g<sub>eff</sub></span> 符号也会完全相反。因此在学术交流与论文撰写中，务必清晰报告偏振相减顺序、磁场极性定义以及样品空间朝向约定。
 </div>
 
 <div class="zeeman-example">
   <strong>📝 教学示例计算</strong>
-  假设我们在实验中拟合得到了中性激子能级差 $\Delta E$ 随垂直磁场 $B$ 变化的关系，并获得了拟合斜率 $m = d\Delta E/dB = −0.230 meV/T$。利用上述的玻尔磁子物理常数换算有效 g 因子：
+  假设实验拟合得到中性激子能级差 <span class="inline-math-static">ΔE</span> 随垂直磁场 <span class="inline-math-static">B</span> 的变化关系，并获得斜率 <span class="inline-math-static">m = dΔE/dB = −0.230 meV/T</span>。利用上述玻尔磁子常数换算有效 g 因子：
   <div class="equation equation-text" data-tex="g_{\mathrm{eff}} = \frac{−0.230~\mathrm{meV/T}}{0.0578838~\mathrm{meV/T}} \approx −3.97">
     <div class="equation-content">
       <div class="formula-stack">
@@ -4100,39 +4270,39 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
 <div class="zeeman-extraction-steps">
   <div>
     <strong>01. 偏振峰拟合</strong>
-    在每个磁场采集点上，分别对 $\sigma^+$ 和 $\sigma^-$ 偏振通道的光谱进行精细拟合，提取各自的峰位能量 $E_{\sigma^+}(B)$ 与 $E_{\sigma^-}(B)$。
+    在每个磁场采集点上，分别对 <span class="inline-math-static">σ<sup>+</sup></span> 和 <span class="inline-math-static">σ<sup>−</sup></span> 偏振通道的光谱进行精细拟合，提取各自的峰位能量 <span class="inline-math-static">E<sub>σ<sup>+</sup></sub>(B)</span> 与 <span class="inline-math-static">E<sub>σ<sup>−</sup></sub>(B)</span>。
   </div>
   <div>
     <strong>02. 计算分裂能量差</strong>
-    利用同一磁场点下的峰位，按照定义计算分裂能量：$\Delta E(B) = E_{\sigma^+}(B) - E_{\sigma^-}(B)$。
+    利用同一磁场点下的峰位，按照定义计算分裂能量：<span class="inline-math-static">ΔE(B) = E<sub>σ<sup>+</sup></sub>(B) − E<sub>σ<sup>−</sup></sub>(B)</span>。
   </div>
   <div>
     <strong>03. 检查线性响应区间</strong>
-    绘制 $\Delta E$ 与磁场 $B$ 的依赖关系图，剔除明显由于信噪比不足或多峰混合导致的异常点，确定线性区。
+    绘制 <span class="inline-math-static">ΔE</span> 与磁场 <span class="inline-math-static">B</span> 的依赖关系图，检查由信噪比不足或多峰混合导致的异常点，并依据预先说明的质量准则确定线性区。
   </div>
   <div>
     <strong>04. 线性斜率拟合</strong>
-    在确定的线性区间内，用最小二乘法进行线性拟合，求得拟合斜率 $m = d\Delta E/dB$ 及其标准不确定度。
+    在确定的线性区间内，用最小二乘法进行线性拟合，求得拟合斜率 <span class="inline-math-static">m = dΔE/dB</span> 及其标准不确定度。
   </div>
   <div>
     <strong>05. 参数转换与报告</strong>
-    利用有效 $g$ 因子公式计算 $g_{\mathrm{eff}}$（保留正负号），同时报告拟合截距 $\Delta E_0$ 及其物理不确定度。
+    利用有效 <span class="inline-math-static">g</span> 因子公式计算 <span class="inline-math-static">g<sub>eff</sub></span>（保留正负号），同时报告拟合截距 <span class="inline-math-static">ΔE<sub>0</sub></span> 及其不确定度。
   </div>
 </div>
 
 <div class="theory-note">
   <strong>⚠️ 提取有效 g 因子的常见物理误判</strong>
   <ul>
-    <li><strong>强度差不等于能量分裂</strong>：$\sigma^+$ 与 $\sigma^-$ 圆偏振发光强度的差异反映的是热布居调制或量子效率非对称性，<strong>强度差不是 Zeeman 能量分裂</strong>，绝对不能直接作为能量劈裂计算 $g$ 因子。</li>
+    <li><strong>强度差不等于能量分裂</strong>：<span class="inline-math-static">σ<sup>+</sup></span> 与 <span class="inline-math-static">σ<sup>−</sup></span> 圆偏振发光强度的差异反映热布居调制或量子效率非对称性，<strong>强度差不是 Zeeman 能量分裂</strong>，不能直接作为能量劈裂计算 <span class="inline-math-static">g</span> 因子。</li>
     <li><strong>避免使用非分峰的质心移动</strong>：如果谱线是由激子（Exciton）、三激子（Trion）或局域缺陷态重叠组成的，仅计算未分峰宽谱的能量重心（Centroid）移动会带来由于各峰热布居重分布导致的严重伪影。必须对每个独立的能跃迁进行精确的分峰拟合。</li>
-    <li><strong>区分激子复合物</strong>：中性激子、带电激子、局域激子与极化激子的有效 $g$ 因子受能带曲率、Berry 曲率、多体屏蔽及谷轨道耦合的影响截然不同，不能混用。</li>
-    <li><strong>非线性依赖的处理</strong>：如果在高磁场下数据出现非线性（反交叉行为）或磁滞现象，则说明系统不能再使用单一线性斜率拟合，严禁强行拟合单一 $g_{\mathrm{eff}}$ 因子。</li>
+    <li><strong>区分激子复合物</strong>：中性激子、带电激子、局域激子与极化激子的有效 <span class="inline-math-static">g</span> 因子受能带曲率、Berry 曲率、多体屏蔽及谷轨道耦合的影响不同，不能混用。</li>
+    <li><strong>非线性依赖的处理</strong>：如果高磁场数据出现非线性（如反交叉）或磁滞，则系统不能再用单一线性斜率描述，不应强行报告单一 <span class="inline-math-static">g<sub>eff</sub></span>。</li>
   </ul>
 </div>
 
 <div class="zeeman-special-case">
   <strong>🔬 特殊情况：非线性零场劈裂模型</strong>
-  在极低温下，若激子由于谷间电子-空穴交换相互作用产生能标为 $\delta$ 的零场细结构劈裂或暗/亮激子混合反交叉，数据在低场附近可能呈现出非线性反交叉特征。此时需要采用以下两能级非线性耦合模型：
+  在极低温下，若激子因谷间电子-空穴交换相互作用产生能标为 <span class="inline-math-static">δ</span> 的零场细结构劈裂，或发生暗/亮激子混合反交叉，数据在低场附近可能呈非线性。此时可检验以下两能级非线性耦合模型：
   <div class="equation equation-text" data-tex="|\Delta E(B)| = \sqrt{\delta^2+(g_{\mathrm{eff}}\mu_BB)^2}">
     <div class="equation-content">
       <div class="formula-stack">
@@ -4145,7 +4315,7 @@ B_{\alpha\beta}(E)+\sum_j P_{\alpha\beta,j}(E)"><div class="equation-content"><m
     </div>
     <button aria-label="复制 LaTeX" class="equation-copy" onclick="copyEquation(this)" type="button">复制公式</button>
   </div>
-  使用该公式的前提是必须存在独立的 $B = 0$ 偏振依赖细结构实验证据。如果您的实测数据在零磁场附近呈普通线性，且光学狭缝等条件没有足够的分辨率观察到残余的反交叉能隙，则应当优先采用普通线性模型，不应盲目强行套用该模型。
+  使用该公式的前提是存在独立的 <span class="inline-math-static">B = 0</span> 偏振依赖细结构证据。如果实测数据在零磁场附近呈普通线性，且系统分辨率不足以观察残余反交叉能隙，则应优先使用普通线性模型，不应强行套用该模型。
 </div>
 
 <p>有关谷 Zeeman 分裂微观贡献（包括自旋磁矩、轨道磁矩和谷磁矩贡献）的更深入物理基础与理论推导，请参阅本手册 <a href="#magneto-16-1-zeeman">第 16.1 节 谷磁矩与 Zeeman 劈裂</a>。</p>
@@ -5946,21 +6116,18 @@ I++ 或完整四通道再次采集
       <path d="M82 232 C103 226 116 208 130 178 C144 145 158 124 173 139 C190 156 201 213 218 202 C233 192 235 122 249 82 C260 51 273 55 286 101 C301 155 320 207 358 224" fill="none" stroke="#111827" stroke-width="2.1"/>
       <path d="M102 232 C123 222 134 173 151 143 C164 120 179 128 190 163 C198 188 205 207 218 217" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="5 4"/>
       <path d="M212 222 C227 203 235 119 249 80 C261 48 275 56 287 105 C300 158 313 204 342 224" fill="none" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
-      <line x1="162" y1="137" x2="162" y2="105" stroke="#1d4ed8" stroke-width="0.9" stroke-dasharray="3 3"/>
-      <text x="162" y="98" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">X<tspan baseline-shift="super" font-size="8">-</tspan></text>
-      <line x1="260" y1="72" x2="260" y2="38" stroke="#b91c1c" stroke-width="0.9" stroke-dasharray="3 3"/>
-      <text x="260" y="31" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">X<tspan baseline-shift="super" font-size="8">0</tspan></text>
-      <g font-family="Arial, Helvetica, sans-serif" font-size="10.5" fill="#111827">
+      <text x="142" y="120" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#1d4ed8" text-anchor="middle">X<tspan baseline-shift="super" font-size="8">-</tspan></text>
+      <text x="240" y="65" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#b91c1c" text-anchor="middle">X<tspan baseline-shift="super" font-size="8">0</tspan></text>
+      <g font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#111827">
         <text x="82" y="263" text-anchor="middle">1.80</text><text x="174" y="263" text-anchor="middle">1.88</text><text x="266" y="263" text-anchor="middle">1.96</text><text x="358" y="263" text-anchor="middle">2.04</text>
         <text x="67" y="246" text-anchor="end">0</text><text x="67" y="199" text-anchor="end">30</text><text x="67" y="152" text-anchor="end">60</text><text x="67" y="105" text-anchor="end">90</text><text x="67" y="58" text-anchor="end">120</text>
-        <text x="220" y="287" font-size="13" font-weight="700" text-anchor="middle">Photon energy <tspan font-family="Times New Roman" font-style="italic">E</tspan> (eV)</text>
-        <text x="22" y="142" font-size="13" font-weight="700" text-anchor="middle" transform="rotate(-90 22 142)">PL intensity <tspan font-family="Times New Roman" font-style="italic">I</tspan> (a.u.)</text>
+        <text x="220" y="287" font-size="16" font-weight="700" text-anchor="middle">Photon energy <tspan font-family="Times New Roman" font-style="italic">E</tspan> (eV)</text>
+        <text x="22" y="160" font-size="16" font-weight="700" text-anchor="middle" transform="rotate(-90 22 142)">PL intensity <tspan font-family="Times New Roman" font-style="italic">I</tspan> (a.u.)</text>
       </g>
-      <g font-family="Arial, Helvetica, sans-serif" font-size="10.5" fill="#334155">
-        <circle cx="290" cy="55" r="2" fill="#334155"/><text x="298" y="59">data, mean +/- s.d.</text>
-        <line x1="288" y1="72" x2="304" y2="72" stroke="#111827" stroke-width="2"/><text x="310" y="76">total fit</text>
-        <line x1="288" y1="89" x2="304" y2="89" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="5 4"/><text x="310" y="93">trion</text>
-        <line x1="288" y1="106" x2="304" y2="106" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/><text x="310" y="110">exciton</text>
+      <g font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334155">
+        <line x1="288" y1="52" x2="304" y2="52" stroke="#111827" stroke-width="2"/><text x="310" y="56">total fit</text>
+        <line x1="288" y1="69" x2="304" y2="69" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="5 4"/><text x="310" y="73">trion</text>
+        <line x1="288" y1="86" x2="304" y2="86" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/><text x="310" y="90">exciton</text>
       </g>
     </svg>
     <ul class="figure-callouts">
