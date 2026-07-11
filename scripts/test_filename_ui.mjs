@@ -1,41 +1,8 @@
 import assert from 'node:assert/strict';
+import { openPage } from './ui_test_support.mjs';
 
-const endpoint = 'http://127.0.0.1:9224';
-let targets;
-for (let attempt = 0; attempt < 20; attempt += 1) {
-  try {
-    targets = await fetch(`${endpoint}/json`).then(response => response.json());
-    break;
-  } catch {
-    await new Promise(resolve => setTimeout(resolve, 200));
-  }
-}
-assert.ok(targets, 'Edge remote-debugging endpoint must be available');
-const page = targets.find(target => target.type === 'page');
-assert.ok(page?.webSocketDebuggerUrl, 'Edge page target must be available');
-
-const socket = new WebSocket(page.webSocketDebuggerUrl);
-await new Promise((resolve, reject) => {
-  socket.addEventListener('open', resolve, { once: true });
-  socket.addEventListener('error', reject, { once: true });
-});
-let messageId = 0;
-const pending = new Map();
-socket.addEventListener('message', event => {
-  const message = JSON.parse(event.data);
-  const callback = pending.get(message.id);
-  if (callback) {
-    pending.delete(message.id);
-    callback(message);
-  }
-});
-function send(method, params = {}) {
-  const id = ++messageId;
-  socket.send(JSON.stringify({ id, method, params }));
-  return new Promise((resolve, reject) => {
-    pending.set(id, message => message.error ? reject(message.error) : resolve(message.result));
-  });
-}
+const browser = await openPage();
+const send = browser.send;
 
 await send('Page.enable');
 await send('Runtime.enable');
@@ -172,5 +139,5 @@ assert.equal(mergedAndConversion.result.value.energy, '1.999745');
 assert.equal(mergedAndConversion.result.value.wavenumber, '16129.032258');
 assert.equal(mergedAndConversion.result.value.sourceHighlighted, true);
 assert.equal(mergedAndConversion.result.value.densityRemoved, true);
-socket.close();
+browser.close();
 console.log('PASS: toolbox modules, merged guidance, spectral conversion, and responsive layouts are functional');
