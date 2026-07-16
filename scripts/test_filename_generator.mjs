@@ -65,11 +65,13 @@ assert.deepEqual(optionOrder, [
 
 assert.equal(generate('PL'), 'PL_1L_MoS2_R01_1.65K');
 assert.equal(generate('CircularPol', { fnRegion: 'R03', fnT: '2', fnB: '+9' }), 'PL_CP_1L_MoS2_R03_45_0_+9T_2K');
-assert.equal(generate('LinearPolPL', { fnRegion: 'R01', fnT: '1.65' }), 'PL_LP_1L_MoS2_R01_1.65K');
+assert.equal(generate('LinearPolPL', { fnRegion: 'R01', fnT: '1.65', fnB: '+9' }), 'PL_LP_1L_MoS2_R01_+9T_1.65K');
+assert.equal(generate('LinearPolPL', { fnRegion: 'R01', fnT: '1.65', fnB: '' }), 'PL_LP_1L_MoS2_R01_0T_1.65K');
+elements.fnB.value = '+9';
 elements.fnPol.value = 'Pol045deg';
 context.makeFilename();
-assert.equal(elements.filenameOut.textContent, 'PL_LP_1L_MoS2_R01_Pol045deg_1.65K');
-assert.equal(generate('LinearPolRaman', { fnRegion: 'R03', fnT: '2', fnPol: '' }), 'Raman_LP_1L_MoS2_R03_1800g_2K');
+assert.equal(elements.filenameOut.textContent, 'PL_LP_1L_MoS2_R01_Pol045deg_+9T_1.65K');
+assert.equal(generate('LinearPolRaman', { fnRegion: 'R03', fnT: '2', fnB: '-3', fnPol: '' }), 'Raman_LP_1L_MoS2_R03_1800g_-3T_2K');
 
 for (const type of optionOrder) {
   assert.ok(!generate(type).includes('.csv'), `${type} must not append .csv`);
@@ -100,9 +102,9 @@ for (const match of namingChapter.matchAll(/<span class="field-name">([^<]+)<\/s
 for (const marker of [
   'PL_1L_MoS2_R01_1.65K',
   'PL_CP_1L_MoS2_R01_45_0_+9T_1.65K',
-  'PL_LP_1L_MoS2_R01_1.65K',
+  'PL_LP_1L_MoS2_R01_+9T_1.65K',
   'Raman_1L_MoS2_R01_1800g_1.65K',
-  'Raman_LP_1L_MoS2_R01_1800g_1.65K',
+  'Raman_LP_1L_MoS2_R01_1800g_+9T_1.65K',
 ]) {
   assert.ok(namingChapter.includes(marker), `chapter 5 must include ${marker}`);
 }

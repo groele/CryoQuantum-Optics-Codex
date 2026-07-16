@@ -3009,10 +3009,10 @@ mjx-container svg {
 </tr>
 <tr>
 <td>线偏振 PL</td>
-<td><span class="field-name">PL_LP_1L_MoS2_R01_1.65K</span></td>
+<td><span class="field-name">PL_LP_1L_MoS2_R01_+9T_1.65K</span></td>
 <td>材料、层数、修饰、区域号</td>
-<td>LP + 可选偏振角 + T</td>
-<td>测量类型写在 LP 前；单角度文件可增加 Pol000deg 等通道标签</td>
+<td>LP + 可选偏振角 + B + T</td>
+<td>测量类型写在 LP 前；单角度文件可增加 Pol000deg 等通道标签；磁场正负号必须保留</td>
 </tr>
 <tr>
 <td>Raman 光谱</td>
@@ -3023,10 +3023,10 @@ mjx-container svg {
 </tr>
 <tr>
 <td>线偏振 Raman</td>
-<td><span class="field-name">Raman_LP_1L_MoS2_R01_1800g_1.65K</span></td>
+<td><span class="field-name">Raman_LP_1L_MoS2_R01_1800g_+9T_1.65K</span></td>
 <td>材料、层数、区域号</td>
-<td>LP + 光栅 + 可选偏振角 + T</td>
-<td>测量类型写在 LP 前；完整角度扫描可不写单个角度</td>
+<td>LP + 光栅 + 可选偏振角 + B + T</td>
+<td>测量类型写在 LP 前；完整角度扫描可不写单个角度；磁场正负号必须保留</td>
 </tr>
 <tr>
 <td>功率依赖 PL</td>
@@ -7196,7 +7196,7 @@ function updateFilenameForm() {
   showField('#lbl_fnPol', type === 'CircularPol' || type === 'LinearPolPL' || type === 'LinearPolRaman');
   showField('#lbl_fnP', type === 'PowerDep');
   showField('#lbl_fnV', type === 'GateDep');
-  showField('#lbl_fnB', type === 'MagnetDep' || type === 'CircularPol');
+  showField('#lbl_fnB', type === 'MagnetDep' || type === 'CircularPol' || type === 'LinearPolPL' || type === 'LinearPolRaman');
   
   // Update polarization options dynamically
   const polSelect = $('#fnPol');
@@ -7273,6 +7273,7 @@ function makeFilename() {
   const p = clean($('#fnP').value);
   const pol = clean($('#fnPol').value);
   const grating = clean($('#fnGrating').value);
+  const linearB = b || '0';
   const polToken = pol ? `_${pol}` : '';
   
   let name = "";
@@ -7294,9 +7295,9 @@ function makeFilename() {
   } else if (type === 'CircularPol') {
     name = `PL_CP_${sampleLabel}_${pol}_${b}T_${t}K`;
   } else if (type === 'LinearPolPL') {
-    name = `PL_LP_${sampleLabel}${polToken}_${t}K`;
+    name = `PL_LP_${sampleLabel}${polToken}_${linearB}T_${t}K`;
   } else if (type === 'LinearPolRaman') {
-    name = `Raman_LP_${sampleLabel}_${grating}${polToken}_${t}K`;
+    name = `Raman_LP_${sampleLabel}_${grating}${polToken}_${linearB}T_${t}K`;
   }
   
   $('#filenameOut').textContent = name;

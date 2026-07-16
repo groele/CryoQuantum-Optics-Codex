@@ -28,6 +28,18 @@ const evaluated = await send('Runtime.evaluate', {
     document.querySelector('#fnB').value = '+9';
     updateFilenameForm();
     const circular = document.querySelector('#filenameOut').textContent;
+    document.querySelector('#fnType').value = 'LinearPolPL';
+    document.querySelector('#fnB').value = '+9';
+    updateFilenameForm();
+    document.querySelector('#fnPol').value = 'Pol045deg';
+    makeFilename();
+    const linearPL = document.querySelector('#filenameOut').textContent;
+    const linearBVisible = getComputedStyle(document.querySelector('#lbl_fnB')).display !== 'none';
+    document.querySelector('#fnType').value = 'LinearPolRaman';
+    updateFilenameForm();
+    document.querySelector('#fnPol').value = 'Pol090deg';
+    makeFilename();
+    const linearRaman = document.querySelector('#filenameOut').textContent;
     document.querySelector('#fnType').value = 'PL';
     document.querySelector('#fnRegion').value = 'R01';
     document.querySelector('#fnT').value = '1.65';
@@ -41,6 +53,9 @@ const evaluated = await send('Runtime.evaluate', {
       balanced: outputBox.width / inputBox.width > 0.9 && outputBox.width / inputBox.width < 1.1,
       separated: outputBox.left > inputBox.right,
       circular,
+      linearPL,
+      linearRaman,
+      linearBVisible,
       decimal,
     };
   })()`,
@@ -53,6 +68,9 @@ assert.equal(result.sameRow, true);
 assert.equal(result.balanced, true);
 assert.equal(result.separated, true);
 assert.equal(result.circular, 'PL_CP_1L_MoS2_R03_45_0_+9T_2K');
+assert.equal(result.linearPL, 'PL_LP_1L_MoS2_R03_Pol045deg_+9T_2K');
+assert.equal(result.linearRaman, 'Raman_LP_1L_MoS2_R03_1800g_Pol090deg_+9T_2K');
+assert.equal(result.linearBVisible, true);
 assert.equal(result.decimal, 'PL_1L_MoS2_R01_1.65K');
 
 await send('Emulation.setDeviceMetricsOverride', {

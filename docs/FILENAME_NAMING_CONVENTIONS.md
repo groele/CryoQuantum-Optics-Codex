@@ -42,8 +42,8 @@
 | **温度依赖 (TempDep)** | `PL_{SampleLabel}_{T}K` | 此时 `{T}` 表示当前扫描温度点，如：`PL_1L_MoS2_R01_77K` |
 | **磁场依赖 (MagnetDep)** | `PL_{SampleLabel}_{B}T_{T}K` | `PL_1L_MoS2_R01_+9T_1.65K` |
 | **圆偏振 PL / 四通道分析<br>(CircularPol)** | `PL_CP_{SampleLabel}_{Pol}_{B}T_{T}K` | 包含偏振通道和磁场强度，如：<br>`PL_CP_1L_MoS2_R01_45_0_+9T_1.65K`<br>（通道值：`45_0`, `45_90`, `-45_0`, `-45_90`） |
-| **线偏振 PL (LinearPolPL)** | `PL_LP_{SampleLabel}{PolToken}_{T}K` | `{PolToken}` 可以是具体角度或未指定：<br>`PL_LP_1L_MoS2_R01_Pol045deg_1.65K`<br>`PL_LP_1L_MoS2_R01_1.65K`（角度未指定/扫描） |
-| **线偏振 Raman (LinearPolRaman)** | `Raman_LP_{SampleLabel}_{Grating}{PolToken}_{T}K` | `Raman_LP_1L_MoS2_R01_1800g_Pol090deg_1.65K`<br>`Raman_LP_1L_MoS2_R01_1800g_1.65K` |
+| **线偏振 PL (LinearPolPL)** | `PL_LP_{SampleLabel}{PolToken}_{B}T_{T}K` | `{PolToken}` 可以是具体角度或未指定；磁场保留正负号：<br>`PL_LP_1L_MoS2_R01_Pol045deg_+9T_1.65K`<br>`PL_LP_1L_MoS2_R01_+9T_1.65K`（角度未指定/扫描） |
+| **线偏振 Raman (LinearPolRaman)** | `Raman_LP_{SampleLabel}_{Grating}{PolToken}_{B}T_{T}K` | `{PolToken}` 可以是具体角度或未指定；磁场保留正负号：<br>`Raman_LP_1L_MoS2_R01_1800g_Pol090deg_+9T_1.65K`<br>`Raman_LP_1L_MoS2_R01_1800g_+9T_1.65K` |
 
 ---
 
@@ -51,6 +51,7 @@
 
 *   **温度 (T)**：普通测试记录实际测量温度（例如默认的 `1.65`），依赖性扫描测试时表示当前的设定/实际温度扫描点（如 `77`）。
 *   **磁场强度 (B)**：包含正负号前缀，用于区分反向扫场，例如 `+9T` 或 `-9T`。
+    *   线偏振 PL 与线偏振 Raman 同样必须记录磁场；无磁场时使用 `0T`，不得省略该字段。
 *   **线偏振通道 (PolToken)**：
     *   *完整角度扫描/未指定时*：`PolToken` 留空。
     *   *单个角度测量时*：使用 `Pol000deg` (0°), `Pol045deg` (45°), `Pol090deg` (90°), `Pol135deg` (135°) 作为标识后缀（前导带有下划线）。
