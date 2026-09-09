@@ -32,13 +32,23 @@ This manual is compiled into a single, fully offline, interactive HTML document:
 - Dot-matrix grid backgrounds on SVG plots matching high-end oscilloscope outputs.
 - Floating sidebar navigations with visual notes active indicators (`📝`).
 
+### 4. Equipment Operation & Maintenance SOP (attoDRY 2100 设备维护与洗气规范)
+Located in [`Equipment gas washing and maintenance/`](Equipment%20gas%20washing%20and%20maintenance/):
+- **`低温设备使用手册.html`**: Comprehensive offline SOP manual for attocube attoDRY 2100 cryostat & superconducting magnet operations, gas washing, vacuum regeneration, and cooldown.
+- **`低温设备操作速查卡_简化版.html`**: Compact quick-reference card tailored for laboratory bench execution.
+- **`低温设备使用手册.pptx`**: Original training slide deck and hardware/pipeline schematic illustrations.
+- **8-Step Gas Washing Protocol**: Standardized procedures for warmup, turbopump relocation, trap degassing at 8h, deep vacuuming at 12h, 3×N₂ + 1×He gas cycles, buffer dump refill (950 mbar), and automated cooldown to 1.65 K.
+
 ---
 
 ## 🚀 Quick Start
 
-1. Download [`低温量子光学测试系统手册.html`](file:///d:/Dev%20Studio/User%20guide/低温量子光学测试系统手册.html).
-2. Double-click the file to open it in any modern web browser (Chrome, Edge, Firefox, Safari).
-3. The document is **completely self-contained** and operates offline (all fitting, rendering, and note savings are executed locally in the browser).
+1. **Optics & Spectroscopy System**:
+   - Download [`低温量子光学测试系统手册.html`](file:///d:/Dev%20Studio/User%20guide/低温量子光学测试系统手册.html).
+   - Double-click to open in any modern web browser. Fully self-contained offline handbook with interactive analysis tools.
+2. **Cryogenic Equipment & Maintenance SOP**:
+   - Open [`Equipment gas washing and maintenance/低温设备使用手册.html`](file:///d:/Dev%20Studio/User%20guide/Equipment%20gas%20washing%20and%20maintenance/低温设备使用手册.html) for the full interactive SOP manual.
+   - Open [`Equipment gas washing and maintenance/低温设备操作速查卡_简化版.html`](file:///d:/Dev%20Studio/User%20guide/Equipment%20gas%20washing%20and%20maintenance/低温设备操作速查卡_简化版.html) for the quick operation checklist.
 
 ---
 

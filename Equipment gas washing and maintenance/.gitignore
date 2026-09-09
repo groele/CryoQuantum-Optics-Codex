@@ -1,0 +1,7 @@
+# Playwright and automation runtime profiles / cache
+output/
+__pycache__/
+*.pyc
+
+# Raw uncompressed slide PNG exports (superseded by optimized images/ JPGs and .pptx)
+slides_export/
