@@ -1779,7 +1779,7 @@ html_content = """<!DOCTYPE html>
 </html>
 """
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-output_path = PROJECT_ROOT / "equipment" / "低温设备操作速查卡_简化版.html"
+EQUIPMENT_DIR = Path(__file__).resolve().parents[1]
+output_path = EQUIPMENT_DIR / "低温设备操作速查卡_简化版.html"
 output_path.write_text(html_content, encoding="utf-8", newline="\n")
 print(f"Refined practical manual saved to {output_path}")

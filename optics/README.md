@@ -13,6 +13,27 @@
 
 ---
 
+## 📂 目录结构与文件清单
+
+```
+optics/
+├── 低温量子光学测试系统手册.html         # 核心单文件离线交互式手册 (PL/Raman/反射/偏振/谷Zeeman)
+├── README.md                            # 本模块说明文档
+├── docs/                                # 实验数据规范与设计方案归档
+│   ├── conventions/                     # 实验与数据命名规范
+│   │   └── FILENAME_NAMING_CONVENTIONS.md # 数据采集与文件命名标准化规范 (V3.0)
+│   └── archive/                         # 历史版本计划与规格说明归档 (plans & specs)
+│       ├── plans/
+│       └── specs/
+└── scripts/                             # 测试与校验工具集
+    ├── validate_manual.py               # 手册离线完整性、锚点闭环与图片引用综合校验
+    ├── test_filename_generator.mjs      # 命名生成器逻辑测试
+    ├── test_filename_ui.mjs             # 命名工具 UI 自动化测试
+    └── test_spectral_conversion.mjs     # 光谱单位换算测试
+```
+
+---
+
 ## 🌟 核心功能与物理模块
 
 ### 1. 理论与实验物理模块
@@ -50,3 +71,7 @@
 1. 打开当前目录下的 [`低温量子光学测试系统手册.html`](低温量子光学测试系统手册.html)。
 2. 使用左侧导航栏直达所需章节或工具。
 3. 配合实验记录随时调用底部离线计算器。
+4. 运行完整性自动化校验：
+   ```bash
+   python scripts/validate_manual.py
+   ```

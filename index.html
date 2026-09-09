@@ -278,18 +278,18 @@
     <section class="hero">
       <div class="hero-badges">
         <span class="badge">v3.0.0</span>
+        <span class="badge">双文件夹结构</span>
         <span class="badge">100% 离线可用</span>
         <span class="badge">1.65 K · ±9 T</span>
-        <span class="badge">二维材料光谱</span>
         <span class="badge">SOP 运维规范</span>
       </div>
       <h1>低温量子光学测试与设备运维手册</h1>
-      <p>面向二维材料微区光谱（PL、Raman、反射）、偏振与谷极化动力学、谷 Zeeman 物理及 attocube attoDRY 2100 低温恒温器与超导磁体运维洗气规范的标准知识库。</p>
+      <p>仓库由两大核心模块构成：<strong>optics/</strong>（低温量子光学测试系统手册及数据规范）与 <strong>equipment/</strong>（attoDRY 2100 低温恒温器与超导磁体运维洗气 SOP）。</p>
     </section>
 
     <div class="container">
       <div class="section-title">
-        <span>🔬 低温量子光学测试手册</span>
+        <span>🔬 文件夹 1：optics/（低温量子光学测试系统）</span>
       </div>
       <div class="grid">
         <a href="optics/低温量子光学测试系统手册.html" class="card">
@@ -308,7 +308,7 @@
           </div>
         </a>
 
-        <a href="docs/conventions/FILENAME_NAMING_CONVENTIONS.md" class="card">
+        <a href="optics/docs/conventions/FILENAME_NAMING_CONVENTIONS.md" class="card">
           <div class="card-icon">🏷️</div>
           <h3>实验数据标准化命名规范</h3>
           <p>详细规定了 PL、Raman、差分反射、线偏振/圆偏振、变磁场、变温、变栅压等实验类型的数据命名词元（Tokens）结构与保存规范，保证批处理与实验复现性。</p>
@@ -322,10 +322,25 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </a>
+
+        <a href="optics/docs/README.md" class="card">
+          <div class="card-icon">📁</div>
+          <h3>技术设计文档与方案归档</h3>
+          <p>收录系统迭代过程中的设计技术规格说明（Specs）与实施计划（Plans），涵盖 Zeeman 物理推导、偏振拟合算法及单文件功能架构规划。</p>
+          <div class="card-tags">
+            <span class="card-tag">技术规格 (Specs)</span>
+            <span class="card-tag">实施方案 (Plans)</span>
+            <span class="card-tag">版本历史</span>
+          </div>
+          <div class="card-action">
+            浏览设计归档
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
       </div>
 
       <div class="section-title">
-        <span>❄️ attoDRY 2100 低温设备运维与洗气 SOP</span>
+        <span>❄️ 文件夹 2：equipment/（attoDRY 2100 低温设备运维与洗气 SOP）</span>
       </div>
       <div class="grid">
         <a href="equipment/低温设备使用手册.html" class="card">
@@ -370,41 +385,6 @@
           </div>
           <div class="card-action">
             下载课件幻灯片
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-      </div>
-
-      <div class="section-title">
-        <span>🛠️ 工具链与文档归档</span>
-      </div>
-      <div class="grid">
-        <a href="tools/README.md" class="card">
-          <div class="card-icon">⚙️</div>
-          <h3>构建与测试工具链 (Tools)</h3>
-          <p>自动化构建与质量检验工具集。提供完整版与精炼版手册的一键编译脚本（<code>build_*.py</code>）、Tailwind 样式构建配置以及离线合规性自动化校验（<code>validate_manual.py</code>）。</p>
-          <div class="card-tags">
-            <span class="card-tag">Python 构建</span>
-            <span class="card-tag">离线合规测试</span>
-            <span class="card-tag">Tailwind</span>
-          </div>
-          <div class="card-action">
-            查看工具链说明
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <a href="docs/README.md" class="card">
-          <div class="card-icon">📁</div>
-          <h3>技术设计文档与历史归档</h3>
-          <p>收录系统迭代过程中的设计技术规格说明（Specs）与实施计划（Plans），涵盖 Zeeman 物理推导、偏振拟合算法及单文件功能架构规划。</p>
-          <div class="card-tags">
-            <span class="card-tag">技术规格 (Specs)</span>
-            <span class="card-tag">实施方案 (Plans)</span>
-            <span class="card-tag">版本历史</span>
-          </div>
-          <div class="card-action">
-            浏览设计归档
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </a>

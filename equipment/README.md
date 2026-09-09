@@ -4,7 +4,24 @@
 
 ---
 
-## 📂 文件清单与结构
+## 📂 目录结构与文件清单
+
+```
+equipment/
+├── 低温设备使用手册.html                 # 完整交互版 SOP 操作与维护手册
+├── 低温设备操作速查卡_简化版.html         # 实验台现场精炼打卡速查卡
+├── 低温设备使用手册.pptx                 # 原始培训与管路原理演示幻灯片 (13MB)
+├── manual.css                           # 手册专用离线样式文件
+├── README.md                            # 本说明文档
+├── images/                              # 设备实物照片、P&ID 原理图与软件面板截图 (slide_1 ~ 16)
+│   ├── slide_1.jpg ... slide_16.jpg
+└── scripts/                             # 设备手册编译与辅助脚本
+    ├── build_optimized_manual.py        # 编译生成完整版《低温设备使用手册.html》
+    ├── build_compact_manual.py          # 编译生成精炼版《低温设备操作速查卡_简化版.html》
+    ├── update_manual_highlights.py      # 手动/软件操作高亮批处理脚本
+    ├── tailwind.config.cjs              # Tailwind CSS 编译配置
+    └── tailwind-input.css               # Tailwind 基础输入样式
+```
 
 | 文件 / 目录 | 类型 | 说明 |
 | :--- | :--- | :--- |
@@ -13,8 +30,7 @@
 | **[`低温设备使用手册.pptx`](低温设备使用手册.pptx)** | 培训幻灯片 | 原厂及实验室操作培训演示课件（含 16 张高精度步骤实物图与管路原理标注） |
 | **`images/`** | 图像资产 | 手册引用的所有仪器照片、管路原理图（P&ID）、软件 Expert 控制面板图（`slide_1.jpg` ~ `slide_16.jpg`） |
 | **`manual.css`** | 离线样式表 | 离线 Tailwind CSS 样式文件，确保无网络环境下交互与样式完备 |
-
-> 💡 **构建与工具链提示**：手册构建与样式编译脚本已归类至项目顶层 [`tools/builders/`](../tools/builders/) 目录。
+| **`scripts/`** | 构建脚本 | 独立 Python 编译脚本与 Tailwind 样式构建配置 |
 
 ---
 
@@ -59,6 +75,6 @@
 1. **直接查看手册**：双击本目录下的 [`低温设备使用手册.html`](低温设备使用手册.html) 或 [`低温设备操作速查卡_简化版.html`](低温设备操作速查卡_简化版.html)，即可在任何浏览器中离线查看。
 2. **重新编译生成 HTML 手册**：
    ```bash
-   python ../tools/builders/build_optimized_manual.py
-   python ../tools/builders/build_compact_manual.py
+   python scripts/build_optimized_manual.py
+   python scripts/build_compact_manual.py
    ```
