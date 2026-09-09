@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CryoQuantum Optics Codex · 导航门户</title>
+  <meta name="description" content="低温量子光学测试系统手册与 attoDRY 2100 设备运维洗气规范统一门户">
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #0d1b2d;
+      --panel2: #11243b;
+      --ink: #eaf2ff;
+      --muted: #9fb0c8;
+      --line: #203a59;
+      --a: #55c2ff;
+      --b: #8b7cff;
+      --c: #36d4ad;
+      --warn: #ffbd5b;
+      --shadow: 0 18px 50px rgba(0,0,0,0.45);
+      --r: 16px;
+    }
+    [data-theme="light"] {
+      --bg: #f4f8fc;
+      --panel: #ffffff;
+      --panel2: #eef5fb;
+      --ink: #102033;
+      --muted: #5e7087;
+      --line: #d7e3ef;
+      --a: #126ed1;
+      --b: #6547dc;
+      --c: #008d73;
+      --shadow: 0 18px 50px rgba(22,48,75,0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 85% 5%, rgba(23,58,97,0.4), transparent 34%), var(--bg);
+      color: var(--ink);
+      font: 15px/1.7 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    .header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 16, 29, 0.85);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    [data-theme="light"] .header {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+    }
+    .brand-gradient {
+      background: linear-gradient(110deg, var(--a), var(--b), var(--c));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--ink);
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover {
+      border-color: var(--a);
+      transform: translateY(-1px);
+    }
+    .hero {
+      padding: 60px 24px 44px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--a);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      margin: 0 0 16px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 0 auto 30px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      width: 100%;
+      flex: 1;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 36px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+      margin-left: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel) 94%, transparent));
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      border-color: var(--a);
+      transform: translateY(-3px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--a), var(--b));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-size: 19px;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 18px;
+      flex: 1;
+      line-height: 1.65;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .card-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--panel2);
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--a);
+      margin-top: auto;
+    }
+    .card-action svg {
+      transition: transform 0.2s ease;
+    }
+    .card:hover .card-action svg {
+      transform: translateX(4px);
+    }
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(7, 16, 29, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <span style="font-size: 24px;">🔬</span>
+        <span class="brand-gradient">CryoQuantum Optics Codex</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn" id="themeBtn" aria-label="切换明暗主题">🌓 切换主题</button>
+        <a href="https://github.com/groele/CryoQuantum-Optics-Codex" target="_blank" rel="noopener" class="btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-badges">
+        <span class="badge">v3.0.0</span>
+        <span class="badge">100% 离线可用</span>
+        <span class="badge">1.65 K · ±9 T</span>
+        <span class="badge">二维材料光谱</span>
+        <span class="badge">SOP 运维规范</span>
+      </div>
+      <h1>低温量子光学测试与设备运维手册</h1>
+      <p>面向二维材料微区光谱（PL、Raman、反射）、偏振与谷极化动力学、谷 Zeeman 物理及 attocube attoDRY 2100 低温恒温器与超导磁体运维洗气规范的标准知识库。</p>
+    </section>
+
+    <div class="container">
+      <div class="section-title">
+        <span>🔬 低温量子光学测试手册</span>
+      </div>
+      <div class="grid">
+        <a href="optics/低温量子光学测试系统手册.html" class="card">
+          <div class="card-icon">📖</div>
+          <h3>低温量子光学测试系统手册 <span style="color:var(--a);font-size:14px;">v3.0</span></h3>
+          <p>单文件离线交互式手册。涵盖共聚焦显微 PL、虚能级 Raman 散射、差分反射、偏振链路消光比标定、K/K′ 谷选择定则、四通道谷极化以及 Faraday 几何谷 Zeeman 劈裂与误差传播分析。</p>
+          <div class="card-tags">
+            <span class="card-tag">单文件交互</span>
+            <span class="card-tag">内联矢量图 (SVG)</span>
+            <span class="card-tag">离线计算器</span>
+            <span class="card-tag">质控清单</span>
+          </div>
+          <div class="card-action">
+            打开光学手册
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="docs/conventions/FILENAME_NAMING_CONVENTIONS.md" class="card">
+          <div class="card-icon">🏷️</div>
+          <h3>实验数据标准化命名规范</h3>
+          <p>详细规定了 PL、Raman、差分反射、线偏振/圆偏振、变磁场、变温、变栅压等实验类型的数据命名词元（Tokens）结构与保存规范，保证批处理与实验复现性。</p>
+          <div class="card-tags">
+            <span class="card-tag">命名规范</span>
+            <span class="card-tag">数据追溯</span>
+            <span class="card-tag">批量脚本友好</span>
+          </div>
+          <div class="card-action">
+            查看命名规范
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="section-title">
+        <span>❄️ attoDRY 2100 低温设备运维与洗气 SOP</span>
+      </div>
+      <div class="grid">
+        <a href="equipment/低温设备使用手册.html" class="card">
+          <div class="card-icon">📘</div>
+          <h3>低温设备使用手册 (完整版 SOP)</h3>
+          <p>attocube attoDRY 2100 闭循环低温系统与超导磁体标准维护流程。包含完整 8 步维护洗气流程、P&ID 管路原理图、高分辨率步骤实物图、交互式打卡进度及软硬件操作标签。</p>
+          <div class="card-tags">
+            <span class="card-tag">完整 SOP</span>
+            <span class="card-tag">交互打卡</span>
+            <span class="card-tag">P&ID 原理图</span>
+            <span class="card-tag">灯箱图解</span>
+          </div>
+          <div class="card-action">
+            打开完整版手册
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="equipment/低温设备操作速查卡_简化版.html" class="card">
+          <div class="card-icon">⚡</div>
+          <h3>低温设备操作速查卡 (现场精炼版)</h3>
+          <p>实验台便携速查卡。剔除冗余文字，按 8 大步骤快速比对阀门编号（物理手阀 vs. 软件电磁阀）、设定压力值与操作注意事项，配备步骤复选框，适合实验现场快速作业。</p>
+          <div class="card-tags">
+            <span class="card-tag">现场速查</span>
+            <span class="card-tag">快速打卡</span>
+            <span class="card-tag">阀门比对</span>
+          </div>
+          <div class="card-action">
+            打开速查卡
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="equipment/低温设备使用手册.pptx" class="card">
+          <div class="card-icon">📊</div>
+          <h3>设备操作与培训演示课件 (PPTX)</h3>
+          <p>原厂及实验室内部培训幻灯片，包含 16 张高精度步骤实拍图、压缩机及冷阱结构图示、水冷管路连接与管路气流方向动画演示。</p>
+          <div class="card-tags">
+            <span class="card-tag">培训课件</span>
+            <span class="card-tag">实物高清图</span>
+            <span class="card-tag">13 MB</span>
+          </div>
+          <div class="card-action">
+            下载课件幻灯片
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="section-title">
+        <span>🛠️ 工具链与文档归档</span>
+      </div>
+      <div class="grid">
+        <a href="tools/README.md" class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>构建与测试工具链 (Tools)</h3>
+          <p>自动化构建与质量检验工具集。提供完整版与精炼版手册的一键编译脚本（<code>build_*.py</code>）、Tailwind 样式构建配置以及离线合规性自动化校验（<code>validate_manual.py</code>）。</p>
+          <div class="card-tags">
+            <span class="card-tag">Python 构建</span>
+            <span class="card-tag">离线合规测试</span>
+            <span class="card-tag">Tailwind</span>
+          </div>
+          <div class="card-action">
+            查看工具链说明
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="docs/README.md" class="card">
+          <div class="card-icon">📁</div>
+          <h3>技术设计文档与历史归档</h3>
+          <p>收录系统迭代过程中的设计技术规格说明（Specs）与实施计划（Plans），涵盖 Zeeman 物理推导、偏振拟合算法及单文件功能架构规划。</p>
+          <div class="card-tags">
+            <span class="card-tag">技术规格 (Specs)</span>
+            <span class="card-tag">实施方案 (Plans)</span>
+            <span class="card-tag">版本历史</span>
+          </div>
+          <div class="card-action">
+            浏览设计归档
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    CryoQuantum Optics Codex · 低温量子光学测试系统手册 · Maintained by groele
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const saved = localStorage.getItem('cq-theme');
+    if (saved) root.dataset.theme = saved;
+    document.getElementById('themeBtn').onclick = () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('cq-theme', root.dataset.theme);
+    };
+  </script>
+</body>
+</html>

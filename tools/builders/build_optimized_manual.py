@@ -2881,6 +2881,7 @@ html_template = """<!DOCTYPE html>
 # placeholders when users jump directly to a high-resolution procedure image.
 html_template = html_template.replace('loading="lazy"', 'loading="eager"')
 html_template = html_template.replace(' max-h-[520px]', '')
-output_path = Path(__file__).resolve().parent / '低温设备使用手册.html'
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+output_path = PROJECT_ROOT / 'equipment' / '低温设备使用手册.html'
 output_path.write_text(html_template, encoding='utf-8', newline='\n')
 print(f'Controlled review HTML manual saved to {output_path}')
